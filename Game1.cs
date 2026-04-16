@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Net.Mime;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -8,6 +9,10 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private Rectangle[] _inViewObj;
+    private Ball _ball;
+    private Vector2 _ballPos;
+    private float _scale = 0.5f;
 
     public Game1()
     {
@@ -18,16 +23,19 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-        // TODO: use this.Content to load your game content here
+        _graphics.PreferredBackBufferHeight = 1500;
+        _graphics.PreferredBackBufferWidth = 1200;
+        _graphics.ApplyChanges();
+        
+        Texture2D ball = Content.Load<Texture2D>("ball");
+        _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth - (ball.Width*_scale)), 0f);
+        _ball = new Ball(ball, _ballPos);
     }
 
     protected override void Update(GameTime gameTime)
@@ -35,9 +43,7 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-
-        // TODO: Add your update logic here
-
+        _ball.Update(gameTime);
         base.Update(gameTime);
     }
 
@@ -45,7 +51,10 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        // TODO: Add your drawing code here
+        Matrix world = Matrix.CreateScale(_scale);
+        _spriteBatch.Begin(transformMatrix: world);
+        _ball.Draw(_spriteBatch);
+        _spriteBatch.End();
 
         base.Draw(gameTime);
     }
