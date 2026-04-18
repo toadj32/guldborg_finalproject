@@ -33,3 +33,9 @@ C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldb
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\obj\Debug\net9.0\guldborg_finalproject.pdb
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\obj\Debug\net9.0\guldborg_finalproject.genruntimeconfig.cache
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\obj\Debug\net9.0\ref\guldborg_finalproject.dll
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\exit.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\full spring.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\pauseButton.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\resume.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\settings.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\pause.xnb

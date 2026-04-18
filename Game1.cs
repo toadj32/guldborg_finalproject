@@ -40,13 +40,12 @@ public class Game1 : Game
         _ball = new Ball(ball, _ballPos);
         
         // Pause Screen!
-        Texture2D pause = new Texture2D(GraphicsDevice, 1, 1);
-        pause.SetData(new[] { Color.White });
-        Texture2D pauseScreen = new Texture2D(GraphicsDevice, 1, 1);
-        pauseScreen.SetData(new[] { Color.White });
-        Texture2D exit = new Texture2D(GraphicsDevice, 1, 1);
-        exit.SetData(new[] { Color.White });
-        _pauseScreen = new Pause(pause, exit, pauseScreen, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
+        Texture2D pause = Content.Load<Texture2D>("pauseButton");
+        Texture2D pauseScreen = Content.Load<Texture2D>("pause");
+        Texture2D exit = Content.Load<Texture2D>("exit");
+        Texture2D resume =  Content.Load<Texture2D>("resume");
+        Texture2D settings = Content.Load<Texture2D>("settings");
+        _pauseScreen = new Pause(pause, pauseScreen, exit, resume, settings, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
     }
 
     protected override void Update(GameTime gameTime)
@@ -59,7 +58,7 @@ public class Game1 : Game
         
         _ball.Update(gameTime);
         RelevantObj();
-        _pauseScreen.Update(gameTime, _mousePos, ms, _ball);
+        _pauseScreen.Update(gameTime, _mousePos, ms, _ball, this);
         base.Update(gameTime);
     }
 

@@ -19,7 +19,7 @@ public class Ball
     private Vector2 _pos;
     public Vector2 _velocity;
     private float _roll;
-    private float _rollSpeed = 1.5f;
+    private float _rollSpeed = 2f;
     private Vector2 _origin = new Vector2(frameWidth / 2f, frameHeight / 2f);
     private Rectangle _ballRect;
 

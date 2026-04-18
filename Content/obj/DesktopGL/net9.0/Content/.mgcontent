@@ -5,8 +5,20 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/ball.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/exit.PNG</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/full spring.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/pause.PNG</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/pauseButton.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/resume.PNG</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/settings.PNG</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>
