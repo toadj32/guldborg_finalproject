@@ -9,10 +9,9 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    private Rectangle[] _inViewObj;
+    private Rectangle[] _inViewObjs;
     private Ball _ball;
     private Vector2 _ballPos;
-    private float _scale = 0.5f;
 
     public Game1()
     {
@@ -34,7 +33,7 @@ public class Game1 : Game
         _graphics.ApplyChanges();
         
         Texture2D ball = Content.Load<Texture2D>("ball");
-        _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth - (ball.Width*_scale)), 0f);
+        _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth - (100f))/2f, 0f);
         _ball = new Ball(ball, _ballPos);
     }
 
@@ -50,12 +49,17 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        Matrix world = Matrix.CreateScale(_scale);
-        _spriteBatch.Begin(transformMatrix: world);
+        _spriteBatch.Begin();
         _ball.Draw(_spriteBatch);
+        _ball.Collide(_inViewObjs);
         _spriteBatch.End();
 
         base.Draw(gameTime);
+    }
+
+    private void RelevantObj()
+    {
+        // Checks for objects in view and updates _inViewObjs
+        // Should sort relevant objs in terms of closeness to ball
     }
 }

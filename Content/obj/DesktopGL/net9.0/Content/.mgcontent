@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/../../../../../Downloads/ball.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/CS324E/guldborg_finalproject/Content/ball.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>ball.png</File>
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>
