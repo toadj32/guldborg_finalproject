@@ -12,6 +12,8 @@ public class Game1 : Game
     private Rectangle[] _inViewObjs;
     private Ball _ball;
     private Vector2 _ballPos;
+    private Pause _pauseScreen;
+    private Vector2 _mousePos;
 
     public Game1()
     {
@@ -32,9 +34,19 @@ public class Game1 : Game
         _graphics.PreferredBackBufferWidth = 1200;
         _graphics.ApplyChanges();
         
+        // Ball!
         Texture2D ball = Content.Load<Texture2D>("ball");
         _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth - (100f))/2f, 0f);
         _ball = new Ball(ball, _ballPos);
+        
+        // Pause Screen!
+        Texture2D pause = new Texture2D(GraphicsDevice, 1, 1);
+        pause.SetData(new[] { Color.White });
+        Texture2D pauseScreen = new Texture2D(GraphicsDevice, 1, 1);
+        pauseScreen.SetData(new[] { Color.White });
+        Texture2D exit = new Texture2D(GraphicsDevice, 1, 1);
+        exit.SetData(new[] { Color.White });
+        _pauseScreen = new Pause(pause, exit, pauseScreen, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
     }
 
     protected override void Update(GameTime gameTime)
@@ -42,7 +54,12 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
+        MouseState ms = Mouse.GetState();
+        _mousePos = new Vector2(ms.X, ms.Y);
+        
         _ball.Update(gameTime);
+        RelevantObj();
+        _pauseScreen.Update(gameTime, _mousePos, ms, _ball);
         base.Update(gameTime);
     }
 
@@ -52,6 +69,7 @@ public class Game1 : Game
         _spriteBatch.Begin();
         _ball.Draw(_spriteBatch);
         _ball.Collide(_inViewObjs);
+        _pauseScreen.Draw(_spriteBatch);
         _spriteBatch.End();
 
         base.Draw(gameTime);
@@ -59,6 +77,7 @@ public class Game1 : Game
 
     private void RelevantObj()
     {
+        _inViewObjs = new Rectangle[0];
         // Checks for objects in view and updates _inViewObjs
         // Should sort relevant objs in terms of closeness to ball
     }

@@ -15,9 +15,9 @@ public class Ball
     private const int frameHeight = 100;
     private const float circ = MathF.PI * frameWidth;
     
-    private Vector2 _acc;
+    public Vector2 _acc;
     private Vector2 _pos;
-    private Vector2 _velocity;
+    public Vector2 _velocity;
     private float _roll;
     private float _rollSpeed = 1.5f;
     private Vector2 _origin = new Vector2(frameWidth / 2f, frameHeight / 2f);
@@ -66,11 +66,15 @@ public class Ball
 
     public void Collide(Rectangle[] relevObjs)
     {
-        foreach (Rectangle r in relevObjs)
+        if (relevObjs.Length > 0)
         {
-            if (_ballRect.Intersects(r))
+            foreach (Rectangle r in relevObjs)
             {
-                // Checks what kind of object it interacts with first
+                if (_ballRect.Intersects(r))
+                {
+                    return;
+                    // Checks what kind of object it interacts with first
+                }
             }
         }
     }
