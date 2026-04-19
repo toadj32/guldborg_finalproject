@@ -39,3 +39,6 @@ C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldb
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\resume.xnb
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\settings.xnb
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\pause.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\Adobe Express - file.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\Courier New.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\CS324E\guldborg_finalproject\bin\Debug\net9.0\Content\wood-texture-close.xnb
