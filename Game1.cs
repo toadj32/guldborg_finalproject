@@ -25,6 +25,11 @@ public class Game1 : Game
 
     private float ScrollRate = 100f;
     private Texture2D obstacleTex;
+    
+    private Texture2D blockTexture;       
+    private Blocks block1;                
+    private MouseState mouseState;        
+    private MouseState prevMouseState;    
 
     //GUI
     private SpriteFont _font;
@@ -68,13 +73,9 @@ public class Game1 : Game
         _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth - (100f))/2f, 0f);
         _ball = new Ball(ball, _ballPos, 0.5f);
         
-        /*_ball = new Ball(
-            Content.Load<Texture2D>(
-                "team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f"),
-            new Vector2((width+200)/2f, height/2f),
-            ScrollRate,
-            36,
-            0.5f);*/
+        //testing drag function                                         
+        blockTexture = Content.Load<Texture2D>("blocksquare");          
+        block1 = new Blocks(blockTexture, new Vector2(300, 300), 1f);   
 
         obstacleTex = Content.Load<Texture2D>("wood-texture-close");
         Texture2D _blackPixel = new Texture2D(GraphicsDevice, 1, 1);
@@ -103,8 +104,16 @@ public class Game1 : Game
         
         //path
         paths.AddPath(new Rectangle(0, 350, 450, 4200), PathType.Path);
-       
         _font = Content.Load<SpriteFont>("Courier New");
+        
+        //--------------------------- mouse logic start ---------------------------------------------              
+        mouseState = Mouse.GetState();                                                                             
+        block1.MousePokeBlock(mouseState, prevMouseState);                                                         
+        prevMouseState = mouseState;                                                                               
+                                                                                                           
+                                                                                                           
+        //--------------------------- mouse logic end ---------------------------------------------                
+
     }
 
     protected override void Update(GameTime gameTime)
@@ -112,13 +121,13 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-        MouseState ms = Mouse.GetState();
-        _mousePos = new Vector2(ms.X, ms.Y);
+        mouseState = Mouse.GetState();
+        _mousePos = new Vector2(mouseState.X, mouseState.Y);
         
         if (_ball.FellOff())
             return;
         _ball.Update(gameTime, paths);
-        _pauseScreen.Update(gameTime, _mousePos, ms, _ball, this);
+        _pauseScreen.Update(gameTime, _mousePos, mouseState, _ball, this);
 
         base.Update(gameTime);
     }
@@ -137,6 +146,10 @@ public class Game1 : Game
         _spriteBatch.Begin();  
         paths.BoundsDraw(_spriteBatch, cameraPosition);
         _ball.Draw(_spriteBatch, cameraPosition);
+        
+        _spriteBatch.Begin();              
+        block1.Draw(_spriteBatch);         
+        _spriteBatch.End();               
         
         if (_ball.FellOff())
         {
