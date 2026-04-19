@@ -2,20 +2,32 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Final_Project;
+namespace guldborg_finalproject;
 
 public class Ball
 {
     private Texture2D _ballTex;
     public Vector2 Position;
-
-    public int _frameNum;
-    public int _frameIndex = 0;
-    private Rectangle _spriteFrame;
+    private const int cols = 36;
+    private const int rows = 18;
+    private const int frameWidth = 100;
+    private const int frameHeight = 100;
+    private const float circ = MathF.PI * frameWidth;
     
+    public Vector2 _acc;
+    private Vector2 _pos;
+    public Vector2 _velocity;
+    private float _roll;
+    private float _rollSpeed = 2f;
+    private Vector2 _origin = new Vector2(frameWidth / 2f, frameHeight / 2f);
+    private Rectangle _ballRect;
     public float Scale;
-    public float ScrollSpeed;
-    public float timer = 0f;
+
+    /*public int _frameNum;
+    public int _frameIndex = 0;
+    private Rectangle _spriteFrame;*/
+    
+    /*public float timer = 0f;*/
     private float _animationSpeed = 0.03f;
     
     //when it encounters obstacles
@@ -26,34 +38,30 @@ public class Ball
     
     public bool _fell;
     private bool _falling = false;
-    public Ball(
-        Texture2D ballTex,
-        Vector2 position,
-        float scrollSpeed,
-        int frameNum,
-        float scale)
+    public Ball(Texture2D ballTex, Vector2 position, float scale)
     {
         _ballTex = ballTex;
         Position = position;
-        ScrollSpeed = scrollSpeed;
-        _frameNum = frameNum;
+        _velocity = Vector2.Zero;
+        /*_frameNum = frameNum;*/
         Scale = scale;
-
-        _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
+        _acc = new Vector2(0f, 5f);
+        _ballRect = new Rectangle((int)_pos.X, (int)_pos.Y, frameWidth, frameHeight);
+        /*_spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);*/
         
     }
 
     public void Update(GameTime gameTime, PathTracker.PathBounds paths)
     {
         float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-        timer += dt;
+        /*timer += dt;
         
         if (timer >= _animationSpeed)
         {
             _frameIndex = (_frameIndex + 1) % _frameNum;
             _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
             timer = 0f;
-        }
+        }*/
 
         Vector2 center = Center();
         //Hear me out, this was so dumb, but the collision just would not work afte rthe first hit
@@ -69,7 +77,7 @@ public class Ball
         if (centerType == PathType.Hole && overlap < 0.5f)
         {
             // More than half the ball is off the path — start falling.
-            Position.Y += ScrollSpeed * 0.8f * dt;
+            Position.Y += _velocity.Y * 0.8f * dt;
             Position += Velocity * dt;
             Scale -= FallSpeed * dt;
             if (Scale < smallestScale)
@@ -96,7 +104,7 @@ public class Ball
         {
             ObstacleCollision(obstacle3);
         }
-        Position.Y += ScrollSpeed * dt;
+        Position += _velocity * dt;
     }
     
 
@@ -123,7 +131,7 @@ public class Ball
         }
         else
         {
-            incoming = new Vector2(0, ScrollSpeed);
+            incoming = new Vector2(0, _velocity.Y);
         }
 
         float IntoSurface = Vector2.Dot(incoming, obstacleNormal);
@@ -154,7 +162,7 @@ public class Ball
     
     public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition)
     {
-        spriteBatch.Draw(
+        /*spriteBatch.Draw(
             _ballTex,
             Position-cameraPosition,
             _spriteFrame,
@@ -163,6 +171,6 @@ public class Ball
             new Vector2(50f, 50f),
             Scale,
             SpriteEffects.None,
-            0f);
+            0f);*/
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using guldborg_finalproject;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,6 +13,10 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private BasicEffect _basicEffect;
+    
+    private Pause _pauseScreen;
+    private Vector2 _mousePos;
+    private Vector2 _ballPos;
     
     private Background _bg;
     private Ball _ball;
@@ -47,20 +52,30 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _basicEffect = new BasicEffect(GraphicsDevice);
         
-
-        // TODO: use this.Content to load your game content here
+        // Pause Screen!
+        Texture2D pause = Content.Load<Texture2D>("pauseButton");
+        Texture2D pauseScreen = Content.Load<Texture2D>("pause");
+        Texture2D exit = Content.Load<Texture2D>("exit");
+        Texture2D resume =  Content.Load<Texture2D>("resume");
+        Texture2D settings = Content.Load<Texture2D>("settings");
+        _pauseScreen = new Pause(pause, pauseScreen, exit, resume, settings, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
+        
         _bg = new Background(
             Content.Load<Texture2D>("Adobe Express - file"), 
             10,
             width);
         
-        _ball = new Ball(
+        Texture2D ball = Content.Load<Texture2D>("ball");
+        _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth - (100f))/2f, 0f);
+        _ball = new Ball(ball, _ballPos, 0.5f);
+        
+        /*_ball = new Ball(
             Content.Load<Texture2D>(
                 "team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f"),
             new Vector2((width+200)/2f, height/2f),
             ScrollRate,
             36,
-            0.5f);
+            0.5f);*/
 
         obstacleTex = Content.Load<Texture2D>("wood-texture-close");
         Texture2D _blackPixel = new Texture2D(GraphicsDevice, 1, 1);
@@ -98,12 +113,13 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-
+        MouseState ms = Mouse.GetState();
+        _mousePos = new Vector2(ms.X, ms.Y);
+        
         if (_ball.FellOff())
             return;
-
-        // TODO: Add your update logic here
         _ball.Update(gameTime, paths);
+        _pauseScreen.Update(gameTime, _mousePos, ms, _ball, this);
 
         base.Update(gameTime);
     }

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Final_Project;
+namespace guldborg_finalproject;
 
 public class Background
 {
