@@ -70,12 +70,12 @@ public class Game1 : Game
             width);
         
         Texture2D ball = Content.Load<Texture2D>("ball");
-        _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth - (100f))/2f, 0f);
+        _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth)/2f, 370f);
         _ball = new Ball(ball, _ballPos, 0.5f);
         
-        //testing drag function                                         
+        /*//testing drag function                                         
         blockTexture = Content.Load<Texture2D>("blocksquare");          
-        block1 = new Blocks(blockTexture, new Vector2(300, 300), 1f);   
+        block1 = new Blocks(blockTexture, new Vector2(300, 300), 1f);   */
 
         obstacleTex = Content.Load<Texture2D>("wood-texture-close");
         Texture2D _blackPixel = new Texture2D(GraphicsDevice, 1, 1);
@@ -104,12 +104,13 @@ public class Game1 : Game
         
         //path
         paths.AddPath(new Rectangle(0, 350, 450, 4200), PathType.Path);
+        
         _font = Content.Load<SpriteFont>("Courier New");
         
         //--------------------------- mouse logic start ---------------------------------------------              
-        mouseState = Mouse.GetState();                                                                             
+        /*mouseState = Mouse.GetState();                                                                             
         block1.MousePokeBlock(mouseState, prevMouseState);                                                         
-        prevMouseState = mouseState;                                                                               
+        prevMouseState = mouseState;  */                                                                             
                                                                                                            
                                                                                                            
         //--------------------------- mouse logic end ---------------------------------------------                
@@ -121,13 +122,13 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-        mouseState = Mouse.GetState();
-        _mousePos = new Vector2(mouseState.X, mouseState.Y);
+        MouseState ms = Mouse.GetState();
+        _mousePos = new Vector2(ms.X, ms.Y);
         
         if (_ball.FellOff())
             return;
         _ball.Update(gameTime, paths);
-        _pauseScreen.Update(gameTime, _mousePos, mouseState, _ball, this);
+        _pauseScreen.Update(gameTime, _mousePos, ms, _ball, this);
 
         base.Update(gameTime);
     }
@@ -135,21 +136,20 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.Black);
-
-        // TODO: Add your drawing code here
+        
         Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
         
         _spriteBatch.Begin(samplerState: SamplerState.PointWrap);
         _bg.Draw(_spriteBatch, cameraPosition);          
         _spriteBatch.End();
         
+        /*_spriteBatch.Begin();              
+        block1.Draw(_spriteBatch);         
+        _spriteBatch.End();    */ 
+        
         _spriteBatch.Begin();  
         paths.BoundsDraw(_spriteBatch, cameraPosition);
         _ball.Draw(_spriteBatch, cameraPosition);
-        
-        _spriteBatch.Begin();              
-        block1.Draw(_spriteBatch);         
-        _spriteBatch.End();               
         
         if (_ball.FellOff())
         {
@@ -159,8 +159,9 @@ public class Game1 : Game
             _spriteBatch.DrawString(_font, losingMessage, origin, Color.White);
         }
         _spriteBatch.End();
-        
         paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
+        
+        _pauseScreen.Draw(_spriteBatch);        
         
         base.Draw(gameTime);
     }

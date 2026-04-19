@@ -15,7 +15,6 @@ public class Ball
     private const float circ = MathF.PI * frameWidth;
     
     public Vector2 _acc;
-    private Vector2 _pos;
     public Vector2 _velocity;
     private float _roll;
     private float _rollSpeed = 2f;
@@ -33,7 +32,7 @@ public class Ball
     //when it encounters obstacles
     public Vector2 Velocity = Vector2.Zero;
     public float DampeningCoeff = 0.7f;
-    public float FallSpeed = 0.8f; //when it falls off the path
+    public float FallSpeed = 0.9f; //when it falls off the path
     public float smallestScale = 0.05f; //smallest it goes before the failure message pops up
     
     public bool _fell;
@@ -46,7 +45,7 @@ public class Ball
         /*_frameNum = frameNum;*/
         Scale = scale;
         _acc = new Vector2(0f, 5f);
-        _ballRect = new Rectangle((int)_pos.X, (int)_pos.Y, frameWidth, frameHeight);
+        _ballRect = new Rectangle((int)Position.X, (int)Position.Y, frameWidth, frameHeight);
         /*_spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);*/
         
     }
@@ -54,14 +53,21 @@ public class Ball
     public void Update(GameTime gameTime, PathTracker.PathBounds paths)
     {
         float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-        /*timer += dt;
         
+        // because no need for frames, we are using rectangles.
+        /*timer += dt;
         if (timer >= _animationSpeed)
         {
             _frameIndex = (_frameIndex + 1) % _frameNum;
             _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
             timer = 0f;
         }*/
+        
+        _velocity += _acc * dt;
+        _velocity.Y = MathHelper.Clamp(_velocity.Y, -130f, 130f);
+        _velocity.X = MathHelper.Clamp(_velocity.X, -130f, 130f);
+        Position += _velocity * dt;
+        _roll += _velocity.Length() * dt * _rollSpeed;
 
         Vector2 center = Center();
         //Hear me out, this was so dumb, but the collision just would not work afte rthe first hit
@@ -74,6 +80,7 @@ public class Ball
         float overlap = paths.overlapOnPath(center, Radius);
         PathType centerType = paths.FindPathType(center);
 
+        // FALLS
         if (centerType == PathType.Hole && overlap < 0.5f)
         {
             // More than half the ball is off the path — start falling.
@@ -87,7 +94,7 @@ public class Ball
             }
             return;
         }
-        if (Velocity.LengthSquared() > 0.01f)
+        /*if (Velocity.LengthSquared() > 0.01f)
         {
             Velocity *= (1f - 8f *dt);
             if (Velocity.LengthSquared() < 1f)
@@ -95,7 +102,7 @@ public class Ball
                 Velocity = Vector2.Zero;
                 _animationSpeed = 0.03f;
             }
-        }
+        }*/
         
         Position += Velocity * dt;
         
@@ -107,7 +114,6 @@ public class Ball
         Position += _velocity * dt;
     }
     
-
     public bool FellOff()
     {
         return _fell;
@@ -145,13 +151,12 @@ public class Ball
         _animationSpeed *= 0.7f;
     }
     
-    
     //ugh the annoying error with accessing static fields in non-static contexts
     public float Radius
     {
         get
         {
-            return (60f * Scale) / 2f;
+            return (40f * Scale) / 2f;
         }
     }
     
@@ -160,17 +165,27 @@ public class Ball
             return new Vector2(Position.X + Radius, Position.Y + Radius);
     }
     
+    private Rectangle getSourceRect()
+    {
+        float angle = 0f;
+        if (_velocity.LengthSquared() > 0.001f)
+        {
+            angle = MathF.Atan2(_velocity.Y, _velocity.X); // -pi to pi
+        }
+        int row = 0;
+        float normAng = (angle + MathF.PI) / (2f * MathF.PI); // 0 - 1
+        int col = (int)((normAng * cols ) - 27 + cols) % cols;
+        float rollFract = (_roll % circ) / circ;
+        row = (int)(rollFract * rows - 18 + rows) % rows;
+        return new Rectangle(col*frameWidth, row*frameHeight, frameWidth, frameHeight);
+    }
+
+    
     public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition)
     {
-        /*spriteBatch.Draw(
-            _ballTex,
-            Position-cameraPosition,
-            _spriteFrame,
-            Color.White,
-            (MathHelper.Pi)/2, //rotate 90
-            new Vector2(50f, 50f),
-            Scale,
-            SpriteEffects.None,
-            0f);*/
+        Rectangle src = getSourceRect();
+        _ballRect =  new Rectangle((int)(Position.X - cameraPosition.X), (int)(Position.Y - cameraPosition.Y), (int)(frameWidth * Scale), (int)(Scale*frameHeight));
+        spriteBatch.Draw(_ballTex, _ballRect, src, Color.White, 0.0f, new Vector2(50,50), SpriteEffects.None, 0.0f);
+        
     }
 }
