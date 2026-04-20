@@ -4,7 +4,7 @@ using System.Security.AccessControl;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace guldborg_finalproject;
+namespace Final_Project;
 
 public enum PathType {Path, Hole, Obstacle}
 
@@ -80,7 +80,7 @@ public class PathTracker
             Vector2 a =  vertices[i];
             Vector2 b = vertices[(i + 1) % vertices.Count];
             Vector2 closest = getClosestPointTo(a, b, ballCenter);
-            if (Vector2.Distance(ballCenter, closest) <= radius)
+            if (Vector2.Distance(ballCenter, closest) <= radius +2f)
                 return true;
         }
 

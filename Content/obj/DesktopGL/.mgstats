@@ -1,0 +1,7 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/victo/RiderProjects/Final Project/Content/Adobe Express - file.jpg","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Adobe Express - file.xnb","TextureProcessor","Texture2DContent",150106,810085,0.3648372
+"C:/Users/victo/RiderProjects/Final Project/Content/coin_gold.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/coin_gold.xnb","TextureProcessor","Texture2DContent",1324,32853,0.0113746
+"C:/Users/victo/RiderProjects/Final Project/Content/Courier New.spritefont","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Courier New.xnb","FontDescriptionProcessor","SpriteFontContent",2255,21530,0.1835763
+"C:/Users/victo/RiderProjects/Final Project/Content/paper.jpg","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/paper.xnb","TextureProcessor","Texture2DContent",31486,1144413,0.3350755
+"C:/Users/victo/RiderProjects/Final Project/Content/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.xnb","TextureProcessor","Texture2DContent",991915,25920085,0.8259923
+"C:/Users/victo/RiderProjects/Final Project/Content/wood-texture-close.jpg","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/wood-texture-close.xnb","TextureProcessor","Texture2DContent",11390349,48212053,2.1684449

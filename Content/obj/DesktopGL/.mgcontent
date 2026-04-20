@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/Adobe Express - file.jpg</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/coin_gold.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/Courier New.spritefont</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/paper.jpg</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/wood-texture-close.jpg</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

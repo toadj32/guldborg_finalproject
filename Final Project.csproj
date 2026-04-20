@@ -13,6 +13,23 @@
     <ItemGroup>
         <None Remove="Icon.ico"/>
         <None Remove="Icon.bmp"/>
+        <None Remove="Content\pauseButton.png" />
+        <None Remove="Content\full spring.png" />
+        <None Remove="Content\resume.PNG" />
+        <None Remove="Content\pause.PNG" />
+        <None Remove="Content\exit.PNG" />
+        <None Remove="Content\ball.png" />
+        <None Remove="Content\obj\DesktopGL\net9.0\Content\settings.mgcontent" />
+        <None Remove="Content\obj\DesktopGL\net9.0\Content\resume.mgcontent" />
+        <None Remove="Content\obj\DesktopGL\net9.0\Content\pause.mgcontent" />
+        <None Remove="Content\obj\DesktopGL\net9.0\Content\exit.mgcontent" />
+        <None Remove="Content\obj\DesktopGL\net9.0\Content\ball.mgcontent" />
+        <None Remove="Content\bin\DesktopGL\Content\full spring.xnb" />
+        <None Remove="Content\bin\DesktopGL\Content\settings.xnb" />
+        <None Remove="Content\bin\DesktopGL\Content\resume.xnb" />
+        <None Remove="Content\bin\DesktopGL\Content\pause.xnb" />
+        <None Remove="Content\bin\DesktopGL\Content\exit.xnb" />
+        <None Remove="Content\bin\DesktopGL\Content\ball.xnb" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Icon.ico">
@@ -25,5 +42,21 @@
     <ItemGroup>
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.*"/>
         <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.*"/>
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="Spring.cs" />
+      <Compile Remove="Pause.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="obj\Debug\net9.0\Final Pr.B69720BE.Up2Date" />
+      <Content Include="obj\Debug\net9.0\Final Project.assets.cache" />
+      <Content Include="obj\Debug\net9.0\Final Project.csproj.AssemblyReference.cache" />
+      <Content Include="obj\Debug\net9.0\Final Project.csproj.CoreCompileInputs.cache" />
+      <Content Include="obj\Debug\net9.0\Final Project.genruntimeconfig.cache" />
+      <Content Include="obj\Debug\net9.0\Final Project.pdb" />
+      <Content Include="obj\Debug\net9.0\Final Project.sourcelink.json" />
+      <Content Include="obj\Final Project.csproj.nuget.dgspec.json" />
+      <Content Include="obj\Final Project.csproj.nuget.g.props" />
+      <Content Include="obj\Final Project.csproj.nuget.g.targets" />
     </ItemGroup>
 </Project>
