@@ -61,9 +61,25 @@ public class Ball
         Vector2 center = Center();
         //Hear me out, this was so dumb, but the collision just would not work afte rthe first hit
         PathTracker obstacle = paths.getObstacle(center, Radius);
+        
         if (obstacle != null)
         {
             ObstacleCollision(obstacle);
+            if (Velocity.LengthSquared() > 0.01f)
+            {
+                float horizontalRatio = Math.Abs(Velocity.X) / (Math.Abs(Velocity.Y) + 0.001f);
+                if (horizontalRatio < 0.1f)
+                {
+                    StuckCollision(obstacle);
+                    return;
+                }
+
+                if (horizontalRatio > 0.1f)
+                {
+                    _animationSpeed = 0.03f;
+                    ScrollSpeed = 100f;
+                }
+            }
         }
         Position += Velocity * dt;
         
@@ -84,12 +100,6 @@ public class Ball
             return;
         }
         Position.Y += ScrollSpeed * dt;
-
-        // PathTracker obstacle3 = paths.getObstacle(center, Radius);
-        // if (obstacle3 != null)
-        // {
-        //     ObstacleCollision(obstacle3);
-        // }
     }
     
 
@@ -97,6 +107,7 @@ public class Ball
     {
         return _fell;
     }
+    
 
     private void ObstacleCollision(PathTracker obstacle)
     {
@@ -107,7 +118,13 @@ public class Ball
         Vector2 ballCenter = Center();
         Vector2 obstacleNormal = obstacle.getNormal(ballCenter);
         
-        Position += obstacleNormal*4f; //gotta have a little push out
+        float horizontalRatio = Math.Abs(Velocity.X) / (Math.Abs(Velocity.Y) + 0.001f);
+        if (horizontalRatio < 0.1f)
+        {
+            float obstacleMult = 0.5f;
+        }
+        float obstalceMult = 4f;
+        Position += obstacleNormal*obstalceMult; //gotta have a little push out
         
         Vector2 incoming;
         if (Velocity.LengthSquared() > 0.01f)
@@ -127,6 +144,13 @@ public class Ball
         //separate the into surface component from the parallel component. 
         //reflect the perpendicular component for bounces and keep the parallel component for sliding off surfaces
         Velocity = parallelVelocity * 1.05f + (-velocityIntoSurface * (DampeningCoeff + 0.2f));
+    }
+
+    private void StuckCollision(PathTracker obstacle)
+    {
+        Velocity *= 0.2f;
+        _animationSpeed *= 2f;
+        ScrollSpeed = 50f;
     }
     
     

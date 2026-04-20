@@ -1,5 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "C:/Users/victo/RiderProjects/Final Project/Content/Adobe Express - file.jpg","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Content/Adobe Express - file.xnb","TextureProcessor","Texture2DContent",150106,810085,0.324893
+"C:/Users/victo/RiderProjects/Final Project/Content/blocksquare.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Content/blocksquare.xnb","TextureProcessor","Texture2DContent",13936,492853,0.2068089
 "C:/Users/victo/RiderProjects/Final Project/Content/coin_gold.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Content/coin_gold.xnb","TextureProcessor","Texture2DContent",1324,32853,0.1796074
 "C:/Users/victo/RiderProjects/Final Project/Content/Courier New.spritefont","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Content/Courier New.xnb","FontDescriptionProcessor","SpriteFontContent",2255,21530,0.1688461
 "C:/Users/victo/RiderProjects/Final Project/Content/paper.jpg","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Content/paper.xnb","TextureProcessor","Texture2DContent",31486,1144413,0.3330517

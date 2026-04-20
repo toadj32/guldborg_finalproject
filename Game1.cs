@@ -21,11 +21,12 @@ public class Game1 : Game
 
     private int width = 450;
     private int height = 800;
-
     private float ScrollRate = 100f;
+    
     private Texture2D obstacleTex;
     private Texture2D _pixelTex;
     private Texture2D _winScreenTex;
+    private Texture2D blockTexture;
 
     //GUI
     private SpriteFont _font;
@@ -40,6 +41,9 @@ public class Game1 : Game
     private Texture2D _coinTex;
 
     private MouseState _previousMouseState;
+    
+    //interactive components
+    private List<Blocks> _blocks = new List<Blocks>();
 
     public Game1()
     {
@@ -71,8 +75,12 @@ public class Game1 : Game
         _pixelTex = new Texture2D(GraphicsDevice, 1, 1);
         _pixelTex.SetData(new[] { Color.AliceBlue});
         _font = Content.Load<SpriteFont>("Courier New");
+        
         _coinTex = Content.Load<Texture2D>("coin_gold");
         _winScreenTex = Content.Load<Texture2D>("paper");
+
+        blockTexture = Content.Load<Texture2D>("blocksquare");
+        _blocks.Add(new Blocks(blockTexture, new Vector2(600, 300)));
         
         _coins = new CoinManager(_coinTex, height);
         
@@ -101,6 +109,7 @@ public class Game1 : Game
             50);
         
         //Obstacles
+        //paths.AddPath(new Rectangle(300, 500, 200, 50), PathType.Obstacle, obstacleTex);
         paths.AddPath(new Rectangle(100, 500, 100, 30), PathType.Obstacle, obstacleTex);
         paths.AddPath(
             new Rectangle(300, 800, 100, 50),
@@ -170,6 +179,8 @@ public class Game1 : Game
                 new Vector2(450, 4250)
             });
         
+        //interactions
+        
         //holes
         paths.AddPath(new Rectangle(100, 1200, 200, 80), PathType.Hole, _blackPixel);
         paths.AddPath(new Rectangle(300, 1500, 100, 100), PathType.Hole, _blackPixel);
@@ -189,9 +200,9 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-        float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
         
         MouseState mouse = Mouse.GetState();
+        Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
 
         switch (_gameState)
         {
@@ -209,6 +220,14 @@ public class Game1 : Game
             case GameState.Playing:
                 _ball.Update(gameTime, paths);
                 _coins.Update(gameTime, _ball);
+                
+                //interactive components
+                foreach (var block in _blocks)
+                {
+                    block.MousePokeBlock(mouse, _previousMouseState, cameraPosition);
+                    block.BlockCollision(_ball);
+                }
+                
                 if (_ball.Center().Y >= 4450f)
                     _gameState = GameState.GameWin;
                 else if (_ball.FellOff())
@@ -244,6 +263,7 @@ public class Game1 : Game
             case GameState.Preview:
                 _pathwayPan.Draw(_spriteBatch, _bg, paths, _basicEffect, GraphicsDevice);
                 break;
+            
             case GameState.Playing: 
                 _spriteBatch.Begin(samplerState: SamplerState.PointWrap);
                 _bg.Draw(_spriteBatch, cameraPosition);          
@@ -259,7 +279,17 @@ public class Game1 : Game
                 _spriteBatch.End();
                 
                 paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
+                
+                //interactive components
+                _spriteBatch.Begin();
+                foreach (var block in _blocks)
+                {
+                    block.Draw(_spriteBatch, cameraPosition);
+                }
+
+                _spriteBatch.End();
                 break;
+                
             case GameState.GameOver:
                 _spriteBatch.Begin(samplerState: SamplerState.PointWrap);
                 _bg.Draw(_spriteBatch, cameraPosition);          

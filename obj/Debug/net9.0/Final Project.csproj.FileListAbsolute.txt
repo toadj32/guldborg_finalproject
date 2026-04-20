@@ -38,3 +38,11 @@ C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\Courier New.
 C:\Users\victo\RiderProjects\Final Project\obj\Debug\net9.0\Final Project.sourcelink.json
 C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\coin_gold.xnb
 C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\paper.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\blocksquare.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\ball.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\exit.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\full spring.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\pause.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\pauseButton.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\resume.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\settings.xnb

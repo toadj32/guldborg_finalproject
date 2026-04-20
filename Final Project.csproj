@@ -30,6 +30,7 @@
         <None Remove="Content\bin\DesktopGL\Content\pause.xnb" />
         <None Remove="Content\bin\DesktopGL\Content\exit.xnb" />
         <None Remove="Content\bin\DesktopGL\Content\ball.xnb" />
+        <None Remove="guldborg_finalproject\**" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Icon.ico">
@@ -38,6 +39,7 @@
         <EmbeddedResource Include="Icon.bmp">
             <LogicalName>Icon.bmp</LogicalName>
         </EmbeddedResource>
+        <EmbeddedResource Remove="guldborg_finalproject\**" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.*"/>
@@ -46,6 +48,7 @@
     <ItemGroup>
       <Compile Remove="Spring.cs" />
       <Compile Remove="Pause.cs" />
+      <Compile Remove="guldborg_finalproject\**" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="obj\Debug\net9.0\Final Pr.B69720BE.Up2Date" />

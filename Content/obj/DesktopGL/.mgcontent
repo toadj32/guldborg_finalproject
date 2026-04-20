@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/victo/RiderProjects/Final Project/Content/Adobe Express - file.jpg</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/blocksquare.png</File>
     <File>C:/Users/victo/RiderProjects/Final Project/Content/coin_gold.png</File>
     <File>C:/Users/victo/RiderProjects/Final Project/Content/Courier New.spritefont</File>
     <File>C:/Users/victo/RiderProjects/Final Project/Content/paper.jpg</File>
@@ -12,6 +13,7 @@
     <File>C:/Users/victo/RiderProjects/Final Project/Content/wood-texture-close.jpg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
