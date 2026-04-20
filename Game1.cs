@@ -109,87 +109,87 @@ public class Game1 : Game
             50);
         
         //Obstacles
-        //paths.AddPath(new Rectangle(300, 500, 200, 50), PathType.Obstacle, obstacleTex);
-        paths.AddPath(new Rectangle(100, 500, 100, 30), PathType.Obstacle, obstacleTex);
-        paths.AddPath(
-            new Rectangle(300, 800, 100, 50),
-            PathType.Obstacle,
-            obstacleTex,
-            new List<Vector2>
-            {
-                new Vector2(300, 850),
-                new Vector2(400, 850),
-                new Vector2(400, 800)}
-            );
-        paths.AddPath(new Rectangle(450, 1000, 40, 120), PathType.Obstacle, obstacleTex);
-        paths.AddPath(new Rectangle(200, 1300, 100, 50), PathType.Obstacle, obstacleTex);
-        paths.AddPath(new Rectangle(400, 1400, 20, 120), PathType.Obstacle, obstacleTex);
-        paths.AddPath(new Rectangle(200, 1700, 300, 90), PathType.Obstacle, obstacleTex);
+        paths.AddPath(new Rectangle(300, 500, 200, 50), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(100, 500, 100, 30), PathType.Obstacle, obstacleTex);
+         paths.AddPath(
+             new Rectangle(300, 800, 100, 50),
+             PathType.Obstacle,
+             obstacleTex,
+             new List<Vector2>
+             {
+                 new Vector2(300, 850),
+                 new Vector2(400, 850),
+                 new Vector2(400, 800)}
+             );
+         paths.AddPath(new Rectangle(450, 1000, 40, 120), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(200, 1300, 100, 50), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(400, 1400, 20, 120), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(200, 1700, 300, 90), PathType.Obstacle, obstacleTex);
         
-        //my little peg board
-        paths.AddPath(new Rectangle(150, 2500, 50, 50), 
-            PathType.Obstacle, 
-            obstacleTex);
-        paths.AddPath(new Rectangle(450, 2500, 50, 50), 
-            PathType.Obstacle, 
-            obstacleTex);
-        paths.AddPath(new Rectangle(300, 2700, 50, 50), 
-            PathType.Obstacle, 
-            obstacleTex);
-        paths.AddPath(new Rectangle(150, 2900, 50, 50), 
-            PathType.Obstacle, 
-            obstacleTex);
-        paths.AddPath(new Rectangle(450, 2900, 50, 50), 
-            PathType.Obstacle, 
-            obstacleTex);
+         //my little peg board
+         paths.AddPath(new Rectangle(150, 2500, 50, 50), 
+             PathType.Obstacle, 
+             obstacleTex);
+         paths.AddPath(new Rectangle(450, 2500, 50, 50), 
+             PathType.Obstacle, 
+             obstacleTex);
+         paths.AddPath(new Rectangle(300, 2700, 50, 50), 
+             PathType.Obstacle, 
+             obstacleTex);
+         paths.AddPath(new Rectangle(150, 2900, 50, 50), 
+             PathType.Obstacle, 
+             obstacleTex);
+         paths.AddPath(new Rectangle(450, 2900, 50, 50), 
+             PathType.Obstacle, 
+             obstacleTex);
         
-        paths.AddPath(new Rectangle(430, 3300, 90, 90), 
-            PathType.Obstacle, 
-            obstacleTex,
-            new List<Vector2>
-            {
-                new Vector2(470, 3300),
-                new Vector2(450, 3345),
-                new Vector2(470, 3390),
-                new Vector2(520, 3390),
-                new Vector2(540, 3345),
-                new Vector2(520, 3300),
-            });
+         paths.AddPath(new Rectangle(430, 3300, 90, 90), 
+             PathType.Obstacle, 
+             obstacleTex,
+             new List<Vector2>
+             {
+                 new Vector2(470, 3300),
+                 new Vector2(450, 3345),
+                 new Vector2(470, 3390),
+                 new Vector2(520, 3390),
+                 new Vector2(540, 3345),
+                 new Vector2(520, 3300),
+             });
         
-        paths.AddPath(new Rectangle(100, 3450, 100, 80),
-            PathType.Obstacle,
-            obstacleTex,
-            new List<Vector2>
-            {
-                new Vector2(100, 3450),
-                new Vector2(100, 3530),
-                new Vector2(200, 3530)
-            });
-        paths.AddPath(new Rectangle(180, 3700, 20, 120), PathType.Obstacle, obstacleTex);
-        paths.AddPath(new Rectangle(450, 3850, 20, 120), PathType.Obstacle, obstacleTex);
-        paths.AddPath(new Rectangle(120, 4100, 80, 80), PathType.Obstacle, obstacleTex);
-        paths.AddPath(new Rectangle(280, 4150, 80, 80), PathType.Obstacle, obstacleTex);
-        paths.AddPath(new Rectangle(350, 4250, 100, 100), 
-            PathType.Obstacle, 
-            obstacleTex,
-            new List<Vector2>
-            {
-                new Vector2(350, 4350),
-                new Vector2(450, 4350),
-                new Vector2(450, 4250)
-            });
+         paths.AddPath(new Rectangle(100, 3450, 100, 80),
+             PathType.Obstacle,
+             obstacleTex,
+             new List<Vector2>
+             {
+                 new Vector2(100, 3450),
+                 new Vector2(100, 3530),
+                 new Vector2(200, 3530)
+             });
+         paths.AddPath(new Rectangle(180, 3700, 20, 120), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(450, 3850, 20, 120), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(120, 4100, 80, 80), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(280, 4150, 80, 80), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(350, 4250, 100, 100), 
+             PathType.Obstacle, 
+             obstacleTex,
+             new List<Vector2>
+             {
+                 new Vector2(350, 4350),
+                 new Vector2(450, 4350),
+                 new Vector2(450, 4250)
+             });
         
-        //interactions
+         //interactions
         
-        //holes
-        paths.AddPath(new Rectangle(100, 1200, 200, 80), PathType.Hole, _blackPixel);
-        paths.AddPath(new Rectangle(300, 1500, 100, 100), PathType.Hole, _blackPixel);
-        paths.AddPath(new Rectangle(150, 1950, 100, 100), PathType.Hole, _blackPixel);
-        paths.AddPath(new Rectangle(400, 2150, 100, 100), PathType.Hole, _blackPixel);
-        paths.AddPath(new Rectangle(250, 3100, 250, 80), PathType.Hole, _blackPixel);
-        paths.AddPath(new Rectangle(250, 3550, 80, 60), PathType.Hole, _blackPixel);
-        paths.AddPath(new Rectangle(300, 3800, 60, 200), PathType.Hole, _blackPixel);
-        paths.AddPath(new Rectangle(250, 4300, 125, 50), PathType.Hole, _blackPixel);
+         //holes
+         paths.AddPath(new Rectangle(100, 1200, 200, 80), PathType.Hole, _blackPixel);
+         paths.AddPath(new Rectangle(300, 1500, 100, 100), PathType.Hole, _blackPixel);
+         paths.AddPath(new Rectangle(150, 1950, 100, 100), PathType.Hole, _blackPixel);
+         paths.AddPath(new Rectangle(400, 2150, 100, 100), PathType.Hole, _blackPixel);
+         paths.AddPath(new Rectangle(250, 3100, 250, 80), PathType.Hole, _blackPixel);
+         paths.AddPath(new Rectangle(250, 3550, 80, 60), PathType.Hole, _blackPixel);
+         paths.AddPath(new Rectangle(300, 3800, 60, 200), PathType.Hole, _blackPixel);
+         paths.AddPath(new Rectangle(250, 4300, 125, 50), PathType.Hole, _blackPixel);
         
         //path
         paths.AddPath(new Rectangle(100, 0, 450, 4500), PathType.Path);
@@ -271,11 +271,11 @@ public class Game1 : Game
                 
                 _spriteBatch.Begin();  
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
+                _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 4400 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.Navy);
                 _ball.Draw(_spriteBatch, cameraPosition);
-                _progressBar.Draw(_spriteBatch);
                 _coins.Draw(_spriteBatch, cameraPosition);
                 _spriteBatch.DrawString(_font, $"Coins: {_coins.CoinCounter}", new Vector2(10, 10), Color.White);
-                _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 4400 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.Navy);
+                _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
                 
                 paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);

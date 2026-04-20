@@ -47,7 +47,6 @@
     </ItemGroup>
     <ItemGroup>
       <Compile Remove="Spring.cs" />
-      <Compile Remove="Pause.cs" />
       <Compile Remove="guldborg_finalproject\**" />
     </ItemGroup>
     <ItemGroup>
