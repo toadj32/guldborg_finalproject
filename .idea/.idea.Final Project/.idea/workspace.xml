@@ -8,62 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="986e7494-61f5-4fcb-9df3-9976b943fb1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/ball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/ball.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/exit.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/full spring.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/pause.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/pauseButton.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/resume.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/settings.xnb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/exit.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/full spring.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/ball.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/exit.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/full spring.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/pause.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/pauseButton.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/resume.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/settings.mgcontent" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/pause.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/pauseButton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/resume.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/settings.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pause.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blocks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blocks.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/coin_gold.xnb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/paper.xnb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.xnb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/coin_gold.mgcontent" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Adobe Express - file.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Adobe Express - file.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Courier New.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Courier New.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/blocksquare.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/blocksquare.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/wood-texture-close.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/wood-texture-close.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/paper.mgcontent" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.mgcontent" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PathTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PathTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guldborg_finalproject" beforeDir="false" afterPath="$PROJECT_DIR$/guldborg_finalproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/ref/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/ref/Final Project.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/refint/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/refint/Final Project.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +123,7 @@
       <workItem from="1776575412783" duration="39309000" />
       <workItem from="1776656932205" duration="2806000" />
       <workItem from="1776706093097" duration="5185000" />
-      <workItem from="1776877417334" duration="13694000" />
+      <workItem from="1776877417334" duration="14108000" />
     </task>
     <task id="LOCAL-00001" summary="HAHAHA block collision works now">
       <option name="closed" value="true" />
@@ -196,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776882506159</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Connected with Pause Screen">
+      <option name="closed" value="true" />
+      <created>1776900616456</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776900616456</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +173,8 @@
     <MESSAGE value="HAHAHA block collision works now" />
     <MESSAGE value="HAHAH block works now" />
     <MESSAGE value="Fixed block collision and incorporated changing the spritesheet row for different angles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed block collision and incorporated changing the spritesheet row for different angles" />
+    <MESSAGE value="Connected with Pause Screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connected with Pause Screen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
