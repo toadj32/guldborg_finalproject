@@ -9,8 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="986e7494-61f5-4fcb-9df3-9976b943fb1e" name="Changes" comment="HAHAH block works now">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final Project.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Final Project.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blocks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blocks.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PathTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PathTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgressBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProgressBar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" afterDir="false" />
@@ -23,7 +26,6 @@
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/ref/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/ref/Final Project.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/refint/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/refint/Final Project.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +65,7 @@
     <setting file="file://$PROJECT_DIR$/Coins.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PathTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PathwayPan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pause.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProgressBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/StartScreen.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -136,6 +139,8 @@
       <workItem from="1776445424061" duration="40375000" />
       <workItem from="1776575412783" duration="39309000" />
       <workItem from="1776656932205" duration="2806000" />
+      <workItem from="1776706093097" duration="5185000" />
+      <workItem from="1776877417334" duration="4364000" />
     </task>
     <task id="LOCAL-00001" summary="HAHAHA block collision works now">
       <option name="closed" value="true" />

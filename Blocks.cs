@@ -29,7 +29,7 @@ public class Blocks
             float w = isVertical ? blockTexture.Height : blockTexture.Width *0.2f;
             float h = isVertical ? blockTexture.Width : blockTexture.Height *0.2f;
             
-            Rectangle hitbox = new Rectangle((int)(blockPos.X - w/2), (int)(blockPos.Y - h/2), (int)w, (int)h);
+            Rectangle hitbox = new Rectangle((int)(blockPos.X - w/2), (int)(blockPos.Y - h/2), (int)(w*1.25), (int)(h*1.25));
             return hitbox;
     }
 

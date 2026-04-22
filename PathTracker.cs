@@ -28,7 +28,35 @@ public class PathTracker
     {
         return new Vector2(Bounds.X + Bounds.Width / 2, Bounds.Y + Bounds.Height / 2);
     }
+    
+    private List<Vector2> DefaultVertices() //so I'm not defining every block
+    {
+        if (Vertices != null)
+            return Vertices;
+        List<Vector2> defaultBounds = new List<Vector2>{
+            new Vector2(Bounds.Left, Bounds.Top),
+            new Vector2(Bounds.Right *1.1f, Bounds.Top),
+            new Vector2(Bounds.Right*1.1f, Bounds.Bottom*1.1f),
+            new Vector2(Bounds.Left, Bounds.Bottom*1.1f)};
+        return defaultBounds;
+    }
 
+    //closest point on a line segment to another point 
+    private Vector2 getClosestPointTo(Vector2 a, Vector2 b, Vector2 point)
+    {
+        Vector2 ab = b - a;
+        Vector2 apoint =  point - a;
+        
+        //find the amount of overlap
+        float projection = Vector2.Dot(apoint, ab);
+        //ngl I needed some serious math help with this but from what I understand, 
+        //the dot product is ||point - a|| ||b -a|| cos(theta) --> so just dividing by 
+        // ||b-a|| is just ||p -a|| * cost (theta) --> this may not be on the segment
+        float distanceAlongSegment = projection/ab.LengthSquared();
+        distanceAlongSegment = MathHelper.Clamp(distanceAlongSegment, 0, 1);
+        return a + distanceAlongSegment * ab;
+    }
+    
     //normal vector of the obstacle polygon side that is closest to a point, that point being the center of the ball
     public Vector2 getNormal(Vector2 point)
     {
@@ -51,25 +79,13 @@ public class PathTracker
                 Vector2 normaltoEdge = new Vector2 (-polygonEdge.Y, polygonEdge.X);
                 normaltoEdge.Normalize(); //this might be pointing the otherway depending on what side of hte ball the obstacle is
 
-                Vector2 directionTest = Center() - closest; //since it's normal --> there shouldn't be overlap
-                if (Vector2.Dot(normaltoEdge, directionTest) > 0)
+                Vector2 directionTest = Center() - closest; 
+                if (Vector2.Dot(normaltoEdge, directionTest) > 0) //they should be pointing in opposite directions since direction test will be pointing towards osbtacle, and we want normal to edge to point out from obstacle
                     normaltoEdge = -normaltoEdge;
                 bestNormal = normaltoEdge;
             }
         }
         return bestNormal;
-    }
-
-    private List<Vector2> DefaultVertices() //so I'm not defining every block
-    {
-        if (Vertices != null)
-            return Vertices;
-        List<Vector2> defaultBounds = new List<Vector2>{
-            new Vector2(Bounds.Left, Bounds.Top),
-            new Vector2(Bounds.Right, Bounds.Top),
-            new Vector2(Bounds.Right, Bounds.Bottom),
-            new Vector2(Bounds.Left, Bounds.Bottom)};
-        return defaultBounds;
     }
 
     public bool inContact(Vector2 ballCenter, float radius)
@@ -85,22 +101,6 @@ public class PathTracker
         }
 
         return false;
-    }
-    
-    //closest point on a line segment to another point 
-    private Vector2 getClosestPointTo(Vector2 a, Vector2 b, Vector2 point)
-    {
-        Vector2 ab = b - a;
-        Vector2 apoint =  point - a;
-        
-        //find the amount of overlap
-        float projection = Vector2.Dot(apoint, ab);
-        //ngl I needed some serious math help with this but from what I understand, 
-        //the dot product is ||point - a|| ||b -a|| cos(theta) --> so just dividing by 
-        // ||b-a|| is just ||p -a|| * cost (theta) --> this may not be on the segment
-        float distanceAlongSegment = projection/ab.LengthSquared();
-        distanceAlongSegment = MathHelper.Clamp(distanceAlongSegment, 0, 1);
-        return a + distanceAlongSegment * ab;
     }
 
     public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition)
@@ -137,18 +137,19 @@ public class PathTracker
     public void DrawNonSquares(
         GraphicsDevice gd, 
         BasicEffect basicEffect,
-        Vector2 cameraPosition) //man is it a crime for a girl to jsut want to draw some triangles
+        Vector2 cameraPosition) //man is it a crime for a girl to just want to draw some triangles
     {
         if (Type != PathType.Obstacle || Vertices == null || Vertices.Count < 3)
             return;
 
         RasterizerState previousRasterizer = gd.RasterizerState;
-        gd.RasterizerState = RasterizerState.CullNone;
+        gd.RasterizerState = RasterizerState.CullNone; //see we shouldn't need to see the backside of triangles but nothing showed up when this wasn't disabled
 
         int triangleCount = Vertices.Count - 2;
         VertexPositionTexture[] vertices = new VertexPositionTexture[triangleCount *3]; //technically not the number of vertices bc overlap
         
         //gotta map the textures to the polygons --> normalize to a 0-1 range
+        //finding smallest rectangle that fits the polygon
         float Left = float.MaxValue;
         float Top = float.MaxValue;
         float Right = float.MinValue;
@@ -179,7 +180,7 @@ public class PathTracker
             {
                 Vector2 Position = triangle[j]-cameraPosition;
                 vertices[i * 3 + j] =
-                    new VertexPositionTexture( //getting the specific vertice within the specified triangle
+                    new VertexPositionTexture( //getting the specific vertex within the specified triangle
                         new Vector3(Position.X, Position.Y, 0), //just flat triangle
                         new Vector2(
                             ((triangle[j].X-Left)/polygonWidth), //normalize to the size of the polygon
@@ -276,10 +277,14 @@ public class PathTracker
             bool onPath = false;
             foreach (var path in _paths)
             {
-                if (!path.Bounds.Contains(position)) continue;
-                if (path.Type == PathType.Hole)     return false;
-                if (path.Type == PathType.Obstacle) continue;
-                if (path.Type == PathType.Path)     onPath = true;
+                if (!path.Bounds.Contains(position)) 
+                    continue;
+                if (path.Type == PathType.Hole)     
+                    return false;
+                if (path.Type == PathType.Obstacle) 
+                    continue;
+                if (path.Type == PathType.Path)     
+                    onPath = true;
             }
             return onPath;
         }

@@ -100,7 +100,7 @@ public class Game1 : Game
         _pathwayPan = new PathwayPan(4100f);
         _progressBar = new ProgressBar(
             400f,
-            4200f,
+            4450f,
             _ball,
             _font,
             _pixelTex,
@@ -109,8 +109,8 @@ public class Game1 : Game
             50);
         
         //Obstacles
-        paths.AddPath(new Rectangle(300, 500, 200, 50), PathType.Obstacle, obstacleTex);
-         paths.AddPath(new Rectangle(100, 500, 100, 30), PathType.Obstacle, obstacleTex);
+        //paths.AddPath(new Rectangle(300, 500, 200, 50), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(100, 500,  100, 30), PathType.Obstacle, obstacleTex);
          paths.AddPath(
              new Rectangle(300, 800, 100, 50),
              PathType.Obstacle,
@@ -121,8 +121,8 @@ public class Game1 : Game
                  new Vector2(400, 850),
                  new Vector2(400, 800)}
              );
-         paths.AddPath(new Rectangle(450, 1000, 40, 120), PathType.Obstacle, obstacleTex);
-         paths.AddPath(new Rectangle(200, 1300, 100, 50), PathType.Obstacle, obstacleTex);
+             paths.AddPath(new Rectangle(100, 850, 50, 120), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(450, 10002, 100, 50), PathType.Obstacle, obstacleTex);
          paths.AddPath(new Rectangle(400, 1400, 20, 120), PathType.Obstacle, obstacleTex);
          paths.AddPath(new Rectangle(200, 1700, 300, 90), PathType.Obstacle, obstacleTex);
         

@@ -52,7 +52,7 @@ public class ProgressBar
         
         spriteBatch.Draw(_pixel, //can use the one from Game made for holes
             new Rectangle(_barXPos, _barYPos, _barWidth, _barHeight),
-            Color.DarkGreen);
+            Color.DarkGray);
         
         spriteBatch.Draw(_pixel,
             new Rectangle(_barXPos, _barYPos, _barWidth, coloredAmount),

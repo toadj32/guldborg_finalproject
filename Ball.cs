@@ -9,17 +9,27 @@ namespace Final_Project;
 
 public class Ball
 {
+    //changing the sprite for 
+    private const int cols = 36;
+    private const int rows = 18;
+    private const int frameWidth = 100;
+    private const int frameHeight = 100;
+    private const float circ = MathF.PI * frameWidth;
+    private float _roll;
+    private float _rollSpeed = 4f;
+    private Rectangle _ballRect;
+    
     private Texture2D _ballTex;
     public Vector2 Position;
 
     public int _frameNum;
-    public int _frameIndex = 0;
+    public int _frameIndex;
     private Rectangle _spriteFrame;
     
     public float Scale;
     public float ScrollSpeed;
     public float timer = 0f;
-    private float _animationSpeed = 0.03f;
+    private float _animationSpeed = 0.01f;
     
     //when it encounters obstacles
     public Vector2 Velocity = Vector2.Zero;
@@ -40,6 +50,7 @@ public class Ball
         Position = position;
         ScrollSpeed = scrollSpeed;
         _frameNum = frameNum;
+        _frameIndex = _frameNum;
         Scale = scale;
 
         _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
@@ -51,12 +62,7 @@ public class Ball
         float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
         timer += dt;
         
-        if (timer >= _animationSpeed)
-        {
-            _frameIndex = (_frameIndex + 1) % _frameNum;
-            _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
-            timer = 0f;
-        }
+        _spriteFrame = getSourceRect();
         
         Vector2 center = Center();
         //Hear me out, this was so dumb, but the collision just would not work afte rthe first hit
@@ -82,6 +88,8 @@ public class Ball
             }
         }
         Position += Velocity * dt;
+        float speed = Velocity.Length() + ScrollSpeed;
+        _roll += speed * dt * _rollSpeed;
         
         float overlap = paths.overlapOnPath(center, Radius);
         PathType centerType = paths.FindPathType(center);
@@ -90,7 +98,7 @@ public class Ball
         {
             // More than half the ball is off the path — start falling.
             Position.Y += ScrollSpeed * 0.3f * dt;
-            Position += Velocity * dt;
+            Position += Velocity * 0.6f * dt;
             Scale -= FallSpeed * dt;
             if (Scale < smallestScale)
             {
@@ -121,7 +129,7 @@ public class Ball
         float horizontalRatio = Math.Abs(Velocity.X) / (Math.Abs(Velocity.Y) + 0.001f);
         if (horizontalRatio < 0.1f)
         {
-            float obstacleMult = 0.5f;
+            float obstacleMult = 0f;
         }
         float obstalceMult = 4f;
         Position += obstacleNormal*obstalceMult; //gotta have a little push out
@@ -148,7 +156,9 @@ public class Ball
 
     private void StuckCollision(PathTracker obstacle)
     {
-        Velocity *= 0.2f;
+        Velocity -= new Vector2(2, 2);
+        Velocity.X = Math.Clamp(Velocity.X, 0, 1);
+        Velocity.Y = Math.Clamp(Velocity.Y, 0, 1);
         _animationSpeed *= 2f;
         ScrollSpeed = 50f;
     }
@@ -168,17 +178,34 @@ public class Ball
             return new Vector2(Position.X + Radius, Position.Y + Radius);
     }
     
+    private Rectangle getSourceRect()
+    {
+        float angle = 0f;
+        if (Velocity.LengthSquared() > 0.001f)
+        {
+            angle = MathF.Atan2(Velocity.Y, Velocity.X); // -pi to pi
+        }
+        int row = 0;
+        float normAng = (angle + MathF.PI) / (2f * MathF.PI); // 0 - 1
+        int col = (int)(normAng * cols ) % cols;
+        float rollFract = (_roll % circ) / circ;
+        row = (rows - 1 - (int)(rollFract * rows)) % rows;
+        return new Rectangle(col*frameWidth, row*frameHeight, frameWidth, frameHeight);
+    }
+
+    
     public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition)
     {
+        float rotation = MathF.Atan2(Velocity.Y, Velocity.X);
         spriteBatch.Draw(
-            _ballTex,
-            Position-cameraPosition,
-            _spriteFrame,
-            Color.White,
-            (MathHelper.Pi)/2, //rotate 90
-            new Vector2(50f, 50f),
-            Scale,
-            SpriteEffects.None,
-            0f);
-    }
+                 _ballTex,
+                 Position - cameraPosition,
+                 _spriteFrame,
+                 Color.White,
+                 rotation, 
+                 new Vector2(50f, 50f),
+                 Scale,
+                 SpriteEffects.None,
+                 0f);
+         }
 }
