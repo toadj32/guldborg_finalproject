@@ -35,9 +35,9 @@ public class PathTracker
             return Vertices;
         List<Vector2> defaultBounds = new List<Vector2>{
             new Vector2(Bounds.Left, Bounds.Top),
-            new Vector2(Bounds.Right *1.1f, Bounds.Top),
-            new Vector2(Bounds.Right*1.1f, Bounds.Bottom*1.1f),
-            new Vector2(Bounds.Left, Bounds.Bottom*1.1f)};
+            new Vector2(Bounds.Right + 15f, Bounds.Top),
+            new Vector2(Bounds.Right+ 15f, Bounds.Bottom+ 15f),
+            new Vector2(Bounds.Left, Bounds.Bottom+ 15f)};
         return defaultBounds;
     }
 

@@ -43,7 +43,6 @@ public class Blocks
         bool lmbStillDown = mouse.LeftButton == ButtonState.Pressed;
         bool lmbJustReleased = mouse.LeftButton== ButtonState.Released && prevMouse.LeftButton == ButtonState.Pressed;
         //for rotation
-        bool rmbJustDown = mouse.RightButton== ButtonState.Pressed && prevMouse.RightButton == ButtonState.Released;
         
         //detect drag
         if (lmbJustDown && Hitbox().Contains(mousePos.ToPoint()))
@@ -55,10 +54,6 @@ public class Blocks
         if (lmbStillDown && isInteracting) // beign dragged
         {
             blockPos = mousePos-dragOffset;
-            if (rmbJustDown) //allow rotate while dragged
-            {
-                rotation = (rotation + 0.5f * MathHelper.Pi) % (2 * MathHelper.Pi);
-            }
             return true;
         }
 

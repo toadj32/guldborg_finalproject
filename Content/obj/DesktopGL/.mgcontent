@@ -5,14 +5,22 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/victo/RiderProjects/Final Project/Content/Adobe Express - file.jpg</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/ball.png</File>
     <File>C:/Users/victo/RiderProjects/Final Project/Content/blocksquare.png</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/coin_gold.png</File>
     <File>C:/Users/victo/RiderProjects/Final Project/Content/Courier New.spritefont</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/paper.jpg</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/exit.PNG</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/full spring.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/pause.PNG</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/pauseButton.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/resume.PNG</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/settings.PNG</File>
     <File>C:/Users/victo/RiderProjects/Final Project/Content/wood-texture-close.jpg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -9,8 +9,8 @@ public class CoinManager
 {
     private List<Coins> _coins = new List<Coins>();
     private Texture2D _coinTex;
-    private float _spawnTimer = 0f;
-    private float _interval = 2f;
+    public float _spawnTimer = 0f;
+    public float _interval = 2f;
     private Random _rand = new Random();
     private int _screenHeight;
     public int CoinCounter = 0;

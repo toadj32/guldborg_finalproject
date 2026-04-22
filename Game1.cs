@@ -21,7 +21,7 @@ public class Game1 : Game
 
     private int width = 450;
     private int height = 800;
-    private float ScrollRate = 100f;
+    private float ScrollRate = 80f;
     
     private Texture2D obstacleTex;
     private Texture2D _pixelTex;
@@ -44,6 +44,10 @@ public class Game1 : Game
     
     //interactive components
     private List<Blocks> _blocks = new List<Blocks>();
+
+    //pause Screen
+    private Pause _pauseScreen;
+    private Vector2 _mousePos;
 
     public Game1()
     {
@@ -68,6 +72,14 @@ public class Game1 : Game
         _basicEffect = new BasicEffect(GraphicsDevice);
         
         // TODO: use this.Content to load your game content here
+        
+        // Pause Screen!
+        Texture2D pause = Content.Load<Texture2D>("pauseButton");
+        Texture2D pauseScreen = Content.Load<Texture2D>("pause");
+        Texture2D exit = Content.Load<Texture2D>("exit");
+        Texture2D resume =  Content.Load<Texture2D>("resume");
+        Texture2D settings = Content.Load<Texture2D>("settings");
+        _pauseScreen = new Pause(pause, pauseScreen, exit, resume, settings, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
         
         obstacleTex = Content.Load<Texture2D>("wood-texture-close");
         Texture2D _blackPixel = new Texture2D(GraphicsDevice, 1, 1);
@@ -202,6 +214,7 @@ public class Game1 : Game
             Exit();
         
         MouseState mouse = Mouse.GetState();
+        _mousePos = new Vector2(mouse.X, mouse.Y);
         Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
 
         switch (_gameState)
@@ -220,6 +233,7 @@ public class Game1 : Game
             case GameState.Playing:
                 _ball.Update(gameTime, paths);
                 _coins.Update(gameTime, _ball);
+                _pauseScreen.Update(gameTime, _mousePos, mouse, _ball, this, _coins);
                 
                 //interactive components
                 foreach (var block in _blocks)
@@ -269,6 +283,16 @@ public class Game1 : Game
                 _bg.Draw(_spriteBatch, cameraPosition);          
                 _spriteBatch.End();
                 
+                paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
+                
+                //interactive components
+                _spriteBatch.Begin();
+                foreach (var block in _blocks)
+                {
+                    block.Draw(_spriteBatch, cameraPosition);
+                }
+                _spriteBatch.End();
+                
                 _spriteBatch.Begin();  
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
                 _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 4400 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.Navy);
@@ -278,16 +302,8 @@ public class Game1 : Game
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
                 
-                paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
+                _pauseScreen.Draw(_spriteBatch); //uses matrix transform in its spritebatch.Begin
                 
-                //interactive components
-                _spriteBatch.Begin();
-                foreach (var block in _blocks)
-                {
-                    block.Draw(_spriteBatch, cameraPosition);
-                }
-
-                _spriteBatch.End();
                 break;
                 
             case GameState.GameOver:

@@ -1,8 +1,12 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "C:/Users/victo/RiderProjects/Final Project/Content/Adobe Express - file.jpg","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Adobe Express - file.xnb","TextureProcessor","Texture2DContent",150106,810085,0.3648372
+"C:/Users/victo/RiderProjects/Final Project/Content/ball.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/ball.xnb","TextureProcessor","Texture2DContent",991915,25920085,1.5955601
 "C:/Users/victo/RiderProjects/Final Project/Content/blocksquare.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/blocksquare.xnb","TextureProcessor","Texture2DContent",13936,492853,0.2790783
-"C:/Users/victo/RiderProjects/Final Project/Content/coin_gold.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/coin_gold.xnb","TextureProcessor","Texture2DContent",1324,32853,0.0113746
 "C:/Users/victo/RiderProjects/Final Project/Content/Courier New.spritefont","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/Courier New.xnb","FontDescriptionProcessor","SpriteFontContent",2255,21530,0.1835763
-"C:/Users/victo/RiderProjects/Final Project/Content/paper.jpg","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/paper.xnb","TextureProcessor","Texture2DContent",31486,1144413,0.3350755
-"C:/Users/victo/RiderProjects/Final Project/Content/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.xnb","TextureProcessor","Texture2DContent",991915,25920085,0.8259923
+"C:/Users/victo/RiderProjects/Final Project/Content/exit.PNG","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/exit.xnb","TextureProcessor","Texture2DContent",215450,15481685,0.7189911
+"C:/Users/victo/RiderProjects/Final Project/Content/full spring.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/full spring.xnb","TextureProcessor","Texture2DContent",316998,972149,0.043273
+"C:/Users/victo/RiderProjects/Final Project/Content/pause.PNG","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/pause.xnb","TextureProcessor","Texture2DContent",1177914,15481685,0.6231359
+"C:/Users/victo/RiderProjects/Final Project/Content/pauseButton.png","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/pauseButton.xnb","TextureProcessor","Texture2DContent",124585,998149,0.0407937
+"C:/Users/victo/RiderProjects/Final Project/Content/resume.PNG","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/resume.xnb","TextureProcessor","Texture2DContent",274284,15481685,0.5744549
+"C:/Users/victo/RiderProjects/Final Project/Content/settings.PNG","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/settings.xnb","TextureProcessor","Texture2DContent",261150,15481685,0.479628
 "C:/Users/victo/RiderProjects/Final Project/Content/wood-texture-close.jpg","C:/Users/victo/RiderProjects/Final Project/Content/bin/DesktopGL/wood-texture-close.xnb","TextureProcessor","Texture2DContent",11390349,48212053,2.1684449

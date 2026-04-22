@@ -21,6 +21,7 @@ public class Ball
     
     private Texture2D _ballTex;
     public Vector2 Position;
+    public Vector2 _acc;
 
     public int _frameNum;
     public int _frameIndex;
@@ -28,8 +29,6 @@ public class Ball
     
     public float Scale;
     public float ScrollSpeed;
-    public float timer = 0f;
-    private float _animationSpeed = 0.01f;
     
     //when it encounters obstacles
     public Vector2 Velocity = Vector2.Zero;
@@ -52,6 +51,7 @@ public class Ball
         _frameNum = frameNum;
         _frameIndex = _frameNum;
         Scale = scale;
+        _acc = new Vector2(0f, 10f);
 
         _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
         
@@ -60,7 +60,6 @@ public class Ball
     public void Update(GameTime gameTime, PathTracker.PathBounds paths)
     {
         float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-        timer += dt;
         
         _spriteFrame = getSourceRect();
         
@@ -79,14 +78,11 @@ public class Ball
                     StuckCollision(obstacle);
                     return;
                 }
-
-                if (horizontalRatio > 0.1f)
-                {
-                    _animationSpeed = 0.03f;
-                    ScrollSpeed = 100f;
-                }
             }
         }
+
+        ScrollSpeed += _acc.Y * dt;
+        ScrollSpeed = MathHelper.Clamp(ScrollSpeed, 0f, 130f);
         Position += Velocity * dt;
         float speed = Velocity.Length() + ScrollSpeed;
         _roll += speed * dt * _rollSpeed;
@@ -127,11 +123,11 @@ public class Ball
         Vector2 obstacleNormal = obstacle.getNormal(ballCenter);
         
         float horizontalRatio = Math.Abs(Velocity.X) / (Math.Abs(Velocity.Y) + 0.001f);
+        float obstalceMult = 4f;
         if (horizontalRatio < 0.1f)
         {
             float obstacleMult = 0f;
         }
-        float obstalceMult = 4f;
         Position += obstacleNormal*obstalceMult; //gotta have a little push out
         
         Vector2 incoming;
@@ -156,11 +152,24 @@ public class Ball
 
     private void StuckCollision(PathTracker obstacle)
     {
-        Velocity -= new Vector2(2, 2);
-        Velocity.X = Math.Clamp(Velocity.X, 0, 1);
-        Velocity.Y = Math.Clamp(Velocity.Y, 0, 1);
-        _animationSpeed *= 2f;
-        ScrollSpeed = 50f;
+        Vector2 normal = obstacle.getNormal(Center());
+        
+        if (Math.Abs(normal.Y) > 0.9f)
+        {
+            Velocity.X *= 0.6f;
+            Velocity.Y -= 1.0f;
+            Velocity.Y = Math.Clamp(Velocity.Y, 0f, 0.05f);
+            
+            if (Math.Abs(Velocity.X) < 0.05f) Velocity.X = 0f;
+            if (Math.Abs(Velocity.Y) < 0.05f) Velocity.Y = 0f;
+        }
+        else
+        {
+            // fallback (non-horizontal surfaces)
+            Velocity *= 0.8f;
+        }
+        
+        ScrollSpeed *= 0.4f;
     }
     
     

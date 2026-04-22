@@ -7,19 +7,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="986e7494-61f5-4fcb-9df3-9976b943fb1e" name="Changes" comment="HAHAH block works now">
+    <list default="true" id="986e7494-61f5-4fcb-9df3-9976b943fb1e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/ball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/ball.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/exit.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/full spring.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/pause.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/pauseButton.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/resume.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/settings.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/exit.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/full spring.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/ball.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/exit.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/full spring.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/pause.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/pauseButton.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/resume.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/settings.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/pause.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/pauseButton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/resume.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/settings.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pause.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blocks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blocks.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/coin_gold.xnb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/paper.xnb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.xnb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/.mgstats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/coin_gold.mgcontent" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgstats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Adobe Express - file.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Adobe Express - file.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Courier New.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Courier New.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/blocksquare.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/blocksquare.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/wood-texture-close.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/wood-texture-close.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/paper.mgcontent" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.mgcontent" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PathTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PathTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgressBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProgressBar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guldborg_finalproject" beforeDir="false" afterPath="$PROJECT_DIR$/guldborg_finalproject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" afterDir="false" />
@@ -82,28 +120,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.Final Project.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;victoria&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.Final Project.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "temp-other",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Final Project" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -140,7 +178,7 @@
       <workItem from="1776575412783" duration="39309000" />
       <workItem from="1776656932205" duration="2806000" />
       <workItem from="1776706093097" duration="5185000" />
-      <workItem from="1776877417334" duration="4364000" />
+      <workItem from="1776877417334" duration="13694000" />
     </task>
     <task id="LOCAL-00001" summary="HAHAHA block collision works now">
       <option name="closed" value="true" />
@@ -150,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776650845779</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed block collision and incorporated changing the spritesheet row for different angles">
+      <option name="closed" value="true" />
+      <created>1776882506158</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776882506159</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +219,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="HAHAHA block collision works now" />
     <MESSAGE value="HAHAH block works now" />
-    <option name="LAST_COMMIT_MESSAGE" value="HAHAH block works now" />
+    <MESSAGE value="Fixed block collision and incorporated changing the spritesheet row for different angles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed block collision and incorporated changing the spritesheet row for different angles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
