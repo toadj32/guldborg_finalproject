@@ -80,6 +80,12 @@
 /processorParam:TextureFormat=Color
 /build:full spring.png
 
+#begin JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav
+
 #begin pause.PNG
 /importer:TextureImporter
 /processor:TextureProcessor

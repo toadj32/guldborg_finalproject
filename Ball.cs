@@ -2,6 +2,8 @@
 using System.Numerics;
 using System.Runtime.Intrinsics.X86;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
@@ -9,6 +11,11 @@ namespace Final_Project;
 
 public class Ball
 {
+    //--------------------------------load sound-------------------------------------------------------------/////////
+    public static ContentManager ContentManager { get; set; }
+    //--------------------------------load sound-------------------------------------------------------------///////// ^
+
+    
     //changing the sprite for 
     private const int cols = 36;
     private const int rows = 18;
@@ -38,12 +45,19 @@ public class Ball
     
     public bool _fell;
     private bool _falling = false;
+    
+    //-----------------------------------------------------------------------------/////////////////////////
+    private SoundEffect ballHitSound;
+    //------------------------------------------------------------------------------ ^
+
+    
     public Ball(
         Texture2D ballTex,
         Vector2 position,
         float scrollSpeed,
         int frameNum,
-        float scale)
+        float scale,
+        ContentManager content) /////<<<<<<<<<<---------------------------- added Content paraemter----------///////////
     {
         _ballTex = ballTex;
         Position = position;
@@ -54,6 +68,14 @@ public class Ball
         _acc = new Vector2(0f, 10f);
 
         _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
+        
+        //--------------------------------load sound-------------------------------------------------------------/////////
+        //using var stream = TitleContainer.OpenStream("Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav"); ahwdhdakwhfkwajhf
+        //ballHitSound = SoundEffect.FromStream(stream);
+        ballHitSound = content.Load<SoundEffect>("JDSherbert - Wooden UI SFX Pack - Confirm - 1");
+        
+        //--------------------------------load sound-------------------------------------------------------------///////// ^
+
         
     }
 
@@ -79,6 +101,9 @@ public class Ball
                     return;
                 }
             }
+            /////////////////////-------------------------------sound--------------------------------------/////
+            ballHitSound.Play();
+            ////////////////////-------------------------------sound--------------------------------------   ^
         }
 
         ScrollSpeed += _acc.Y * dt;

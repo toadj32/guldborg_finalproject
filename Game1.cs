@@ -101,13 +101,20 @@ public class Game1 : Game
             10,
             width);
         
+        
+        //--------------------------------load sound-------------------------------------------------------------/////////
+        Ball.ContentManager = Content;
+        //--------------------------------load sound-------------------------------------------------------------/////////
+
         _ball = new Ball(
             Content.Load<Texture2D>(
                 "team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f"),
             new Vector2((width+200)/2f, height/2f),
             ScrollRate,
             36,
-            0.5f);
+            0.5f,
+            Content);    /////<<<<<<<<<<---------------------------- added Content paraemter----------///////////
+        
         _startScreen = new StartScreen(_font, width + 200, height);
         _pathwayPan = new PathwayPan(4100f);
         _progressBar = new ProgressBar(

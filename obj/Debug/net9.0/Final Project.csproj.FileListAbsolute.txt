@@ -46,3 +46,52 @@ C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\pause.xnb
 C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\pauseButton.xnb
 C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\resume.xnb
 C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\settings.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\coin_gold.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\paper.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\Adobe Express - file.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\ball.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\blocksquare.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\Courier New.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\exit.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\full spring.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\JDSherbert - Wooden UI SFX Pack - Confirm - 1.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\pause.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\pauseButton.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\resume.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\settings.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\wood-texture-close.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Final Project.exe
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Final Project.deps.json
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Final Project.runtimeconfig.json
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Final Project.dll
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Final Project.pdb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\MonoGame.Framework.dll
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\NVorbis.dll
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\android-arm\native\libopenal.so
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\android-arm64\native\libopenal.so
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\android-x64\native\libopenal.so
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\android-x86\native\libopenal.so
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\ios-arm64\native\libopenal.a
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\iossimulator-arm64\native\libopenal.a
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\iossimulator-x64\native\libopenal.a
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\linux-arm64\native\libopenal.so
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\linux-x64\native\libopenal.so
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\osx\native\libopenal.dylib
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\win-x64\native\openal.dll
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\osx\native\libSDL2-2.0.0.dylib
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\runtimes\win-x64\native\SDL2.dll
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\mgcb.tool.restore
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.csproj.AssemblyReference.cache
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.AssemblyInfoInputs.cache
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.AssemblyInfo.cs
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.csproj.CoreCompileInputs.cache
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.sourcelink.json
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Pr.B69720BE.Up2Date
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.dll
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\refint\Final Project.dll
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.pdb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.genruntimeconfig.cache
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\ref\Final Project.dll
