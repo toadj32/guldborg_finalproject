@@ -72,6 +72,7 @@ public class Ball
         //--------------------------------load sound-------------------------------------------------------------/////////
         //using var stream = TitleContainer.OpenStream("Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav"); ahwdhdakwhfkwajhf
         //ballHitSound = SoundEffect.FromStream(stream);
+        //not using .wav
         ballHitSound = content.Load<SoundEffect>("JDSherbert - Wooden UI SFX Pack - Confirm - 1");
         
         //--------------------------------load sound-------------------------------------------------------------///////// ^

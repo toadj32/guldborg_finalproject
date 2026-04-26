@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace Final_Project;
 
@@ -48,6 +50,16 @@ public class Game1 : Game
     //pause Screen
     private Pause _pauseScreen;
     private Vector2 _mousePos;
+    
+    //-------------------------------------------------------------------------------------------------/////////////
+    //musica
+    private Song introMusic;
+    private SoundEffectInstance introMusicInstance;
+    private Song gameMusic;
+    private SoundEffectInstance gameMusicInstance;
+
+    private bool musicPlaying = false;
+    //-------------------------------------------------------------------------------------------------///////////// ^
 
     public Game1()
     {
@@ -212,6 +224,27 @@ public class Game1 : Game
         
         //path
         paths.AddPath(new Rectangle(100, 0, 450, 4500), PathType.Path);
+        
+        
+        //////////////////////////////////////////----------------more sound---------------------------//////////////////////
+        introMusic = Content.Load<Song>("mountainkingforintro");
+        gameMusic = Content.Load<Song>("mountainkingforgameplay");
+        //loop
+        MediaPlayer.IsRepeating = true;
+
+        if (!musicPlaying) //start game with intro playing 
+        {
+            musicPlaying = true;
+            MediaPlayer.Play(introMusic); 
+        }
+        
+        /*
+        introMusicInstance = introMusic.CreateInstance();
+        introMusicInstance.IsLooped = true;
+        gameMusicInstance = gameMusic.CreateInstance();
+        gameMusicInstance.IsLooped = true;*/
+        
+        //////////////////////////////////////////////------------------------------------------------//////////////////////// ^
     }
 
     protected override void Update(GameTime gameTime)
@@ -228,7 +261,14 @@ public class Game1 : Game
         {
             case GameState.StartScreen:
                 if (_startScreen.Clicked(mouse, _previousMouseState))
+                {
                     _gameState = GameState.Preview;
+                    ///////////////////////////////////////---------------------------------------------------------------///////////
+                    // i put this here cus it starts playing after play button click
+                    MediaPlayer.Play(gameMusic);
+                    
+                    ///////////////////////////////////////---------------------------------------------------------------////////
+                }
                 break;
             case GameState.Preview:
                 _pathwayPan.Update(gameTime);

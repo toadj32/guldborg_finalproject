@@ -95,3 +95,7 @@ C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldbor
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.pdb
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.genruntimeconfig.cache
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\ref\Final Project.dll
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\mountainkingforgameplay.ogg
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\mountainkingforgameplay.xnb
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\mountainkingforintro.ogg
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\mountainkingforintro.xnb
