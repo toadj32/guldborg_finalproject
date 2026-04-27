@@ -32,10 +32,22 @@ public class StartScreen
     {
         if (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
             if (_startButton.Contains(mouse.Position))
-                return true;
+                return true; 
         return false;
     }
+    
+    
+    ///////////////////////////////////////-------------------------for instructions screen--------------------------------------///////////
+    public bool RulesClicked(MouseState mouse, MouseState previousMouse)
+    {
+        if (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
+            if (_rulesButton.Contains(mouse.Position))
+                return true; 
+        return false;
+    }
+    ///////////////////////////////////////---------------------------------------------------------------/////////// 
 
+    
     public void Draw(SpriteBatch spriteBatch, Texture2D texture)
     {
         string Title = "GuldBorg";

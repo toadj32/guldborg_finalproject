@@ -11,7 +11,7 @@ public class Game1 : Game
 {
     PathTracker.PathBounds paths = new PathTracker.PathBounds();
     
-    public enum GameState{StartScreen, Preview, Playing, GameOver, GameWin}
+    public enum GameState{StartScreen, Instructions, Preview, Playing, GameOver, GameWin}
     
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
@@ -57,8 +57,10 @@ public class Game1 : Game
     private SoundEffectInstance introMusicInstance;
     private Song gameMusic;
     private SoundEffectInstance gameMusicInstance;
-
     private bool musicPlaying = false;
+    
+    //instructions
+    private Instructions instructions;
     //-------------------------------------------------------------------------------------------------///////////// ^
 
     public Game1()
@@ -138,6 +140,11 @@ public class Game1 : Game
             
             (width+200)/2 + 200,
             50);
+        
+        ////////////////////////////////////////------------------------------------------------////////////////////
+        // instrccutiosn screen
+        instructions = new Instructions(_font, width, height);
+        ////////////////////////////////////////------------------------------------------------////////////////////
         
         //Obstacles
         //paths.AddPath(new Rectangle(300, 500, 200, 50), PathType.Obstacle, obstacleTex);
@@ -260,16 +267,29 @@ public class Game1 : Game
         switch (_gameState)
         {
             case GameState.StartScreen:
+        ///////////////////////////////////////-----------------------------instructions & music----------------------------------////////////////
                 if (_startScreen.Clicked(mouse, _previousMouseState))
                 {
                     _gameState = GameState.Preview;
-                    ///////////////////////////////////////---------------------------------------------------------------///////////
-                    // i put this here cus it starts playing after play button click
                     MediaPlayer.Play(gameMusic);
-                    
-                    ///////////////////////////////////////---------------------------------------------------------------////////
+                }
+                else if (_startScreen.RulesClicked(mouse, _previousMouseState))
+                {
+                    _gameState = GameState.Instructions;
                 }
                 break;
+            
+            case GameState.Instructions:
+                if (mouse.LeftButton == ButtonState.Pressed && _previousMouseState.LeftButton == ButtonState.Released)
+                {
+                    _gameState = GameState.Preview;
+                    // i put this here cus it starts playing after play button click
+                    MediaPlayer.Play(gameMusic);
+                }
+
+                break;
+            ///////////////////////////////////////-----------------------------instructions & musci end ----------------------------------////////
+            
             case GameState.Preview:
                 _pathwayPan.Update(gameTime);
                 if (mouse.LeftButton == ButtonState.Pressed && _previousMouseState.LeftButton == ButtonState.Released)
@@ -318,6 +338,17 @@ public class Game1 : Game
                     new Rectangle(0, 0, _winScreenTex.Width, _winScreenTex.Height),
                     Color.White);
                 _startScreen.Draw(_spriteBatch, _pixelTex);
+                _spriteBatch.End();
+                break;
+            
+            case GameState.Instructions:
+                _spriteBatch.Begin();
+                _spriteBatch.Draw(
+                    _winScreenTex,
+                    new Rectangle(0, 0, width +200, height),
+                    new Rectangle(0, 0, _winScreenTex.Width, _winScreenTex.Height),
+                    Color.White);
+                instructions.Draw(_spriteBatch, _pixelTex);
                 _spriteBatch.End();
                 break;
             
