@@ -19,7 +19,7 @@ public class Instructions
 
         _okButton = new Rectangle(
             width / 2 + 50,
-            height / 2 + 50,
+            height / 2 + 200,
             100, 50);
     }
 
@@ -38,27 +38,27 @@ public class Instructions
         spriteBatch.DrawString(
             _font,
             Title,
-            new Vector2(_width/3f - titlesize.X +15f, _height / 2f -350f),
+            new Vector2(_width/3f - titlesize.X +70f, _height / 2f -350f),
             Color.Black,
             0f,
             Vector2.Zero,
-            5f,
+            4f,
             SpriteEffects.None,
             0f);
 
-        string instructions = "LMB + drag to take blocks from the side \n While holding a block, RMB to rotate \n " +
-                              "Collect coins to purchase more blocks \n" +
-                              "Press the top right to Pause or access Settings \n " +
-                              "Complete faster = higher score \n Keep the ball on the path!";
+        string instructions = "LMB + drag to take blocks from the side\n \n While holding block, RMB to rotate \n \n" +
+                              "Collect coins to purchase more blocks\n \n" +
+                              "Press the top right button to Pause or \n    access Settings\n \n" +
+                              "Complete faster = higher score\n \nKeep the ball on the path!";
         Vector2 textSize = _font.MeasureString(instructions);
         spriteBatch.DrawString(
             _font,
             instructions,
-            new Vector2(_width / 2f - textSize.X / 2f, _height / 2f - 200),
+            new Vector2(_width / 2.5f - textSize.X / 2.5f, _height / 2f - 200),
             Color.Black,
             0f,
             Vector2.Zero,
-            2.5f,
+            1.5f,
             SpriteEffects.None,
             0f);
 

@@ -9,6 +9,18 @@
   <component name="ChangeListManager">
     <list default="true" id="986e7494-61f5-4fcb-9df3-9976b943fb1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Instructions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Instructions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/ref/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/ref/Final Project.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/refint/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/refint/Final Project.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +58,7 @@
     <setting file="file://$PROJECT_DIR$/Blocks.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CoinManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Coins.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Instructions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PathTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PathwayPan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pause.cs" root0="FORCE_HIGHLIGHTING" />
@@ -65,28 +78,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.Final Project.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "xinlin2",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.Final Project.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;xinlin2&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Final Project" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -127,6 +140,8 @@
       <workItem from="1777152913699" duration="309000" />
       <workItem from="1777153243461" duration="777000" />
       <workItem from="1777167434277" duration="10564000" />
+      <workItem from="1777250348472" duration="4940000" />
+      <workItem from="1777327936070" duration="1367000" />
     </task>
     <task id="LOCAL-00001" summary="HAHAHA block collision works now">
       <option name="closed" value="true" />
