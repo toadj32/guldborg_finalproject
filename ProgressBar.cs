@@ -37,7 +37,7 @@ public class ProgressBar
         _barHeight  = barHeight;
     }
 
-    private float GetProgress()
+    public float GetProgress() // changed this to public so i can access in Ball
     {
         float distance = (_pathEnd - _pathStart);
         float progress = (_ball.Center().Y - _pathStart) / (distance);

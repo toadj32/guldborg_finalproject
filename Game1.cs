@@ -118,7 +118,7 @@ public class Game1 : Game
         
         //--------------------------------load sound-------------------------------------------------------------/////////
         Ball.ContentManager = Content;
-        //--------------------------------load sound-------------------------------------------------------------/////////
+        //--------------------------------load sound end-------------------------------------------------------------/////////
 
         _ball = new Ball(
             Content.Load<Texture2D>(
@@ -127,7 +127,7 @@ public class Game1 : Game
             ScrollRate,
             36,
             0.5f,
-            Content);    /////<<<<<<<<<<---------------------------- added Content paraemter----------///////////
+            Content);    //<<<<<<<<<<---------------------------- added Content paraemter----------///////////
         
         _startScreen = new StartScreen(_font, width + 200, height);
         _pathwayPan = new PathwayPan(4100f);
@@ -141,10 +141,10 @@ public class Game1 : Game
             (width+200)/2 + 200,
             50);
         
-        ////////////////////////////////////////------------------------------------------------////////////////////
+        ////////////////////////////////////////------------------------st------------------------////////////////////
         // instrccutiosn screen
         instructions = new Instructions(_font, width, height);
-        ////////////////////////////////////////------------------------------------------------////////////////////
+        ////////////////////////////////////////----------------------end--------------------------////////////////////
         
         //Obstacles
         //paths.AddPath(new Rectangle(300, 500, 200, 50), PathType.Obstacle, obstacleTex);
@@ -251,7 +251,7 @@ public class Game1 : Game
         gameMusicInstance = gameMusic.CreateInstance();
         gameMusicInstance.IsLooped = true;*/
         
-        //////////////////////////////////////////////------------------------------------------------//////////////////////// ^
+        //////////////////////////////////////////////---------------------end---------------------------//////////////////////// ^
     }
 
     protected override void Update(GameTime gameTime)
@@ -327,6 +327,12 @@ public class Game1 : Game
 
         // TODO: Add your drawing code here
         Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
+        
+////////////////////////////////////////////----------------------camera matrix-------------------------//////////////////////////////////        
+        Matrix cameraMatrix = Matrix.CreateTranslation(-cameraPosition.X, -cameraPosition.Y, 0);
+        
+        float progress = _progressBar.GetProgress(); // for sparkles
+////////////////////////////////////////////-----------------------end------------------------//////////////////////////////////
 
         switch (_gameState)
         {
@@ -364,17 +370,17 @@ public class Game1 : Game
                 paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
                 
                 //interactive components
-                _spriteBatch.Begin();
+                _spriteBatch.Begin(transformMatrix: cameraMatrix);
                 foreach (var block in _blocks)
                 {
-                    block.Draw(_spriteBatch, cameraPosition);
+                    block.Draw(_spriteBatch);////////////////////////////////////////////////////// changed///////////////////////////
                 }
                 _spriteBatch.End();
                 
                 _spriteBatch.Begin();  
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
                 _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 4400 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.Navy);
-                _ball.Draw(_spriteBatch, cameraPosition);
+                _ball.Draw(_spriteBatch, cameraPosition, progress); //////// added parameter /////////////////
                 _coins.Draw(_spriteBatch, cameraPosition);
                 _spriteBatch.DrawString(_font, $"Coins: {_coins.CoinCounter}", new Vector2(10, 10), Color.White);
                 _progressBar.Draw(_spriteBatch);
@@ -391,7 +397,7 @@ public class Game1 : Game
                 
                 _spriteBatch.Begin();  
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
-                _ball.Draw(_spriteBatch, cameraPosition);
+                _ball.Draw(_spriteBatch, cameraPosition, progress); //////// added parameter /////////////////
         
                 if (_ball.FellOff())
                 {
