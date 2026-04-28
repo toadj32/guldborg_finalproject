@@ -279,7 +279,8 @@ public class Game1 : Game
             new Vector2((width + 200) / 2f, height / 2f),
             ScrollRate,
             36,
-            0.5f);
+            0.5f,
+            Content);
         _progressBar = new ProgressBar(
             400f,
             4450f,

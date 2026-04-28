@@ -77,7 +77,7 @@ public class Blocks
             center, 
             0.2f, 
             SpriteEffects.None, 
-            0f);
+            2f);
     }
 
     public void BlockCollision(Ball ball)
