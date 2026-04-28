@@ -70,7 +70,7 @@ public class Blocks
     public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition, Vector2 mousePos)
     {   Vector2 center = new Vector2(blockTexture.Width / 2, blockTexture.Height / 2);
         spriteBatch.Draw(blockTexture,
-            blockPos - cameraPosition,
+            blockPos, // - cameraPosition,
             null,
             Color.White, 
             rotation, 

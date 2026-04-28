@@ -36,6 +36,7 @@ public class StartScreen
 
     public bool Clicked(MouseState mouse, MouseState previousMouse)
     {
+
         bool released = (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released);
         if (_rulesUp)
         {
@@ -52,9 +53,26 @@ public class StartScreen
         }
         if (_startButton.Contains(mouse.Position))
                 return true;
+
+        /*if (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
+            if (_startButton.Contains(mouse.Position))
+                return true; */
+
         return false;
     }
+    
+    
+    ///////////////////////////////////////-------------------------for instructions screen--------------------------------------///////////
+    public bool RulesClicked(MouseState mouse, MouseState previousMouse)
+    {
+        if (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
+            if (_rulesButton.Contains(mouse.Position))
+                return true; 
+        return false;
+    }
+    ///////////////////////////////////////---------------------------------------------------------------/////////// 
 
+    
     public void Draw(SpriteBatch spriteBatch, Texture2D texture)
     {
         if (_rulesUp)

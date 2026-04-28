@@ -2,6 +2,8 @@
 using System.Numerics;
 using System.Runtime.Intrinsics.X86;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
@@ -9,6 +11,12 @@ namespace Final_Project;
 
 public class Ball
 {
+    //--------------------------------load sound-------------------------------------------------------------/////////
+    public static ContentManager ContentManager { get; set; }
+    private SoundEffect ballHitSound;
+    //--------------------------------load sound-------------------------------------------------------------///////// ^
+
+    
     //changing the sprite for 
     private const int cols = 36;
     private const int rows = 18;
@@ -38,12 +46,31 @@ public class Ball
     
     public bool _fell;
     private bool _falling = false;
+    
+    ///////////////////////--------------------------------------animation hierarhcy-------------------------------/////////////////////////
+    private bool _changeBallLayer = false;
+    //---------
+    private Texture2D _sparkleTex;
+    private int _sparkleFrameWidth = 100;
+    private int _sparkleFrameHeight = 100;
+    private int _sparkleTotCols = 10;
+    private int _sparkleTotRows = 8;
+    private int _sparkleTotFrames = 80;
+    private int _sparkleFrame = 0;
+    private float _sparkleTimer = 0f;
+    private float _sparkleFrameDuration = 0.02f;
+
+    //private ProgressBar progress;
+    //////////////////////////------------------------------------------hierarhcy end------------------------------------///////////
+
+    
     public Ball(
         Texture2D ballTex,
         Vector2 position,
         float scrollSpeed,
         int frameNum,
-        float scale)
+        float scale,
+        ContentManager content) /////<<<<<<<<<<---------------------------- added Content paraemter----------///////////
     {
         _ballTex = ballTex;
         Position = position;
@@ -54,6 +81,15 @@ public class Ball
         _acc = new Vector2(0f, 10f);
 
         _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
+        
+        /////////--------------------------------load sound-------------------------------------------------------------/////////
+        //using var stream = TitleContainer.OpenStream("Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav"); ahwdhdakwhfkwajhf
+        //ballHitSound = SoundEffect.FromStream(stream);
+        //not using .wav
+        ballHitSound = content.Load<SoundEffect>("JDSherbert - Wooden UI SFX Pack - Confirm - 1");
+        _sparkleTex = content.Load<Texture2D>("sparkles");
+        ///////////--------------------------------load sound-------------------------------------------------------------///////// ^
+
         
     }
 
@@ -67,6 +103,18 @@ public class Ball
         //Hear me out, this was so dumb, but the collision just would not work afte rthe first hit
         PathTracker obstacle = paths.getObstacle(center, Radius);
         
+        
+    /////////////////////////////////////////////------------------------------------sparkle--------------////////////////////    
+        _sparkleTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        if (_sparkleTimer >= _sparkleFrameDuration)
+        {
+            _sparkleTimer = 0f;
+            _sparkleFrame = (_sparkleFrame + 1) % 80;
+            System.Diagnostics.Debug.WriteLine($"Sparkle frame: {_sparkleFrame}"); //debug
+        }
+    /////////////////////////////////////////////------------------------------------sparkle end--------------////////////////////    
+        
+    
         if (obstacle != null)
         {
             ObstacleCollision(obstacle);
@@ -79,6 +127,10 @@ public class Ball
                     return;
                 }
             }
+            /////////////////////-------------------------------sound--------------------------------------////////////
+            ballHitSound.Play();
+            
+            ////////////////////-------------------------------sound-------------------------------/////////   ^
         }
 
         ScrollSpeed += _acc.Y * dt;
@@ -93,6 +145,7 @@ public class Ball
         if (centerType == PathType.Hole && overlap < 0.5f)
         {
             // More than half the ball is off the path — start falling.
+            //_changeBallLayer = true; //////<<<<<<<<<<<<<<<<<<<<<<<<<<<--------experiemnting with layers-------///////////////////////////////////////
             Position.Y += ScrollSpeed * 0.7f * dt;
             Position += Velocity * 0.4f * dt;
             Scale -= 1.2f* FallSpeed * dt;
@@ -201,20 +254,92 @@ public class Ball
         row = (rows - 1 - (int)(rollFract * rows)) % rows;
         return new Rectangle(col*frameWidth, row*frameHeight, frameWidth, frameHeight);
     }
-
     
-    public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition)
+////////////////////////////////////-----------------------------animation hierarhcy------------------------------//////////////////////    
+    private void BlingBling(SpriteBatch spriteBatch, Vector2 cameraPosition)
+    {
+        int col = _sparkleFrame % _sparkleTotCols;
+        int row = _sparkleFrame / _sparkleTotCols;
+
+        Rectangle sourceRect = new Rectangle(
+            col * _sparkleFrameWidth,
+            row * _sparkleFrameHeight,
+            _sparkleFrameWidth,
+            _sparkleFrameHeight
+        );
+
+        Vector2 origin = new Vector2(_sparkleFrameWidth / 2f, _sparkleFrameHeight / 2f);
+        Vector2 drawPosition = Position - cameraPosition;
+
+        spriteBatch.Draw(_sparkleTex, drawPosition, sourceRect, Color.White, 0f, origin, 2f, SpriteEffects.None, 0f);
+    }
+    
+    /*private void DrawSparkle(SpriteBatch spriteBatch) --------------matrix version
+    {
+        int col = _sparkleFrame % _sparkleTotCols;
+        int row = _sparkleFrame / _sparkleTotCols;
+
+        Rectangle sourceRect = new Rectangle(
+            col * _sparkleFrameWidth,
+            row * _sparkleFrameHeight,
+            _sparkleFrameWidth,
+            _sparkleFrameHeight
+        );
+        Vector2 origin = new Vector2(_sparkleFrameWidth / 2f, _sparkleFrameHeight / 2f);
+        spriteBatch.Draw(_sparkleTex, Position, sourceRect, Color.White, 0f, origin, 1f, SpriteEffects.None, 0f);
+    
+    }*/
+///////////////////////////////////-----------------------------animation hierarhcy end------------------------------//////////////////    
+
+
+    public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition, float progress)  //////// added parameter /////////////////
     {
         float rotation = MathF.Atan2(Velocity.Y, Velocity.X);
         spriteBatch.Draw(
-                 _ballTex,
-                 Position - cameraPosition,
-                 _spriteFrame,
-                 Color.White,
-                 rotation, 
-                 new Vector2(50f, 50f),
-                 Scale,
-                 SpriteEffects.None,
-                 0f);
-         }
+            _ballTex,
+            Position - cameraPosition,
+            _spriteFrame,
+            Color.White,
+            rotation,
+            new Vector2(50f, 50f),
+            Scale,
+            SpriteEffects.None,
+            0f);
+        
+     /* if (_changeBallLayer) ------------------------------attempting layer hcange when ball falls
+        {
+            spriteBatch.Draw(
+                _ballTex,
+                Position - cameraPosition,
+                _spriteFrame,
+                Color.White,
+                rotation, 
+                new Vector2(50f, 50f),
+                Scale,
+                SpriteEffects.None,
+                -1f);
+        }
+        else
+        {
+            spriteBatch.Draw(
+                _ballTex,
+                Position - cameraPosition,
+                _spriteFrame,
+                Color.White,
+                rotation,
+                new Vector2(50f, 50f),
+                Scale,
+                SpriteEffects.None,
+                0f);
+        }*/
+
+        //////////////////////////////////-----------------------------animation hierarhcy------------------------------///////////////
+        //float progressss = progress.GetProgress();
+        if (progress > 0.85f)
+        {
+            BlingBling(spriteBatch, cameraPosition);
+        }
+        //////////////////////////////////-----------------------------animation hierarhcy end------------------------------///////////////
+        
+    }
 }

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace Final_Project;
 
@@ -9,7 +11,7 @@ public class Game1 : Game
 {
     PathTracker.PathBounds paths = new PathTracker.PathBounds();
     
-    public enum GameState{StartScreen, Preview, Playing, GameOver, GameWin}
+    public enum GameState{StartScreen, Instructions, Preview, Playing, GameOver, GameWin}
     
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
@@ -56,6 +58,17 @@ public class Game1 : Game
     //restart button
     private Rectangle _restartButton;
     private bool _restartButtonAppears = false;
+    //-------------------------------------------------------------------------------------------------/////////////
+    //musica
+    private Song introMusic;
+    private SoundEffectInstance introMusicInstance;
+    private Song gameMusic;
+    private SoundEffectInstance gameMusicInstance;
+    private bool musicPlaying = false;
+    
+    //instructions
+    private Instructions instructions;
+    //-------------------------------------------------------------------------------------------------///////////// ^
 
     public Game1()
     {
@@ -118,13 +131,19 @@ public class Game1 : Game
             10,
             width);
         
+        
+        //--------------------------------load sound-------------------------------------------------------------/////////
+        Ball.ContentManager = Content;
+        //--------------------------------load sound end-------------------------------------------------------------/////////
+
         _ball = new Ball(
             Content.Load<Texture2D>(
                 "team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f"),
             new Vector2((width+200)/2f, height/2f),
             ScrollRate,
             36,
-            0.5f);
+            0.5f,
+            Content);    //<<<<<<<<<<---------------------------- added Content paraemter----------///////////
         _startScreen = new StartScreen(_font, width + 200, height, _pixelTex);
         _pathwayPan = new PathwayPan(4100f);
         _progressBar = new ProgressBar(
@@ -136,6 +155,11 @@ public class Game1 : Game
             
             (width+200)/2 -200,
             50);
+        
+        ////////////////////////////////////////------------------------st------------------------////////////////////
+        // instrccutiosn screen
+        instructions = new Instructions(_font, width, height);
+        ////////////////////////////////////////----------------------end--------------------------////////////////////
         
         //Obstacles
         //paths.AddPath(new Rectangle(300, 500, 200, 50), PathType.Obstacle, obstacleTex);
@@ -222,6 +246,27 @@ public class Game1 : Game
         
         //path
         paths.AddPath(new Rectangle(100, 0, 450, 4500), PathType.Path);
+        
+        
+        //////////////////////////////////////////----------------more sound---------------------------//////////////////////
+        introMusic = Content.Load<Song>("mountainkingforintro");
+        gameMusic = Content.Load<Song>("mountainkingforgameplay");
+        //loop
+        MediaPlayer.IsRepeating = true;
+
+        if (!musicPlaying) //start game with intro playing 
+        {
+            musicPlaying = true;
+            MediaPlayer.Play(introMusic); 
+        }
+        
+        /*
+        introMusicInstance = introMusic.CreateInstance();
+        introMusicInstance.IsLooped = true;
+        gameMusicInstance = gameMusic.CreateInstance();
+        gameMusicInstance.IsLooped = true;*/
+        
+        //////////////////////////////////////////////---------------------end---------------------------//////////////////////// ^
     }
     
     private void Restart()
@@ -261,9 +306,29 @@ public class Game1 : Game
         switch (_gameState)
         {
             case GameState.StartScreen:
+        ///////////////////////////////////////-----------------------------instructions & music----------------------------------////////////////
                 if (_startScreen.Clicked(mouse, _previousMouseState))
+                {
                     _gameState = GameState.Preview;
+                    MediaPlayer.Play(gameMusic);
+                }
+                else if (_startScreen.RulesClicked(mouse, _previousMouseState))
+                {
+                    _gameState = GameState.Instructions;
+                }
                 break;
+            
+            case GameState.Instructions:
+                if (mouse.LeftButton == ButtonState.Pressed && _previousMouseState.LeftButton == ButtonState.Released)
+                {
+                    _gameState = GameState.Preview;
+                    // i put this here cus it starts playing after play button click
+                    MediaPlayer.Play(gameMusic);
+                }
+
+                break;
+            ///////////////////////////////////////-----------------------------instructions & musci end ----------------------------------////////
+            
             case GameState.Preview:
                 _pathwayPan.Update(gameTime);
                 if (mouse.LeftButton == ButtonState.Pressed && _previousMouseState.LeftButton == ButtonState.Released)
@@ -310,6 +375,12 @@ public class Game1 : Game
 
         // TODO: Add your drawing code here
         Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
+        
+////////////////////////////////////////////----------------------camera matrix-------------------------//////////////////////////////////        
+        Matrix cameraMatrix = Matrix.CreateTranslation(-cameraPosition.X, -cameraPosition.Y, 0);
+        
+        float progress = _progressBar.GetProgress(); // for sparkles
+////////////////////////////////////////////-----------------------end------------------------//////////////////////////////////
 
         switch (_gameState)
         {
@@ -321,6 +392,17 @@ public class Game1 : Game
                     new Rectangle(0, 0, _winScreenTex.Width, _winScreenTex.Height),
                     Color.White);
                 _startScreen.Draw(_spriteBatch, _winScreenTex);
+                _spriteBatch.End();
+                break;
+            
+            case GameState.Instructions:
+                _spriteBatch.Begin();
+                _spriteBatch.Draw(
+                    _winScreenTex,
+                    new Rectangle(0, 0, width +200, height),
+                    new Rectangle(0, 0, _winScreenTex.Width, _winScreenTex.Height),
+                    Color.White);
+                instructions.Draw(_spriteBatch, _pixelTex);
                 _spriteBatch.End();
                 break;
             
@@ -336,7 +418,7 @@ public class Game1 : Game
                 paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
                 
                 //interactive components
-                _spriteBatch.Begin();
+                _spriteBatch.Begin(transformMatrix: cameraMatrix);
                 foreach (var block in _blocks)
                 {
                     block.Draw(_spriteBatch, cameraPosition, _mousePos);
@@ -346,7 +428,7 @@ public class Game1 : Game
                 _spriteBatch.Begin(); 
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
                 _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 4400 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.Navy);
-                _ball.Draw(_spriteBatch, cameraPosition);
+                _ball.Draw(_spriteBatch, cameraPosition, progress); //////// added parameter /////////////////
                 _coins.Draw(_spriteBatch, cameraPosition);
                 _spriteBatch.DrawString(_font, $"Coins: {_coins.CoinCounter}", new Vector2(10, 10), Color.White);
                 
@@ -367,7 +449,7 @@ public class Game1 : Game
                 
                 _spriteBatch.Begin();  
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
-                _ball.Draw(_spriteBatch, cameraPosition);
+                _ball.Draw(_spriteBatch, cameraPosition, progress); //////// added parameter /////////////////
         
                 if (_ball.FellOff())
                 {

@@ -80,6 +80,24 @@
 /processorParam:TextureFormat=Color
 /build:full spring.png
 
+#begin JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav
+
+#begin mountainkingforgameplay.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:mountainkingforgameplay.mp3
+
+#begin mountainkingforintro.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:mountainkingforintro.mp3
+
 #begin pause.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -127,6 +145,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:settings.PNG
+
+#begin sparkles.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sparkles.png
 
 #begin wood-texture-close.jpg
 /importer:TextureImporter

@@ -4,19 +4,27 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/Adobe Express - file.jpg</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/ball.png</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/blocksquare.png</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/Courier New.spritefont</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/exit.PNG</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/full spring.png</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/pause.PNG</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/pauseButton.png</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/resume.PNG</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/settings.PNG</File>
-    <File>C:/Users/victo/RiderProjects/Final Project/Content/wood-texture-close.jpg</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/Adobe Express - file.jpg</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/ball.png</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/blocksquare.png</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/Courier New.spritefont</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/exit.PNG</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/full spring.png</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/mountainkingforgameplay.mp3</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/mountainkingforintro.mp3</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/pause.PNG</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/pauseButton.png</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/resume.PNG</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/settings.PNG</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/sparkles.png</File>
+    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/wood-texture-close.jpg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

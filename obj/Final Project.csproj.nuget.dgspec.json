@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\victo\\RiderProjects\\Final Project\\Final Project.csproj": {}
+    "C:\\Users\\xinli\\Desktop\\UT\\2026_Spring\\CS324E_Comp_Graphics\\Final_Project\\guldborg_finalproject_repo2\\Final Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\victo\\RiderProjects\\Final Project\\Final Project.csproj": {
+    "C:\\Users\\xinli\\Desktop\\UT\\2026_Spring\\CS324E_Comp_Graphics\\Final_Project\\guldborg_finalproject_repo2\\Final Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\RiderProjects\\Final Project\\Final Project.csproj",
+        "projectUniqueName": "C:\\Users\\xinli\\Desktop\\UT\\2026_Spring\\CS324E_Comp_Graphics\\Final_Project\\guldborg_finalproject_repo2\\Final Project.csproj",
         "projectName": "Final Project",
-        "projectPath": "C:\\Users\\victo\\RiderProjects\\Final Project\\Final Project.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\RiderProjects\\Final Project\\obj\\",
+        "projectPath": "C:\\Users\\xinli\\Desktop\\UT\\2026_Spring\\CS324E_Comp_Graphics\\Final_Project\\guldborg_finalproject_repo2\\Final Project.csproj",
+        "packagesPath": "C:\\Users\\xinli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\xinli\\Desktop\\UT\\2026_Spring\\CS324E_Comp_Graphics\\Final_Project\\guldborg_finalproject_repo2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\xinli\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
