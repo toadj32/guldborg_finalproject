@@ -13,7 +13,7 @@ public class CoinManager
     public float _interval = 2f;
     private Random _rand = new Random();
     private int _screenHeight;
-    public int CoinCounter = 0;
+    public int CoinCounter = 200;
 
     public CoinManager(Texture2D coinTex, int screenHeight)
     {

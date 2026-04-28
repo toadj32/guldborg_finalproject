@@ -93,9 +93,9 @@ public class Ball
         if (centerType == PathType.Hole && overlap < 0.5f)
         {
             // More than half the ball is off the path — start falling.
-            Position.Y += ScrollSpeed * 0.3f * dt;
-            Position += Velocity * 0.6f * dt;
-            Scale -= FallSpeed * dt;
+            Position.Y += ScrollSpeed * 0.7f * dt;
+            Position += Velocity * 0.4f * dt;
+            Scale -= 1.2f* FallSpeed * dt;
             if (Scale < smallestScale)
             {
                 Scale = smallestScale;
@@ -178,7 +178,7 @@ public class Ball
     {
         get
         {
-            return (48f * Scale) / 2f;
+            return (46f * Scale) / 2f;
         }
     }
     

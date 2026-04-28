@@ -10,7 +10,7 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 public class Blocks
 {
     public bool isInteracting = false; // if block is being moved
-    private Texture2D blockTexture;
+    public Texture2D blockTexture;
     public Vector2 blockPos;
     public float rotation = 0f;
     private Vector2 dragOffset;
@@ -26,8 +26,8 @@ public class Blocks
             //bool isVertical = ((int)MathHelper.ToDegrees(rotation) / 90) % 2 != 0; // check orientaiton
             int rotSteps = (int)MathHelper.ToDegrees(rotation) / 90; 
             bool isVertical = (rotSteps % 2) != 0; // check orientaiton
-            float w = isVertical ? blockTexture.Height : blockTexture.Width *0.2f;
-            float h = isVertical ? blockTexture.Width : blockTexture.Height *0.2f;
+            float w = isVertical ? blockTexture.Height*0.2f : blockTexture.Width *0.2f;
+            float h = isVertical ? blockTexture.Width*0.2f : blockTexture.Height *0.2f;
             
             Rectangle hitbox = new Rectangle((int)(blockPos.X - w/2), (int)(blockPos.Y - h/2), (int)(w*1.25), (int)(h*1.25));
             return hitbox;
@@ -35,9 +35,8 @@ public class Blocks
 
     
     // mouse/ interaction logic
-    public bool MousePokeBlock(MouseState mouse, MouseState prevMouse, Vector2 cameraPosition)
+    public bool MousePokeBlock(MouseState mouse, MouseState prevMouse, Vector2 mousePos)
     {
-        Vector2 mousePos = new Vector2(mouse.X, mouse.Y) + cameraPosition;
         //lmb was just pressed/ being held down/ let go
         bool lmbJustDown = mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released;
         bool lmbStillDown = mouse.LeftButton == ButtonState.Pressed;
@@ -68,9 +67,8 @@ public class Blocks
 
     }
 
-    public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition)
-    {
-        Vector2 center = new Vector2(blockTexture.Width / 2, blockTexture.Height / 2);
+    public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition, Vector2 mousePos)
+    {   Vector2 center = new Vector2(blockTexture.Width / 2, blockTexture.Height / 2);
         spriteBatch.Draw(blockTexture,
             blockPos - cameraPosition,
             null,
@@ -80,7 +78,6 @@ public class Blocks
             0.2f, 
             SpriteEffects.None, 
             0f);
-        
     }
 
     public void BlockCollision(Ball ball)

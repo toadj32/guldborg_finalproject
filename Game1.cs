@@ -31,6 +31,9 @@ public class Game1 : Game
     //GUI
     private SpriteFont _font;
     
+    //SideBar
+    private Sidebar _sidebar;
+    
     //Game State
     private GameState _gameState = GameState.StartScreen;
     private StartScreen _startScreen;
@@ -41,6 +44,7 @@ public class Game1 : Game
     private Texture2D _coinTex;
 
     private MouseState _previousMouseState;
+    private MouseState mouse =  Mouse.GetState();
     
     //interactive components
     private List<Blocks> _blocks = new List<Blocks>();
@@ -48,6 +52,10 @@ public class Game1 : Game
     //pause Screen
     private Pause _pauseScreen;
     private Vector2 _mousePos;
+    
+    //restart button
+    private Rectangle _restartButton;
+    private bool _restartButtonAppears = false;
 
     public Game1()
     {
@@ -81,6 +89,15 @@ public class Game1 : Game
         Texture2D settings = Content.Load<Texture2D>("settings");
         _pauseScreen = new Pause(pause, pauseScreen, exit, resume, settings, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
         
+        //restart button 
+        int _restartButtonWidth = 150;
+        int _restartButtonHeight = 75;
+        _restartButton = new Rectangle(
+            (width + 200) / 2 - _restartButtonWidth / 2,
+            height / 2 + 60,
+            _restartButtonWidth,
+            _restartButtonHeight);
+        
         obstacleTex = Content.Load<Texture2D>("wood-texture-close");
         Texture2D _blackPixel = new Texture2D(GraphicsDevice, 1, 1);
         _blackPixel.SetData(new[] { Color.Black});
@@ -92,7 +109,7 @@ public class Game1 : Game
         _winScreenTex = Content.Load<Texture2D>("paper");
 
         blockTexture = Content.Load<Texture2D>("blocksquare");
-        _blocks.Add(new Blocks(blockTexture, new Vector2(600, 300)));
+        _sidebar = new Sidebar(_pixelTex, width + 200, height, _font, blockTexture);
         
         _coins = new CoinManager(_coinTex, height);
         
@@ -108,7 +125,7 @@ public class Game1 : Game
             ScrollRate,
             36,
             0.5f);
-        _startScreen = new StartScreen(_font, width + 200, height);
+        _startScreen = new StartScreen(_font, width + 200, height, _pixelTex);
         _pathwayPan = new PathwayPan(4100f);
         _progressBar = new ProgressBar(
             400f,
@@ -117,7 +134,7 @@ public class Game1 : Game
             _font,
             _pixelTex,
             
-            (width+200)/2 + 200,
+            (width+200)/2 -200,
             50);
         
         //Obstacles
@@ -133,7 +150,7 @@ public class Game1 : Game
                  new Vector2(400, 850),
                  new Vector2(400, 800)}
              );
-             paths.AddPath(new Rectangle(100, 850, 50, 120), PathType.Obstacle, obstacleTex);
+        
          paths.AddPath(new Rectangle(450, 10002, 100, 50), PathType.Obstacle, obstacleTex);
          paths.AddPath(new Rectangle(400, 1400, 20, 120), PathType.Obstacle, obstacleTex);
          paths.AddPath(new Rectangle(200, 1700, 300, 90), PathType.Obstacle, obstacleTex);
@@ -206,16 +223,40 @@ public class Game1 : Game
         //path
         paths.AddPath(new Rectangle(100, 0, 450, 4500), PathType.Path);
     }
+    
+    private void Restart()
+    {
+        
+        _coins = new CoinManager(_coinTex, height);
+        _sidebar.Blocks.Clear();
+        _ball = new Ball(
+            Content.Load<Texture2D>("team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f"),
+            new Vector2((width + 200) / 2f, height / 2f),
+            ScrollRate,
+            36,
+            0.5f);
+        _progressBar = new ProgressBar(
+            400f,
+            4450f,
+            _ball,
+            _font,
+            _pixelTex,
+            (width + 200) / 2 + 200,
+            50);
+        
+        _restartButtonAppears = false;
+        _gameState = GameState.Playing;
+    }
 
     protected override void Update(GameTime gameTime)
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-        
-        MouseState mouse = Mouse.GetState();
-        _mousePos = new Vector2(mouse.X, mouse.Y);
+        mouse = Mouse.GetState();
         Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
+        _mousePos = new Vector2(mouse.X, mouse.Y);
+        Vector2 worldMouse = _mousePos + cameraPosition;
 
         switch (_gameState)
         {
@@ -236,9 +277,9 @@ public class Game1 : Game
                 _pauseScreen.Update(gameTime, _mousePos, mouse, _ball, this, _coins);
                 
                 //interactive components
-                foreach (var block in _blocks)
+                _sidebar.Update(gameTime, mouse, _previousMouseState, cameraPosition, _coins);
+                foreach (var block in _sidebar.Blocks)
                 {
-                    block.MousePokeBlock(mouse, _previousMouseState, cameraPosition);
                     block.BlockCollision(_ball);
                 }
                 
@@ -246,6 +287,15 @@ public class Game1 : Game
                     _gameState = GameState.GameWin;
                 else if (_ball.FellOff())
                     _gameState = GameState.GameOver;
+                break;
+            case GameState.GameOver:
+                _restartButtonAppears = true;
+                if (mouse.LeftButton == ButtonState.Released && _previousMouseState.LeftButton == ButtonState.Pressed &&
+                    _restartButton.Contains(mouse.Position))
+                {
+                    Restart();
+                }
+
                 break;
         }
         
@@ -270,7 +320,7 @@ public class Game1 : Game
                     new Rectangle(0, 0, width +200, height),
                     new Rectangle(0, 0, _winScreenTex.Width, _winScreenTex.Height),
                     Color.White);
-                _startScreen.Draw(_spriteBatch, _pixelTex);
+                _startScreen.Draw(_spriteBatch, _winScreenTex);
                 _spriteBatch.End();
                 break;
             
@@ -289,16 +339,20 @@ public class Game1 : Game
                 _spriteBatch.Begin();
                 foreach (var block in _blocks)
                 {
-                    block.Draw(_spriteBatch, cameraPosition);
+                    block.Draw(_spriteBatch, cameraPosition, _mousePos);
                 }
                 _spriteBatch.End();
                 
-                _spriteBatch.Begin();  
+                _spriteBatch.Begin(); 
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
                 _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 4400 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.Navy);
                 _ball.Draw(_spriteBatch, cameraPosition);
                 _coins.Draw(_spriteBatch, cameraPosition);
                 _spriteBatch.DrawString(_font, $"Coins: {_coins.CoinCounter}", new Vector2(10, 10), Color.White);
+                
+                //sidebar
+                _sidebar.Draw(_spriteBatch, cameraPosition, mouse);
+                
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
                 
@@ -321,9 +375,19 @@ public class Game1 : Game
                     Vector2 size = 4*_font.MeasureString(losingMessage);
                     Vector2 origin = new Vector2((width + 200) / 2f - size.X / 8f, height / 2f - size.Y/2f);
                     _spriteBatch.DrawString(_font, losingMessage, origin, Color.White);
+
+                    //restart button
+                    _spriteBatch.Draw(_pixelTex, _restartButton, Color.DarkRed);
+                    string restartText = "RESTART";
+                    Vector2 Size = 1.5f*_font.MeasureString(restartText);
+                    Vector2 textPos = new Vector2(
+                        _restartButton.X + _restartButton.Width / 2f - Size.X / 2f,
+                        _restartButton.Y + _restartButton.Height / 2f - Size.Y / 2f);
+                    _spriteBatch.DrawString(_font, restartText, textPos, Color.White, 0f, Vector2.Zero, 1.5f,
+                        SpriteEffects.None, 0f);
+
                 }
                 _spriteBatch.End();
-                
                 paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
                 
                 break;
