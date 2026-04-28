@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Timers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -18,6 +19,8 @@ public class Sidebar
     private SidebarItem _draggedItem = null;
     private Vector2 _dragScreenPos;  
     private bool _isDragging = false;
+
+    //private float dragTimer = 0f; // tryign to make block remain existing when let go of but not interactable
 
     public Sidebar(Texture2D itemTex, int screenWidth, int screenHeight, SpriteFont font, Texture2D blockTex)
     {
@@ -51,6 +54,9 @@ public class Sidebar
                 {
                     _isDragging = true;
                     _draggedItem = item;
+                    
+                    //dragTimer = (float)gameTime.ElapsedGameTime.TotalSeconds; // tryign to make block remain existing when let go of but not interactable
+                    
                     break;
                 }
             }
@@ -95,12 +101,6 @@ public class Sidebar
         foreach (var item in _items)
         {
             item.Draw(spriteBatch, true);
-        }
-        
-        Vector2 mousePos = new Vector2(mouse.X, mouse.Y);
-        foreach (var block in Blocks)
-        {
-            block.Draw(spriteBatch, cameraPosition, mousePos);
         }
         
         if (_isDragging && _draggedItem != null)
@@ -148,7 +148,7 @@ public class Sidebar
 
         public void Draw(SpriteBatch spriteBatch, bool gotMoney)
         {
-            Color slotBg = gotMoney ? new Color(40, 40, 40, 200) : new Color(20, 20, 20, 150);
+            Color slotBg = gotMoney ? new Color(40, 40, 40, 200) : new Color(20, 20, 20, 150); //YA GOT MONEY????
             float scale = Math.Min(
                 (ItemSlot.Width - 10f) / ItemTex.Width,
                 (ItemSlot.Height - 20f) / ItemTex.Height);
@@ -173,7 +173,7 @@ public class Sidebar
                 ItemSlot.X + ItemSlot.Width / 2f - textSize.X / 2f,
                 ItemSlot.Bottom - textSize.Y - 2f);
             spriteBatch.DrawString(
-                _font, price, textPos, //if you poor, it grays out
+                _font, price, textPos, //if you poor, it grays out   // damn
                 gotMoney ? Color.Yellow : Color.Black);
         }
     }

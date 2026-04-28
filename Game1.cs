@@ -49,7 +49,7 @@ public class Game1 : Game
     private MouseState mouse =  Mouse.GetState();
     
     //interactive components
-    private List<Blocks> _blocks = new List<Blocks>();
+    //private List<Blocks> _blocks = new List<Blocks>();
 
     //pause Screen
     private Pause _pauseScreen;
@@ -420,7 +420,11 @@ public class Game1 : Game
                 
                 //interactive components
                 _spriteBatch.Begin(transformMatrix: cameraMatrix);
-                foreach (var block in _blocks)
+                /*foreach (var block in _blocks)
+                {
+                    block.Draw(_spriteBatch, cameraPosition, _mousePos);
+                }*/
+                foreach (var block in _sidebar.Blocks)
                 {
                     block.Draw(_spriteBatch, cameraPosition, _mousePos);
                 }
