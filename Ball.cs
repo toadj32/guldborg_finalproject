@@ -157,6 +157,7 @@ public class Ball
      
         if (centerType == PathType.Hole && overlap < 0.5f)
         {
+            _falling = true;
             // More than half the ball is off the path — start falling.
             //_changeBallLayer = true; //////<<<<<<<<<<<<<<<<<<<<<<<<<<<--------experiemnting with layers-------///////////////////////////////////////
             Position.Y += ScrollSpeed * 0.7f * dt;
@@ -169,7 +170,22 @@ public class Ball
             }
             return;
         }
-        Position.Y += ScrollSpeed * dt;
+
+        if (!_falling)
+        {
+            Position.Y += ScrollSpeed * dt;
+        }
+        else
+        {
+            Position.Y += ScrollSpeed * 0.7f * dt;
+            Position += Velocity * 0.4f * dt;
+            Scale -= 1.2f* FallSpeed * dt;
+            if (Scale < smallestScale)
+            {
+                Scale = smallestScale;
+                _fell = true;
+            }
+        }
     }
     
 

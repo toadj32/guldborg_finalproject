@@ -76,7 +76,9 @@ public class Sidebar
                     //ugh include offset
                     Vector2 worldPos = mouseScreenPos + cameraPosition;
                     coins.CoinCounter -= (int)_draggedItem.Price;
-                    Blocks.Add(new Blocks(_draggedItem.ItemTex, worldPos));
+                    var newBlock = new Blocks(_draggedItem.ItemTex, worldPos);
+                    newBlock.isPlaced = true;
+                    Blocks.Add(newBlock);
                 }
 
                 //when u not dragging anymore
@@ -88,7 +90,10 @@ public class Sidebar
         Vector2 worldMouse = mouseScreenPos + cameraPosition;
         foreach (var block in Blocks)
         {
-            block.MousePokeBlock(mouse, prevMouse, worldMouse);
+            if (!block.isPlaced)
+            {
+                block.MousePokeBlock(mouse, prevMouse, worldMouse);
+            }
         }
     }
 

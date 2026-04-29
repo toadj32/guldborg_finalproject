@@ -12,6 +12,7 @@ public class Blocks
     public bool isInteracting = false; // if block is being moved
     public Texture2D blockTexture;
     public Vector2 blockPos;
+    public bool isPlaced { get; set; } = false;
     public float rotation = 0f;
     private Vector2 dragOffset;
     
@@ -37,6 +38,13 @@ public class Blocks
     // mouse/ interaction logic
     public bool MousePokeBlock(MouseState mouse, MouseState prevMouse, Vector2 mousePos)
     {
+        // if block is placed, you can't use it again har har
+        if (isPlaced)
+        {
+            isInteracting = false;
+            return isInteracting;
+        }
+        
         //lmb was just pressed/ being held down/ let go
         bool lmbJustDown = mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released;
         bool lmbStillDown = mouse.LeftButton == ButtonState.Pressed;
@@ -44,13 +52,13 @@ public class Blocks
         //for rotation
         
         //detect drag
-        if (lmbJustDown && Hitbox().Contains(mousePos.ToPoint()))
+        if (lmbJustDown && Hitbox().Contains(mousePos.ToPoint()) && !isPlaced)
         {
             isInteracting = true;
             dragOffset = mousePos - blockPos;
             //return true;
         }
-        if (lmbStillDown && isInteracting) // beign dragged
+        if (lmbStillDown && isInteracting && !isPlaced) // beign dragged
         {
             blockPos = mousePos-dragOffset;
             return true;
@@ -59,6 +67,8 @@ public class Blocks
         if (lmbJustReleased && isInteracting)
         {
             isInteracting = false;
+            isPlaced = true;
+            return false;
             // add decrease size to make it look like its falling
             //return false;
         }
