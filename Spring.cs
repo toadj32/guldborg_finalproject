@@ -7,9 +7,6 @@ namespace Final_Project;
 
 public class Spring
 {
-    /*public enum SpringState{NoCollision, Colliding, PostCollision}
-
-    private SpringState _state;*/
     private Texture2D _spring;
     private Vector2 _pos;
     public bool isPlaced { get; set; } = false;
