@@ -8,19 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="986e7494-61f5-4fcb-9df3-9976b943fb1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Spring.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final Project.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Final Project.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HighScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HighScore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sidebar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sidebar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Spring.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/highscore.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/highscore.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" afterDir="false" />

@@ -19,7 +19,7 @@ public class Spring
     private float _k = 5f;
     public bool vertical; // randomly generated in sidebar. false = horizontal spring.
     private float _fb; // force from ball
-    private float _b = 0.90f; // damping
+    private float _b = 0.7f; // damping
     private float _eqL; // resting length of each segment
     private int _segNum = 6;
     private Rectangle _sourceRect;
@@ -28,6 +28,11 @@ public class Spring
     private float[] _vel;
     private float _overallScale = 0.14f;
     private bool _activated = false;
+    private int _collisionDir = 0;
+    // 1- top
+    // 2 - bottom
+    // 3 - left
+    // 4 - right
     
     public Spring(Texture2D spr, bool vert)
     {
@@ -57,29 +62,29 @@ public class Spring
         {
             // return top and bottom box
             Rectangle topBox = new Rectangle(
-                (int)_pos.X,
-                (int)_pos.Y,
-                (int)(_spring.Width * _overallScale),
+                (int)_pos.X - 5,
+                (int)_pos.Y - 5,
+                (int)(_spring.Width * _overallScale + 10),
                 (int)(_spring.Height*0.25f * _overallScale));
             Rectangle bottomBox = new Rectangle(
-                (int)_pos.X,
-                (int)(_pos.Y + (_spring.Height*0.5f * _overallScale)),
+                (int)_pos.X - 5,
+                (int)(_pos.Y + (_spring.Height*0.5f * _overallScale) -5),
                 (int)(_spring.Width * _overallScale),
-                (int)(_spring.Height*0.25f * _overallScale));
+                (int)(_spring.Height*0.25f * _overallScale) + 10);
             return [topBox, bottomBox];
         }
         else
         { // return left and right box
             Rectangle leftBox = new Rectangle(
-                (int)_pos.X,
-                (int)_pos.Y,
+                (int)_pos.X - 5,
+                (int)_pos.Y - 5,
                 (int)(_spring.Width * _overallScale * 0.25f),
-                (int)(_spring.Height * _overallScale));
+                (int)(_spring.Height * _overallScale) + 10);
             Rectangle rightBox = new Rectangle(
-                (int)(_pos.X + (_spring.Width*0.5f * _overallScale)),
-                (int)_pos.Y,
+                (int)(_pos.X + (_spring.Width*0.5f * _overallScale) - 5),
+                (int)_pos.Y - 5,
                 (int)(_spring.Width * _overallScale * 0.25f),
-                (int)(_spring.Height * _overallScale));
+                (int)(_spring.Height * _overallScale) + 10);
             return [leftBox, rightBox];
         }
     }
@@ -175,8 +180,8 @@ public class Spring
         {
             if (tipBox.Intersects(ballRect))
             {
-                _activated = true;
                 tipHit = true;
+                _activated = true;
                 Vector2 tip = _nodes[_segNum];
                 float compression = ball.Radius + 5f;
                 
@@ -184,13 +189,16 @@ public class Spring
                 {
                     if (tipBox.Y == (int)_pos.Y) // if top hit box
                     {
-                        ball.Position.Y = tipBox.Y - ball.Radius * 2f - 1f;
-                        ball.Velocity.Y = -Math.Abs(ball.Velocity.Y) - compression * 3f;
+                        _collisionDir = 1;
+                        ball.Position.Y = tipBox.Y - ball.Radius * 1.5f - 1f;
+                        ball.Velocity.Y = -Math.Abs(ball.Velocity.Y) - compression * 2f;
                         ball.ScrollSpeed = 0f;
                         _vel[0] += compression * 2f;
+                        break;
                     }
                     else // if bottom hit box, push ball downward
                     {
+                        _collisionDir = 2;
                         Vector2 pushDir = ball.Center() - _nodes[0];
                         if (pushDir != Vector2.Zero) 
                             pushDir.Normalize();
@@ -198,19 +206,22 @@ public class Spring
                         ball.Velocity += pushDir * compression * 3f;
                         ball.ScrollSpeed *= 0.7f;
                         _vel[_segNum] -= compression * 2f;
-                        
+                        break;
                     }
                 }
                 else
                 { // horizontal springgg
                     if (tipBox.X == (int)_pos.X)
                     { // left box
+                        _collisionDir = 3;
                         ball.Position.X = tipBox.X - ball.Radius * 2f - 1f;
                         ball.Velocity.X = -Math.Abs(ball.Velocity.X) - compression * 3f;
                         _vel[1] += compression * 2f;
+                        break;
                     }
                     else
-                    { // right boz
+                    { // right box
+                        _collisionDir = 4;
                         Vector2 pushDir = ball.Center() - _nodes[0];
                         if (pushDir != Vector2.Zero) 
                             pushDir.Normalize();
@@ -219,7 +230,6 @@ public class Spring
                         _vel[_segNum] -= compression * 2f;
                     }
                 }
-                
                 break;
             }
 
@@ -249,7 +259,12 @@ public class Spring
 
     private void NodePhysics(float dt)
     {
-        for (int i = 1; i <= _segNum; i++)
+        bool reverseLoop = (_collisionDir == 2 || _collisionDir == 4);
+        int start = reverseLoop ? _segNum : 1;
+        int end = reverseLoop ? 1 : _segNum;
+        int step = reverseLoop ? -1 : 1;
+
+        for (int i = start; reverseLoop ? i >= end : i <= end; i += step)
         {
             float distAbove = vertical
                 ? _nodes[i].Y - _nodes[i - 1].Y
@@ -261,29 +276,24 @@ public class Spring
 
             float force = -_k * (distAbove - _eqL) + _k * (distBelow - _eqL);
             float nodeMass = 0.5f / _segNum;
-            _vel[i] += (force / (nodeMass)) * dt;
+            _vel[i] += (force / nodeMass) * dt;
             _vel[i] *= _b;
-            if (Math.Abs(_vel[i]) < 0.01f) 
-                _vel[i] = 0f;
+            if (Math.Abs(_vel[i]) < 0.01f) _vel[i] = 0f;
 
             if (vertical) _nodes[i].Y += _vel[i] * dt;
             else _nodes[i].X += _vel[i] * dt;
 
-            // prevent segments overlapping
-            float minPos = vertical 
-                ? _nodes[i - 1].Y + 0.5f 
-                : _nodes[i - 1].X + 0.5f;
-            if (vertical && _nodes[i].Y < minPos)
-            {
-                _nodes[i].Y = minPos; if (_vel[i] < 0) _vel[i] = 0;
-            }
-
-            if (!vertical && _nodes[i].X < minPos)
-            {
-                _nodes[i].X = minPos; if (_vel[i] < 0) _vel[i] = 0;
-            }
+            float minPos = vertical ? _nodes[i - 1].Y + 0.5f : _nodes[i - 1].X + 0.5f;
+            if (vertical && _nodes[i].Y < minPos) { _nodes[i].Y = minPos; if (_vel[i] < 0) _vel[i] = 0; }
+            if (!vertical && _nodes[i].X < minPos) { _nodes[i].X = minPos; if (_vel[i] < 0) _vel[i] = 0; }
         }
+
+        bool settled = true;
+        for (int i = 1; i <= _segNum; i++)
+            if (_vel[i] != 0f) { settled = false; break; }
+        if (settled) _collisionDir = 0;
     }
+    
     public void Draw(SpriteBatch spriteBatch)
     {
         int sliceSize = _spring.Height / _segNum;
