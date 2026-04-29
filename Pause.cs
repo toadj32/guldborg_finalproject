@@ -61,8 +61,9 @@ public class Pause
     
     private MouseState _lastmouseState;
     public bool defaultColor { set; get; }
-    private bool _paused = false;
+    public bool _paused = false;
     private bool _sett = false;
+    public bool _exit = false;
     private Matrix world;
 
     // make block bool that let it be used or not.
@@ -178,6 +179,7 @@ public class Pause
                 
                 if (TransformRect(_exitRect, world).Contains(mousePos) && mouseState.LeftButton == ButtonState.Pressed && _lastmouseState.LeftButton == ButtonState.Released)
                 {
+                    _exit = true;
                     game.Exit();
                 }
         

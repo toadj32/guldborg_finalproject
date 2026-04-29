@@ -11,7 +11,7 @@ public class Game1 : Game
 {
     PathTracker.PathBounds paths = new PathTracker.PathBounds();
     
-    public enum GameState{StartScreen, Instructions, Preview, Playing, GameOver, GameWin}
+    public enum GameState{StartScreen, Instructions, Preview, Playing, Pause, GameOver, GameWin}
     
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
@@ -55,6 +55,9 @@ public class Game1 : Game
     private Pause _pauseScreen;
     private Vector2 _mousePos;
     
+    // Score Board
+    private HighScore _score;
+    
     //restart button
     private Rectangle _restartButton;
     private bool _restartButtonAppears = false;
@@ -80,7 +83,6 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
         _graphics.PreferredBackBufferHeight = height;
         _graphics.PreferredBackBufferWidth = width+200;
         _graphics.ApplyChanges();
@@ -92,8 +94,6 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _basicEffect = new BasicEffect(GraphicsDevice);
-        
-        // TODO: use this.Content to load your game content here
         
         // Pause Screen!
         Texture2D pause = Content.Load<Texture2D>("pauseButton");
@@ -138,6 +138,10 @@ public class Game1 : Game
             10,
             width);
         
+        // Score Board
+        Texture2D board = new Texture2D(GraphicsDevice, 1, 1);
+        board.SetData(new[] { Color.White }); 
+        _score = new HighScore(_font, board);
         
         //--------------------------------load sound-------------------------------------------------------------/////////
         Ball.ContentManager = Content;
@@ -282,7 +286,7 @@ public class Game1 : Game
     
     private void Restart()
     {
-        
+        _score.Reset();
         _coins = new CoinManager(_coinTex, height);
         _sidebar.Blocks.Clear();
         _ball = new Ball(
@@ -315,7 +319,6 @@ public class Game1 : Game
         _mousePos = new Vector2(mouse.X, mouse.Y);
         Vector2 worldMouse = _mousePos + cameraPosition;
         
-        _ball._defaultColor =  _pauseScreen.defaultColor;
         
         _volume = _pauseScreen.volPer;
         MediaPlayer.Volume = _volume;
@@ -358,6 +361,12 @@ public class Game1 : Game
                 _ball.Update(gameTime, paths);
                 _coins.Update(gameTime, _ball);
                 _pauseScreen.Update(gameTime, _mousePos, mouse, _ball, this, _coins);
+                if (_pauseScreen._paused)
+                {
+                    _gameState = GameState.Pause;
+                }
+                // Score Board
+                _score.Update(gameTime, _coins);
                 
                 //interactive components
                 _sidebar.Update(gameTime, mouse, _previousMouseState, cameraPosition, _coins);
@@ -372,13 +381,29 @@ public class Game1 : Game
                     _gameState = GameState.GameOver;
                 break;
             case GameState.GameOver:
+                _score.Save();
                 _restartButtonAppears = true;
                 if (mouse.LeftButton == ButtonState.Released && _previousMouseState.LeftButton == ButtonState.Pressed &&
                     _restartButton.Contains(mouse.Position))
                 {
                     Restart();
                 }
-
+                break;
+            case GameState.GameWin:
+                _score.Save();
+                break;
+            case GameState.Pause:
+                _pauseScreen.Update(gameTime, _mousePos, mouse, _ball, this, _coins);
+                _ball._defaultColor =  _pauseScreen.defaultColor;
+                if (_pauseScreen._exit)
+                {
+                    _score.Reset();
+                    _score.Save();
+                }
+                if (!_pauseScreen._paused)
+                {
+                    _gameState = GameState.Playing;
+                }
                 break;
         }
         
@@ -435,6 +460,8 @@ public class Game1 : Game
                 
                 paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
                 
+                _score.Draw(_spriteBatch);
+                
                 //interactive components
                 _spriteBatch.Begin(transformMatrix: cameraMatrix);
                 /*foreach (var block in _blocks)
@@ -460,7 +487,7 @@ public class Game1 : Game
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
                 
-                _pauseScreen.Draw(_spriteBatch); //uses matrix transform in its spritebatch.Begin
+                _pauseScreen.Draw(_spriteBatch);
                 
                 break;
                 
@@ -476,9 +503,21 @@ public class Game1 : Game
                 if (_ball.FellOff())
                 {
                     string losingMessage = "You Died :( womp womp";
+                    string score = $"Your Score: {_score._currentScore:F2}";
+                    string highscore =  $"High Score: {_score._highScore:F2}";
+                    string coins = $"Coins Collected: {_score._prevCoinsCollected}";
                     Vector2 size = 4*_font.MeasureString(losingMessage);
                     Vector2 origin = new Vector2((width + 200) / 2f - size.X / 8f, height / 2f - size.Y/2f);
+                    Vector2 scoreSize = 4*_font.MeasureString(score);
+                    Vector2 origin2 = new Vector2((width + 200) / 2f - scoreSize.X / 8f, height / 2f - scoreSize.Y/2f);
+                    Vector2 HscoreSize = 4*_font.MeasureString(highscore);
+                    Vector2 origin3 = new Vector2((width + 200) / 2f - HscoreSize.X / 8f, height / 2f - HscoreSize.Y/2f);
+                    Vector2 coinSize = 4*_font.MeasureString(coins);
+                    Vector2 origin4 = new Vector2((width + 200) / 2f - coinSize.X / 8f, height / 2f - coinSize.Y/2f);
                     _spriteBatch.DrawString(_font, losingMessage, origin, Color.White);
+                    _spriteBatch.DrawString(_font, highscore, new Vector2(origin2.X, origin.Y - 100), Color.White);
+                    _spriteBatch.DrawString(_font, score, new Vector2(origin3.X, origin.Y - 80), Color.White);
+                    _spriteBatch.DrawString(_font, coins, new Vector2(origin4.X, origin.Y - 60), Color.White);
 
                     //restart button
                     _spriteBatch.Draw(_pixelTex, _restartButton, Color.DarkRed);
@@ -509,7 +548,24 @@ public class Game1 : Game
                 _spriteBatch.DrawString(_font, winningMessage, winningorigin, Color.Black);
                 _spriteBatch.End();
                 break;
+            
+            case GameState.Pause:
+                _spriteBatch.Begin(samplerState: SamplerState.PointWrap);
+                _bg.Draw(_spriteBatch, cameraPosition);
+                _spriteBatch.End();
+
+                _spriteBatch.Begin();
+                paths.BoundsDraw(_spriteBatch, cameraPosition);
+                _ball.Draw(_spriteBatch, cameraPosition, progress);
+                _coins.Draw(_spriteBatch, cameraPosition);
+                _sidebar.Draw(_spriteBatch, cameraPosition, mouse);
+                _progressBar.Draw(_spriteBatch);
+                _spriteBatch.End();
+
+                paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
                 
+                _pauseScreen.Draw(_spriteBatch);
+                break;
         }
         
         

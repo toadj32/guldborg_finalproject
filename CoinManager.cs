@@ -14,6 +14,7 @@ public class CoinManager
     private Random _rand = new Random();
     private int _screenHeight;
     public int CoinCounter = 200;
+    public int CoinsCollected = 0;
 
     public CoinManager(Texture2D coinTex, int screenHeight)
     {
@@ -44,7 +45,10 @@ public class CoinManager
             bool wasActive = coin.Active;
             coin.Collected(ball);
             if (wasActive && !coin.Active)
+            {
                 CoinCounter+=50;
+                CoinsCollected++;   
+            }
         }
 
         _coins.RemoveAll(coin => !coin.Active);
