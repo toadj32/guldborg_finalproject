@@ -12,8 +12,7 @@ public class StartScreen
     private Rectangle _startButton;
     private Rectangle _rulesButton;
     private Texture2D _pixelTex;
-
-    private Rules _rulesScreen;
+    
     private bool _rulesUp = false;
 
     public StartScreen(SpriteFont font, int width, int height, Texture2D pixelTex)
@@ -31,19 +30,12 @@ public class StartScreen
             width/2 - 150,
             height /2 + 50,
             100, 50);
-        _rulesScreen = new Rules(font, width, height, pixelTex);
     }
 
     public bool Clicked(MouseState mouse, MouseState previousMouse)
     {
 
         bool released = (mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released);
-        if (_rulesUp)
-        {
-            if (_rulesScreen.Update(mouse, previousMouse))
-                _rulesUp = false;
-            return false;
-        }
         if (!released)
             return false;
         if (_rulesButton.Contains(mouse.Position))
@@ -75,11 +67,6 @@ public class StartScreen
     
     public void Draw(SpriteBatch spriteBatch, Texture2D texture)
     {
-        if (_rulesUp)
-        {
-            _rulesScreen.Draw(spriteBatch, texture);
-            return;
-        }
         string Title = "GuldBorg";
         Vector2 titlesize = _font.MeasureString(Title);
         spriteBatch.DrawString(

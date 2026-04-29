@@ -41,7 +41,7 @@ public class Sidebar
         _items.Add(item);
     }
 
-    public void Update(GameTime gameTime, MouseState mouse, MouseState prevMouse, Vector2 cameraPosition, CoinManager coins)
+    public void Update(GameTime gameTime, MouseState mouse, MouseState prevMouse, Vector2 cameraPosition, CoinManager coins, PathTracker.PathBounds paths)
     {
         Vector2 mouseScreenPos = new Vector2(mouse.X, mouse.Y);
 
@@ -75,10 +75,13 @@ public class Sidebar
                 {
                     //ugh include offset
                     Vector2 worldPos = mouseScreenPos + cameraPosition;
-                    coins.CoinCounter -= (int)_draggedItem.Price;
-                    var newBlock = new Blocks(_draggedItem.ItemTex, worldPos);
-                    newBlock.isPlaced = true;
-                    Blocks.Add(newBlock);
+                    if (paths.IsOnPathOnly(worldPos))
+                    {
+                        coins.CoinCounter -= (int)_draggedItem.Price;
+                        var newBlock = new Blocks(_draggedItem.ItemTex, worldPos);
+                        newBlock.isPlaced = true;
+                        Blocks.Add(newBlock);
+                    }
                 }
 
                 //when u not dragging anymore
@@ -97,7 +100,7 @@ public class Sidebar
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition, MouseState mouse)
+    public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition, MouseState mouse, int coinCount)
     {
         spriteBatch.Draw(_itemTex,
             new Rectangle(_panelPos, 0, _panelWidth, _screenHeight),
@@ -105,7 +108,8 @@ public class Sidebar
         
         foreach (var item in _items)
         {
-            item.Draw(spriteBatch, true);
+            bool gotMoney = coinCount >= item.Price;
+            item.Draw(spriteBatch, gotMoney);
         }
         
         if (_isDragging && _draggedItem != null)
@@ -165,12 +169,13 @@ public class Sidebar
                 ItemTex,
                 iconPos,
                 null,
-                gotMoney ? Color.White : Color.Black,
+                gotMoney ? Color.White : Color.Gray,
                 0f,
                 new Vector2(ItemTex.Width / 2f, ItemTex.Height / 2f),
                 scale,
                 SpriteEffects.None,
                 0f);
+            
             
             string price = $"{(int)Price} Coins";
             Vector2 textSize = _font.MeasureString(price);
@@ -179,7 +184,7 @@ public class Sidebar
                 ItemSlot.Bottom - textSize.Y - 2f);
             spriteBatch.DrawString(
                 _font, price, textPos, //if you poor, it grays out   // damn
-                gotMoney ? Color.Yellow : Color.Black);
+                gotMoney ? Color.Yellow : Color.Gray);
         }
     }
 }

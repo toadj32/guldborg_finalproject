@@ -272,7 +272,7 @@ public class PathTracker
             return numPointsOnPath / totalSamplePoints;
         }
         
-        private bool IsOnPathOnly(Vector2 position)
+        public bool IsOnPathOnly(Vector2 position)
         {
             bool onPath = false;
             foreach (var path in _paths)

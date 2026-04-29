@@ -364,10 +364,19 @@ public class Ball
 
         //////////////////////////////////-----------------------------animation hierarhcy------------------------------///////////////
         //float progressss = progress.GetProgress();
-        if (progress > 0.85f)
+        if (progress > 0.9f)
         {
             BlingBling(spriteBatch, cameraPosition);
         }
+        if (progress > 0.5f && progress < 0.6f)
+        {
+            BlingBling(spriteBatch, cameraPosition);
+        }
+        if (progress > 0.2f && progress < 0.25f)
+        {
+            BlingBling(spriteBatch, cameraPosition);
+        }
+
         //////////////////////////////////-----------------------------animation hierarhcy end------------------------------///////////////
         
     }

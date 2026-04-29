@@ -160,3 +160,15 @@ C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\guldborg_fin
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\guldborg_finalproject\bin\Debug\net9.0\Content\darkRed.xnb
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\guldborg_finalproject\bin\Debug\net9.0\Content\SettingsScreen.xnb
 C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\guldborg_finalproject\bin\Debug\net9.0\Content\volumeButt.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\back.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\brightRed.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\checkmark.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\darkRed.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\JDSherbert - Wooden UI SFX Pack - Confirm - 1.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\mountainkingforgameplay.ogg
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\mountainkingforgameplay.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\mountainkingforintro.ogg
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\mountainkingforintro.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\SettingsScreen.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\sparkles.xnb
+C:\Users\victo\RiderProjects\Final Project\bin\Debug\net9.0\Content\volumeButt.xnb
