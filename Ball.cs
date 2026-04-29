@@ -26,6 +26,8 @@ public class Ball
     private float _roll;
     private float _rollSpeed = 4f;
     private Rectangle _ballRect;
+    private Color _color = Color.White;
+    public bool _defaultColor;
     
     private Texture2D _ballTex;
     public Vector2 Position;
@@ -47,7 +49,7 @@ public class Ball
     public bool _fell;
     private bool _falling = false;
     
-    ///////////////////////--------------------------------------animation hierarhcy-------------------------------/////////////////////////
+    ///////////////////////--------------------------------------animation hierarchy-------------------------------/////////////////////////
     private bool _changeBallLayer = false;
     //---------
     private Texture2D _sparkleTex;
@@ -61,7 +63,7 @@ public class Ball
     private float _sparkleFrameDuration = 0.02f;
 
     //private ProgressBar progress;
-    //////////////////////////------------------------------------------hierarhcy end------------------------------------///////////
+    //////////////////////////------------------------------------------hierarchy end------------------------------------///////////
 
     
     public Ball(
@@ -70,7 +72,8 @@ public class Ball
         float scrollSpeed,
         int frameNum,
         float scale,
-        ContentManager content) /////<<<<<<<<<<---------------------------- added Content paraemter----------///////////
+        ContentManager content, 
+        bool defaultColor) /////<<<<<<<<<<---------------------------- added Content paraemter----------///////////
     {
         _ballTex = ballTex;
         Position = position;
@@ -79,7 +82,7 @@ public class Ball
         _frameIndex = _frameNum;
         Scale = scale;
         _acc = new Vector2(0f, 10f);
-
+        _defaultColor = defaultColor;
         _spriteFrame = new Rectangle(_frameIndex * 100, 0, 100, 100);
         
         /////////--------------------------------load sound-------------------------------------------------------------/////////
@@ -96,6 +99,16 @@ public class Ball
     public void Update(GameTime gameTime, PathTracker.PathBounds paths)
     {
         float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+        
+        // ball color
+        if (_defaultColor)
+        {
+            _color =  Color.White;
+        }
+        else
+        {
+            _color = Color.DarkRed;
+        }
         
         _spriteFrame = getSourceRect();
         
@@ -299,7 +312,7 @@ public class Ball
             _ballTex,
             Position - cameraPosition,
             _spriteFrame,
-            Color.White,
+            _color,
             rotation,
             new Vector2(50f, 50f),
             Scale,

@@ -65,6 +65,7 @@ public class Game1 : Game
     private Song gameMusic;
     private SoundEffectInstance gameMusicInstance;
     private bool musicPlaying = false;
+    private float _volume = 0.5f;
     
     //instructions
     private Instructions instructions;
@@ -100,7 +101,13 @@ public class Game1 : Game
         Texture2D exit = Content.Load<Texture2D>("exit");
         Texture2D resume =  Content.Load<Texture2D>("resume");
         Texture2D settings = Content.Load<Texture2D>("settings");
-        _pauseScreen = new Pause(pause, pauseScreen, exit, resume, settings, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
+        Texture2D settingsScreen = Content.Load<Texture2D>("SettingsScreen");
+        Texture2D volume = Content.Load<Texture2D>("volumeButt");
+        Texture2D ball1 = Content.Load<Texture2D>("brightRed");
+        Texture2D ball2 =  Content.Load<Texture2D>("darkRed");
+        Texture2D check =  Content.Load<Texture2D>("checkmark");
+        Texture2D back = Content.Load<Texture2D>("back");
+        _pauseScreen = new Pause(pause, pauseScreen, exit, resume, settings, settingsScreen,volume, ball1, ball2, check, back,new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
         
         //restart button 
         int _restartButtonWidth = 150;
@@ -143,7 +150,8 @@ public class Game1 : Game
             ScrollRate,
             36,
             0.5f,
-            Content);    //<<<<<<<<<<---------------------------- added Content paraemter----------///////////
+            Content, 
+            _pauseScreen.defaultColor);    //<<<<<<<<<<---------------------------- added Content paraemter----------///////////
         _startScreen = new StartScreen(_font, width + 200, height, _pixelTex);
         _pathwayPan = new PathwayPan(4100f);
         _progressBar = new ProgressBar(
@@ -257,6 +265,9 @@ public class Game1 : Game
         if (!musicPlaying) //start game with intro playing 
         {
             musicPlaying = true;
+            _volume = _pauseScreen.volPer;
+            MediaPlayer.Volume = _volume;
+            SoundEffect.MasterVolume = _volume;
             MediaPlayer.Play(introMusic); 
         }
         
@@ -280,7 +291,7 @@ public class Game1 : Game
             ScrollRate,
             36,
             0.5f,
-            Content);
+            Content, _pauseScreen.defaultColor);
         _progressBar = new ProgressBar(
             400f,
             4450f,
@@ -303,7 +314,13 @@ public class Game1 : Game
         Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
         _mousePos = new Vector2(mouse.X, mouse.Y);
         Vector2 worldMouse = _mousePos + cameraPosition;
-
+        
+        _ball._defaultColor =  _pauseScreen.defaultColor;
+        
+        _volume = _pauseScreen.volPer;
+        MediaPlayer.Volume = _volume;
+        SoundEffect.MasterVolume = _volume;
+        
         switch (_gameState)
         {
             case GameState.StartScreen:
@@ -328,7 +345,7 @@ public class Game1 : Game
                 }
 
                 break;
-            ///////////////////////////////////////-----------------------------instructions & musci end ----------------------------------////////
+            ///////////////////////////////////////-----------------------------instructions & music end ----------------------------------////////
             
             case GameState.Preview:
                 _pathwayPan.Update(gameTime);

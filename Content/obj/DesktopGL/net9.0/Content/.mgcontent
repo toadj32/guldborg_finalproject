@@ -4,23 +4,35 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/Adobe Express - file.jpg</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/ball.png</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/blocksquare.png</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/Courier New.spritefont</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/exit.PNG</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/full spring.png</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/mountainkingforgameplay.mp3</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/mountainkingforintro.mp3</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/pause.PNG</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/pauseButton.png</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/resume.PNG</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/settings.PNG</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/sparkles.png</File>
-    <File>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/wood-texture-close.jpg</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/Adobe Express - file.jpg</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/back.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/ball.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/blocksquare.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/brightRed.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/checkmark.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/Courier New.spritefont</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/darkRed.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/exit.PNG</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/full spring.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/mountainkingforgameplay.mp3</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/mountainkingforintro.mp3</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/pause.PNG</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/pauseButton.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/resume.PNG</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/settings.PNG</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/SettingsScreen.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/sparkles.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/volumeButt.png</File>
+    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/wood-texture-close.jpg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

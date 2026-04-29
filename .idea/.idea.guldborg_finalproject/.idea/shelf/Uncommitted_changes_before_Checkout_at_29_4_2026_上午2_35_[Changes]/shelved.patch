@@ -1,0 +1,68 @@
+Index: Game1.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System.Collections.Generic;\r\nusing Microsoft.Xna.Framework;\r\nusing Microsoft.Xna.Framework.Graphics;\r\nusing Microsoft.Xna.Framework.Input;\r\n\r\nnamespace guldborg_finalproject;\r\n\r\npublic class Game1 : Game\r\n{\r\n    PathTracker.PathBounds paths = new PathTracker.PathBounds();\r\n    \r\n    private GraphicsDeviceManager _graphics;\r\n    private SpriteBatch _spriteBatch;\r\n    private BasicEffect _basicEffect;\r\n    \r\n    private Pause _pauseScreen;\r\n    private Vector2 _mousePos;\r\n    private Vector2 _ballPos;\r\n    \r\n    private Background _bg;\r\n    private Ball _ball;\r\n\r\n    private int width = 450;\r\n    private int height = 800;\r\n\r\n    private float ScrollRate = 100f;\r\n    private Texture2D obstacleTex;\r\n    \r\n    private Texture2D blockTexture;       \r\n    private Blocks block1;                \r\n    private MouseState mouseState;        \r\n    private MouseState prevMouseState;    \r\n\r\n    //GUI\r\n    private SpriteFont _font;\r\n\r\n    public Game1()\r\n    {\r\n        _graphics = new GraphicsDeviceManager(this);\r\n        Content.RootDirectory = \"Content\";\r\n        IsMouseVisible = true;\r\n    }\r\n\r\n    protected override void Initialize()\r\n    {\r\n        // TODO: Add your initialization logic here\r\n        _graphics.PreferredBackBufferHeight = height;\r\n        _graphics.PreferredBackBufferWidth = width+200;\r\n        _graphics.ApplyChanges();\r\n\r\n        base.Initialize();\r\n    }\r\n\r\n    protected override void LoadContent()\r\n    {\r\n        _spriteBatch = new SpriteBatch(GraphicsDevice);\r\n        _basicEffect = new BasicEffect(GraphicsDevice);\r\n        \r\n        // Pause Screen!\r\n        Texture2D pause = Content.Load<Texture2D>(\"pauseButton\");\r\n        Texture2D pauseScreen = Content.Load<Texture2D>(\"pause\");\r\n        Texture2D exit = Content.Load<Texture2D>(\"exit\");\r\n        Texture2D resume =  Content.Load<Texture2D>(\"resume\");\r\n        Texture2D settings = Content.Load<Texture2D>(\"settings\");\r\n        _pauseScreen = new Pause(pause, pauseScreen, exit, resume, settings, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));\r\n        \r\n        _bg = new Background(\r\n            Content.Load<Texture2D>(\"Adobe Express - file\"), \r\n            10,\r\n            width);\r\n        \r\n        Texture2D ball = Content.Load<Texture2D>(\"ball\");\r\n        _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth)/2f, 370f);\r\n        _ball = new Ball(ball, _ballPos, 0.5f);\r\n        \r\n        /*//testing drag function                                         \r\n        blockTexture = Content.Load<Texture2D>(\"blocksquare\");          \r\n        block1 = new Blocks(blockTexture, new Vector2(300, 300), 1f);   */\r\n\r\n        obstacleTex = Content.Load<Texture2D>(\"wood-texture-close\");\r\n        Texture2D _blackPixel = new Texture2D(GraphicsDevice, 1, 1);\r\n        _blackPixel.SetData(new[] { Color.Black});\r\n        \r\n        //Obstacles\r\n        paths.AddPath(\r\n            new Rectangle(100, 500, 100, 50),\r\n            PathType.Obstacle,\r\n            obstacleTex);\r\n        paths.AddPath(\r\n            new Rectangle(300, 800, 100, 50),\r\n            PathType.Obstacle,\r\n            obstacleTex,\r\n            new List<Vector2>\r\n            {\r\n                new Vector2(300, 850),\r\n                new Vector2(400, 850),\r\n                new Vector2(400, 800)}\r\n            );\r\n        paths.AddPath(new Rectangle(450, 1000, 20, 120), PathType.Obstacle, obstacleTex);\r\n        \r\n        //holes\r\n        \r\n        paths.AddPath(new Rectangle( 100, 1200, 400, 80), PathType.Hole, _blackPixel);\r\n        \r\n        //path\r\n        paths.AddPath(new Rectangle(0, 350, 450, 4200), PathType.Path);\r\n        \r\n        _font = Content.Load<SpriteFont>(\"Courier New\");\r\n        \r\n        //--------------------------- mouse logic start ---------------------------------------------              \r\n        /*mouseState = Mouse.GetState();                                                                             \r\n        block1.MousePokeBlock(mouseState, prevMouseState);                                                         \r\n        prevMouseState = mouseState;  */                                                                             \r\n                                                                                                           \r\n                                                                                                           \r\n        //--------------------------- mouse logic end ---------------------------------------------                \r\n\r\n    }\r\n\r\n    protected override void Update(GameTime gameTime)\r\n    {\r\n        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||\r\n            Keyboard.GetState().IsKeyDown(Keys.Escape))\r\n            Exit();\r\n        MouseState ms = Mouse.GetState();\r\n        _mousePos = new Vector2(ms.X, ms.Y);\r\n        \r\n        if (_ball.FellOff())\r\n            return;\r\n        _ball.Update(gameTime, paths);\r\n        _pauseScreen.Update(gameTime, _mousePos, ms, _ball, this);\r\n\r\n        base.Update(gameTime);\r\n    }\r\n\r\n    protected override void Draw(GameTime gameTime)\r\n    {\r\n        GraphicsDevice.Clear(Color.Black);\r\n        \r\n        Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);\r\n        \r\n        _spriteBatch.Begin(samplerState: SamplerState.PointWrap);\r\n        _bg.Draw(_spriteBatch, cameraPosition);          \r\n        _spriteBatch.End();\r\n        \r\n        /*_spriteBatch.Begin();              \r\n        block1.Draw(_spriteBatch);         \r\n        _spriteBatch.End();    */ \r\n        \r\n        _spriteBatch.Begin();  \r\n        paths.BoundsDraw(_spriteBatch, cameraPosition);\r\n        _ball.Draw(_spriteBatch, cameraPosition);\r\n        \r\n        if (_ball.FellOff())\r\n        {\r\n            string losingMessage = \"You Died :( womp womp\";\r\n            Vector2 size = 4*_font.MeasureString(losingMessage);\r\n            Vector2 origin = new Vector2((width + 200) / 2f - size.X / 8f, height / 2f - size.Y/2f);\r\n            _spriteBatch.DrawString(_font, losingMessage, origin, Color.White);\r\n        }\r\n        _spriteBatch.End();\r\n        paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);\r\n        \r\n        _pauseScreen.Draw(_spriteBatch);        \r\n        \r\n        base.Draw(gameTime);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Game1.cs b/Game1.cs
+--- a/Game1.cs	(revision b5da1dcc31624bd7c7f3df60cd868bce3f8a94c7)
++++ b/Game1.cs	(date 1776634622860)
+@@ -73,9 +73,9 @@
+         _ballPos =  new Vector2((_graphics.PreferredBackBufferWidth)/2f, 370f);
+         _ball = new Ball(ball, _ballPos, 0.5f);
+         
+-        /*//testing drag function                                         
++        //testing drag function                                         
+         blockTexture = Content.Load<Texture2D>("blocksquare");          
+-        block1 = new Blocks(blockTexture, new Vector2(300, 300), 1f);   */
++        block1 = new Blocks(blockTexture, new Vector2(300, 300), 1f);   
+ 
+         obstacleTex = Content.Load<Texture2D>("wood-texture-close");
+         Texture2D _blackPixel = new Texture2D(GraphicsDevice, 1, 1);
+@@ -108,9 +108,9 @@
+         _font = Content.Load<SpriteFont>("Courier New");
+         
+         //--------------------------- mouse logic start ---------------------------------------------              
+-        /*mouseState = Mouse.GetState();                                                                             
++        mouseState = Mouse.GetState();                                                                             
+         block1.MousePokeBlock(mouseState, prevMouseState);                                                         
+-        prevMouseState = mouseState;  */                                                                             
++        prevMouseState = mouseState;                                                                               
+                                                                                                            
+                                                                                                            
+         //--------------------------- mouse logic end ---------------------------------------------                
+Index: obj/Debug/net9.0/guldborg_finalproject.sourcelink.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\"documents\":{\"C:\\\\Users\\\\tongw\\\\OneDrive - The University of Texas at Austin\\\\Desktop\\\\guldborg_finalproject\\\\*\":\"https://raw.githubusercontent.com/toadj32/guldborg_finalproject/6ea69c5e55328afee42c3887d9b23f815d7fe0d9/*\"}}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/obj/Debug/net9.0/guldborg_finalproject.sourcelink.json b/obj/Debug/net9.0/guldborg_finalproject.sourcelink.json
+--- a/obj/Debug/net9.0/guldborg_finalproject.sourcelink.json	(revision b5da1dcc31624bd7c7f3df60cd868bce3f8a94c7)
++++ b/obj/Debug/net9.0/guldborg_finalproject.sourcelink.json	(date 1776634312588)
+@@ -1,1 +1,1 @@
+-{"documents":{"C:\\Users\\tongw\\OneDrive - The University of Texas at Austin\\Desktop\\guldborg_finalproject\\*":"https://raw.githubusercontent.com/toadj32/guldborg_finalproject/6ea69c5e55328afee42c3887d9b23f815d7fe0d9/*"}}
+\ No newline at end of file
++{"documents":{"C:\\Users\\tongw\\OneDrive - The University of Texas at Austin\\Desktop\\guldborg_finalproject\\*":"https://raw.githubusercontent.com/toadj32/guldborg_finalproject/b5da1dcc31624bd7c7f3df60cd868bce3f8a94c7/*"}}
+\ No newline at end of file
+Index: obj/Debug/net9.0/guldborg_finalproject.AssemblyInfo.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//------------------------------------------------------------------------------\r\n// <auto-generated>\r\n//     This code was generated by a tool.\r\n//\r\n//     Changes to this file may cause incorrect behavior and will be lost if\r\n//     the code is regenerated.\r\n// </auto-generated>\r\n//------------------------------------------------------------------------------\r\n\r\nusing System;\r\nusing System.Reflection;\r\n\r\n[assembly: System.Reflection.AssemblyCompanyAttribute(\"guldborg_finalproject\")]\r\n[assembly: System.Reflection.AssemblyConfigurationAttribute(\"Debug\")]\r\n[assembly: System.Reflection.AssemblyFileVersionAttribute(\"1.0.0.0\")]\r\n[assembly: System.Reflection.AssemblyInformationalVersionAttribute(\"1.0.0+6ea69c5e55328afee42c3887d9b23f815d7fe0d9\")]\r\n[assembly: System.Reflection.AssemblyProductAttribute(\"guldborg_finalproject\")]\r\n[assembly: System.Reflection.AssemblyTitleAttribute(\"guldborg_finalproject\")]\r\n[assembly: System.Reflection.AssemblyVersionAttribute(\"1.0.0.0\")]\r\n\r\n// Generated by the MSBuild WriteCodeFragment class.\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/obj/Debug/net9.0/guldborg_finalproject.AssemblyInfo.cs b/obj/Debug/net9.0/guldborg_finalproject.AssemblyInfo.cs
+--- a/obj/Debug/net9.0/guldborg_finalproject.AssemblyInfo.cs	(revision b5da1dcc31624bd7c7f3df60cd868bce3f8a94c7)
++++ b/obj/Debug/net9.0/guldborg_finalproject.AssemblyInfo.cs	(date 1776634312564)
+@@ -13,7 +13,7 @@
+ [assembly: System.Reflection.AssemblyCompanyAttribute("guldborg_finalproject")]
+ [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+ [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ea69c5e55328afee42c3887d9b23f815d7fe0d9")]
++[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5da1dcc31624bd7c7f3df60cd868bce3f8a94c7")]
+ [assembly: System.Reflection.AssemblyProductAttribute("guldborg_finalproject")]
+ [assembly: System.Reflection.AssemblyTitleAttribute("guldborg_finalproject")]
+ [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
