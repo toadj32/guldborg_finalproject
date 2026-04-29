@@ -46,10 +46,15 @@ public class Instructions
             SpriteEffects.None,
             0f);
 
-        string instructions = "LMB + drag to take blocks from the side\n \n While holding block, RMB to rotate \n \n" +
+        string instructions = "LMB + drag to take blocks from the side\n" +
+                              "Make sure the blocks are on the path\n" +
                               "Collect coins to purchase more blocks\n \n" +
                               "Press the top right button to Pause or \n    access Settings\n \n" +
-                              "Complete faster = higher score\n \nKeep the ball on the path!";
+                              "Complete faster = higher score\n \nKeep the ball on the path!\n" +
+                              "There are checkpoints marked by\n" +
+                              "the white lines that will trigger\n" +
+                              "the ending animation to give you hope\n" +
+                              "and excitement!";
         Vector2 textSize = _font.MeasureString(instructions);
         spriteBatch.DrawString(
             _font,

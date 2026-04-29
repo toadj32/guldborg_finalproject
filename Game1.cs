@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -201,7 +201,7 @@ public class Game1 : Game
         
          paths.AddPath(new Rectangle(450, 10002, 100, 50), PathType.Obstacle, obstacleTex);
          paths.AddPath(new Rectangle(400, 1400, 20, 120), PathType.Obstacle, obstacleTex);
-         paths.AddPath(new Rectangle(200, 1700, 300, 90), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(200, 1700, 250, 90), PathType.Obstacle, obstacleTex);
         
          //my little peg board
          paths.AddPath(new Rectangle(150, 2500, 50, 50), 
@@ -384,7 +384,7 @@ public class Game1 : Game
                 _score.Update(gameTime, _coins);
                 
                 //interactive components
-                _sidebar.Update(gameTime, mouse, _previousMouseState, cameraPosition, _coins);
+                _sidebar.Update(gameTime, mouse, _previousMouseState, cameraPosition, _coins, paths);
                 foreach (var block in _sidebar.Blocks)
                 {
                     block.BlockCollision(_ball);
@@ -500,13 +500,16 @@ public class Game1 : Game
                 
                 _spriteBatch.Begin(); 
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
-                _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 4400 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.Navy);
+                //lines marking check points
+                _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 1210 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.White);
+                _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 2425 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.White);
+                _spriteBatch.Draw(_pixelTex, new Vector2(100 - cameraPosition.X, 4400 - cameraPosition.Y), new Rectangle(100, 400, 450, 10), Color.White);
                 _ball.Draw(_spriteBatch, cameraPosition, progress); //////// added parameter /////////////////
                 _coins.Draw(_spriteBatch, cameraPosition);
                 _spriteBatch.DrawString(_font, $"Coins: {_coins.CoinCounter}", new Vector2(10, 10), Color.White);
                 
                 //sidebar
-                _sidebar.Draw(_spriteBatch, cameraPosition, mouse);
+                _sidebar.Draw(_spriteBatch, cameraPosition, mouse, _coins.CoinCounter);
                 
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
@@ -594,7 +597,7 @@ public class Game1 : Game
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
                 _ball.Draw(_spriteBatch, cameraPosition, progress);
                 _coins.Draw(_spriteBatch, cameraPosition);
-                _sidebar.Draw(_spriteBatch, cameraPosition, mouse);
+                _sidebar.Draw(_spriteBatch, cameraPosition, mouse, _coins.CoinCounter);
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
 

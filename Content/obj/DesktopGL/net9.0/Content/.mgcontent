@@ -4,27 +4,27 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/Adobe Express - file.jpg</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/back.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/ball.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/blocksquare.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/brightRed.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/checkmark.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/Courier New.spritefont</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/darkRed.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/exit.PNG</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/full spring.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/mountainkingforgameplay.mp3</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/mountainkingforintro.mp3</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/pause.PNG</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/pauseButton.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/resume.PNG</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/settings.PNG</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/SettingsScreen.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/sparkles.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/volumeButt.png</File>
-    <File>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/wood-texture-close.jpg</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/Adobe Express - file.jpg</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/back.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/ball.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/blocksquare.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/brightRed.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/checkmark.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/Courier New.spritefont</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/darkRed.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/exit.PNG</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/full spring.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.wav</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/mountainkingforgameplay.mp3</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/mountainkingforintro.mp3</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/pause.PNG</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/pauseButton.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/resume.PNG</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/settings.PNG</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/SettingsScreen.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/sparkles.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/volumeButt.png</File>
+    <File>C:/Users/victo/RiderProjects/Final Project/Content/wood-texture-close.jpg</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

@@ -8,25 +8,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="986e7494-61f5-4fcb-9df3-9976b943fb1e" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/Spring.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final Project.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Final Project.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HighScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HighScore.cs" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Final Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blocks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Blocks.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CoinManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/Courier New.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/Courier New.xnb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/mountainkingforgameplay.ogg" beforeDir="false" afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/mountainkingforgameplay.ogg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/mountainkingforintro.ogg" beforeDir="false" afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/mountainkingforintro.ogg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/.mgstats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Adobe Express - file.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Adobe Express - file.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Courier New.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/Courier New.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/JDSherbert - Wooden UI SFX Pack - Confirm - 1.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/SettingsScreen.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/SettingsScreen.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/back.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/back.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/ball.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/ball.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/blocksquare.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/blocksquare.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/brightRed.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/brightRed.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/checkmark.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/checkmark.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/darkRed.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/darkRed.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/exit.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/exit.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/full spring.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/full spring.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/mountainkingforgameplay.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/mountainkingforgameplay.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/mountainkingforintro.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/mountainkingforintro.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/pause.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/pause.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/pauseButton.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/pauseButton.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/resume.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/resume.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/settings.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/settings.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/sparkles.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/sparkles.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/volumeButt.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/volumeButt.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/wood-texture-close.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/net9.0/Content/wood-texture-close.mgcontent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Instructions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Instructions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PathTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PathTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rules.cs" beforeDir="false" />
+>>>>>>> dd482260e8f869bc912e0e8f5c0440fcd5d8094b
       <change beforePath="$PROJECT_DIR$/Sidebar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sidebar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StartScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StartScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Content/Courier New.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Content/Courier New.xnb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Content/mountainkingforgameplay.ogg" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Content/mountainkingforgameplay.ogg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Content/mountainkingforintro.ogg" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Content/mountainkingforintro.ogg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Final Project.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/highscore.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/highscore.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guldborg_finalproject" beforeDir="false" afterPath="$PROJECT_DIR$/guldborg_finalproject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.AssemblyInfoInputs.cache" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.csproj.FileListAbsolute.txt" afterDir="false" />
+>>>>>>> dd482260e8f869bc912e0e8f5c0440fcd5d8094b
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Final Project.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/ref/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/ref/Final Project.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/refint/Final Project.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/refint/Final Project.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Final Project.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Final Project.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Final Project.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Final Project.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +164,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;HotReloadSettingsPage&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -161,7 +219,12 @@
       <workItem from="1777351855104" duration="1045000" />
       <workItem from="1777413186666" duration="416000" />
       <workItem from="1777448314009" duration="9532000" />
+<<<<<<< HEAD
       <workItem from="1777472966745" duration="26801000" />
+=======
+      <workItem from="1777472966745" duration="7625000" />
+      <workItem from="1777500024344" duration="5054000" />
+>>>>>>> dd482260e8f869bc912e0e8f5c0440fcd5d8094b
     </task>
     <task id="LOCAL-00001" summary="HAHAHA block collision works now">
       <option name="closed" value="true" />
