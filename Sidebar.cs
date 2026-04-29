@@ -10,11 +10,14 @@ namespace Final_Project;
 public class Sidebar
 {
     public List<Blocks> Blocks = new List<Blocks>();
+    public List<Spring> Springs = new List<Spring>();
     private List<SidebarItem> _items = new List<SidebarItem>();
     public Texture2D _itemTex;
+    private float rotation = 0.0f;
     public int _panelWidth = 150;
     public int _panelPos;
     private int _screenHeight;
+    private bool vert; // if the spring generated is vertical or horizontal
     
     private SidebarItem _draggedItem = null;
     private Vector2 _dragScreenPos;  
@@ -22,7 +25,7 @@ public class Sidebar
 
     //private float dragTimer = 0f; // tryign to make block remain existing when let go of but not interactable
 
-    public Sidebar(Texture2D itemTex, int screenWidth, int screenHeight, SpriteFont font, Texture2D blockTex)
+    public Sidebar(Texture2D itemTex, int screenWidth, int screenHeight, SpriteFont font, Texture2D blockTex, Texture2D springTex)
     {
         _itemTex = itemTex;
         _panelPos = screenWidth - _panelWidth;
@@ -33,6 +36,13 @@ public class Sidebar
             blockTex,
             20f,
             new Rectangle(_panelPos + 25, 100, 100, 100),
+            font));
+        
+        AddItem(new SidebarItem(
+            "Spring",
+            springTex,
+            30f,
+            new Rectangle(_panelPos + 50, 270, (int)(springTex.Width*0.15f), (int)(springTex.Height*0.15f)),
             font));
     }
 
@@ -54,6 +64,13 @@ public class Sidebar
                 {
                     _isDragging = true;
                     _draggedItem = item;
+                    if (item.ItemName == "Spring")
+                    {
+                        vert = new Random().Next(2) == 0;
+                        rotation = vert 
+                            ? 0f 
+                            : (float)(Math.PI / 2f); 
+                    }
                     
                     //dragTimer = (float)gameTime.ElapsedGameTime.TotalSeconds; // tryign to make block remain existing when let go of but not interactable
                     
@@ -75,10 +92,22 @@ public class Sidebar
                 {
                     //ugh include offset
                     Vector2 worldPos = mouseScreenPos + cameraPosition;
-                    coins.CoinCounter -= (int)_draggedItem.Price;
-                    var newBlock = new Blocks(_draggedItem.ItemTex, worldPos);
-                    newBlock.isPlaced = true;
-                    Blocks.Add(newBlock);
+                    
+                    if (_draggedItem.ItemName == "Block")
+                    {
+                        coins.CoinCounter -= (int)_draggedItem.Price;
+                        var newBlock = new Blocks(_draggedItem.ItemTex, worldPos);
+                        newBlock.isPlaced = true;
+                        Blocks.Add(newBlock);
+                    }
+                    else if (_draggedItem.ItemName == "Spring")
+                    {
+                        var newSpring = new Spring(_draggedItem.ItemTex, vert);
+                        newSpring.setPos(worldPos);
+                        newSpring.justSpawned = false;
+                        newSpring.isPlaced = true;
+                        Springs.Add(newSpring);
+                    }
                 }
 
                 //when u not dragging anymore
@@ -94,6 +123,7 @@ public class Sidebar
             {
                 block.MousePokeBlock(mouse, prevMouse, worldMouse);
             }
+            // add spring interaction stuff
         }
     }
 
@@ -105,7 +135,7 @@ public class Sidebar
         
         foreach (var item in _items)
         {
-            item.Draw(spriteBatch, true);
+            item.Draw(spriteBatch, true, rotation);
         }
         
         if (_isDragging && _draggedItem != null)
@@ -113,13 +143,17 @@ public class Sidebar
             float scale = Math.Min(
                 (_draggedItem.ItemSlot.Width - 10f) / _draggedItem.ItemTex.Width,
                 (_draggedItem.ItemSlot.Height - 20f) / _draggedItem.ItemTex.Height);
-
+            if (_draggedItem.ItemName == "Spring")
+            {
+                scale = 0.17f;
+            }
+            
             spriteBatch.Draw(
                 _draggedItem.ItemTex,
                 _dragScreenPos,
                 null,
                 Color.White * 0.75f,  
-                0f,
+                rotation,
                 new Vector2(_draggedItem.ItemTex.Width / 2f, _draggedItem.ItemTex.Height / 2f),
                 scale,
                 SpriteEffects.None,
@@ -151,7 +185,7 @@ public class Sidebar
                    && prevMouse.LeftButton == ButtonState.Released;
         }
 
-        public void Draw(SpriteBatch spriteBatch, bool gotMoney)
+        public void Draw(SpriteBatch spriteBatch, bool gotMoney, float springRot)
         {
             Color slotBg = gotMoney ? new Color(40, 40, 40, 200) : new Color(20, 20, 20, 150); //YA GOT MONEY????
             float scale = Math.Min(
@@ -160,17 +194,38 @@ public class Sidebar
             Vector2 iconPos = new Vector2(
                 ItemSlot.X + ItemSlot.Width / 2f,
                 ItemSlot.Y + ItemSlot.Height / 2f - 8f);
+            if (ItemName == "Block")
+            {
+                spriteBatch.Draw(
+                    ItemTex,
+                    iconPos,
+                    null,
+                    gotMoney ? Color.White : Color.Black,
+                    0f,
+                    new Vector2(ItemTex.Width / 2f, ItemTex.Height / 2f),
+                    scale,
+                    SpriteEffects.None,
+                    0f);
+            }
 
-            spriteBatch.Draw(
-                ItemTex,
-                iconPos,
-                null,
-                gotMoney ? Color.White : Color.Black,
-                0f,
-                new Vector2(ItemTex.Width / 2f, ItemTex.Height / 2f),
-                scale,
-                SpriteEffects.None,
-                0f);
+            if (ItemName == "Spring")
+            {
+                Vector2 position = new Vector2(550, 250);
+                if (springRot > 0f)
+                {
+                    position = new Vector2(629, 250);
+                }
+                spriteBatch.Draw(
+                    ItemTex,
+                    position,
+                    null,
+                    gotMoney ? Color.White : Color.Black,
+                    springRot,
+                    new Vector2((ItemTex.Width*0.15f) / 2f, (0.15f*ItemTex.Height) / 2f),
+                    0.15f,
+                    SpriteEffects.None,
+                    0f);
+            }
             
             string price = $"{(int)Price} Coins";
             Vector2 textSize = _font.MeasureString(price);
@@ -178,7 +233,7 @@ public class Sidebar
                 ItemSlot.X + ItemSlot.Width / 2f - textSize.X / 2f,
                 ItemSlot.Bottom - textSize.Y - 2f);
             spriteBatch.DrawString(
-                _font, price, textPos, //if you poor, it grays out   // damn
+                _font, price, textPos, //if you poor, it grays out   // damn // HAHAH
                 gotMoney ? Color.Yellow : Color.Black);
         }
     }

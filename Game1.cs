@@ -24,11 +24,13 @@ public class Game1 : Game
     private int width = 450;
     private int height = 800;
     private float ScrollRate = 80f;
+    private float _progress = 0f;
     
     private Texture2D obstacleTex;
     private Texture2D _pixelTex;
     private Texture2D _winScreenTex;
     private Texture2D blockTexture;
+    private Texture2D board;
 
     //GUI
     private SpriteFont _font;
@@ -50,6 +52,9 @@ public class Game1 : Game
     
     //interactive components
     //private List<Blocks> _blocks = new List<Blocks>();
+    
+    //Spring
+    private Spring _spring;
 
     //pause Screen
     private Pause _pauseScreen;
@@ -128,8 +133,14 @@ public class Game1 : Game
         _coinTex = Content.Load<Texture2D>("coin_gold");
         _winScreenTex = Content.Load<Texture2D>("paper");
 
+        // SPRING
+        Texture2D spring = Content.Load<Texture2D>("full spring");
+        
+        //
+        // BLOCKS
         blockTexture = Content.Load<Texture2D>("blocksquare");
-        _sidebar = new Sidebar(_pixelTex, width + 200, height, _font, blockTexture);
+        _sidebar = new Sidebar(_pixelTex, width + 200, height, _font, blockTexture, spring);
+        //
         
         _coins = new CoinManager(_coinTex, height);
         
@@ -139,9 +150,10 @@ public class Game1 : Game
             width);
         
         // Score Board
-        Texture2D board = new Texture2D(GraphicsDevice, 1, 1);
+        board = new Texture2D(GraphicsDevice, 1, 1);
         board.SetData(new[] { Color.White }); 
-        _score = new HighScore(_font, board);
+        _progress = 0.0f;
+        _score = new HighScore(_font, board, _progress);
         
         //--------------------------------load sound-------------------------------------------------------------/////////
         Ball.ContentManager = Content;
@@ -289,6 +301,7 @@ public class Game1 : Game
         _score.Reset();
         _coins = new CoinManager(_coinTex, height);
         _sidebar.Blocks.Clear();
+        _sidebar.Springs.Clear();
         _ball = new Ball(
             Content.Load<Texture2D>("team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f"),
             new Vector2((width + 200) / 2f, height / 2f),
@@ -302,7 +315,7 @@ public class Game1 : Game
             _ball,
             _font,
             _pixelTex,
-            (width + 200) / 2 + 200,
+            (width + 200) / 2 - 200,
             50);
         
         _restartButtonAppears = false;
@@ -361,6 +374,8 @@ public class Game1 : Game
                 _ball.Update(gameTime, paths);
                 _coins.Update(gameTime, _ball);
                 _pauseScreen.Update(gameTime, _mousePos, mouse, _ball, this, _coins);
+                _progress = _progressBar.GetProgress();
+                
                 if (_pauseScreen._paused)
                 {
                     _gameState = GameState.Pause;
@@ -373,6 +388,10 @@ public class Game1 : Game
                 foreach (var block in _sidebar.Blocks)
                 {
                     block.BlockCollision(_ball);
+                }
+                foreach (var spring in _sidebar.Springs)
+                {
+                    spring.Update(gameTime, mouse, _previousMouseState, _ball, worldMouse);
                 }
                 
                 if (_ball.Center().Y >= 4450f)
@@ -472,6 +491,11 @@ public class Game1 : Game
                 {
                     block.Draw(_spriteBatch, cameraPosition, _mousePos);
                 }
+                foreach (var spring in _sidebar.Springs)
+                {
+                    spring.Draw(_spriteBatch);
+                    /*spring.DrawHitBox(_spriteBatch, board); // for troubleshootinggg*/
+                }
                 _spriteBatch.End();
                 
                 _spriteBatch.Begin(); 
@@ -543,8 +567,20 @@ public class Game1 : Game
                     new Rectangle(0, 0, _winScreenTex.Width, _winScreenTex.Height),
                     Color.White);
                 string winningMessage = "You made it!";
+                string currscore = $"Your Score: {_score._currentScore:F2}";
+                string highscores =  $"High Score: {_score._highScore:F2}";
+                string coin = $"Coins Collected: {_score._prevCoinsCollected}";
                 Vector2 winningsize = 4*_font.MeasureString(winningMessage);
                 Vector2 winningorigin = new Vector2((width + 200) / 2f - winningsize.X / 8f, height / 2f - winningsize.Y/2f);
+                Vector2 currScoreSize = 4*_font.MeasureString(currscore);
+                Vector2 org1 = new Vector2((width + 200) / 2f - currScoreSize.X / 8f, height / 2f - currScoreSize.Y/2f);
+                Vector2 HiscoreSize = 4*_font.MeasureString(highscores);
+                Vector2 org2 = new Vector2((width + 200) / 2f - HiscoreSize.X / 8f, height / 2f - HiscoreSize.Y/2f);
+                Vector2 coinSze = 4*_font.MeasureString(coin);
+                Vector2 org3 = new Vector2((width + 200) / 2f - coinSze.X / 8f, height / 2f - coinSze.Y/2f);
+                _spriteBatch.DrawString(_font, highscores, new Vector2(org1.X, winningorigin.Y - 100), Color.Black);
+                _spriteBatch.DrawString(_font, currscore, new Vector2(org2.X, winningorigin.Y - 80), Color.Black);
+                _spriteBatch.DrawString(_font, coin, new Vector2(org3.X, winningorigin.Y - 60), Color.Black);
                 _spriteBatch.DrawString(_font, winningMessage, winningorigin, Color.Black);
                 _spriteBatch.End();
                 break;
