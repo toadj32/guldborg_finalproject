@@ -65,6 +65,8 @@ public class Pause
     private bool _sett = false;
     public bool _exit = false;
     private Matrix world;
+    
+    private KeyboardState _lastKeyboardstrokeimhavingaStroke;
 
     // make block bool that let it be used or not.
     
@@ -118,9 +120,13 @@ public class Pause
         world = Matrix.CreateTranslation(new Vector3(50f, 50f, 0f)) * Matrix.CreateScale(_scale);
     }
 
-    public void Update(GameTime gameTime, Vector2 mousePos, MouseState mouseState, Ball ball, Game game, CoinManager coins)
+    public void Update(GameTime gameTime, Vector2 mousePos, MouseState mouseState, KeyboardState kb, Ball ball, Game game, CoinManager coins)
     {
-        if (_pauseRect.Contains(mousePos) && mouseState.LeftButton == ButtonState.Pressed && _lastmouseState.LeftButton == ButtonState.Released && !_paused)
+        bool spacePressed = kb.IsKeyDown(Keys.Space) && _lastKeyboardstrokeimhavingaStroke.IsKeyUp(Keys.Space);
+        bool mousePause = _pauseRect.Contains(mousePos) && mouseState.LeftButton == ButtonState.Pressed &&
+                        _lastmouseState.LeftButton == ButtonState.Released && !_paused;
+        
+        if (((spacePressed && !_paused) || mousePause) && !_paused)
         {
             _lastAcc = ball._acc;
             _lastSpeed = ball.Velocity;

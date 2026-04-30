@@ -38,7 +38,10 @@ I integrated the pause screen and blocks classes into the map and sidebar and wr
 only be placed on the path itself and nowhere else. I made the start screen and preview animation. I also wrote
 the PathTracks class that keeps track of all the obstacles and draws the non-square obstacles. 
 
-Xinlin:
+Xinlin: in-game Blocks; instructions screen & linked it to intro screen interaction; sound effects (ball hitting things);
+ music (sourced from BBC) separately for the [intro screen + rules screen] and preview + gameplay; 
+ animation hierarchy; mouse interactions; 
+ and a lot of last-stretch debugging, git management; animator for the video presentation.
 
 
 
@@ -55,4 +58,7 @@ money checking tint not working, the components being placed off the path, and t
 and dragged along. Also the collision detection was off for the right side of obstacles and components, so that had to be
 fixed. 
 
-Xinlin:
+Xinlin: some challenges came from our different approaches to implementing a function, it could be teh structure of the 
+code, logic, or even just where the necessary parts are nestled. so adding and/or refining features (ie. applying the 
+collision sound to objects side from the fixed ones on the path) so one approach that had previously worked 
+or had worked for one part may not be so for another part so I'd have to try other solutions.

@@ -1,6 +1,6 @@
 ﻿Group Members:
 - Tong Wang ( )
-- Xinlin Cao ( )
+- Xinlin Cao (xc5374)
 - Victoria Li (vfl229)
 
 Requirements:
