@@ -46,11 +46,15 @@ public class Instructions
             SpriteEffects.None,
             0f);
 
-        string instructions = "LMB + drag to take blocks from the side\n" +
+        string instructions = "LMB + drag to take blocks + springs from the side\n" +
+                              "Blocks can guide ball\n" + "Springs can propel ball\n \n" +
                               "Make sure the blocks are on the path\n" +
                               "Collect coins to purchase more blocks\n \n" +
+                              "Click left mouse key to skip preview\n" +
                               "Press the top right button to Pause or \n    access Settings\n \n" +
-                              "Complete faster = higher score\n \nKeep the ball on the path!\n" +
+                              "r - restart\n" + "b - return to start screen\n" + "space - pause menu\n" + 
+                              "m - mute/unmute\n \n" +
+                              "Complete faster + more coins = higher score\n \nKeep the ball on the path!\n" +
                               "There are checkpoints marked by\n" +
                               "the white lines that will trigger\n" +
                               "the ending animation to give you hope\n" +
@@ -59,11 +63,11 @@ public class Instructions
         spriteBatch.DrawString(
             _font,
             instructions,
-            new Vector2(_width / 2.5f - textSize.X / 2.5f, _height / 2f - 200),
+            new Vector2(_width / 2.5f - textSize.X / 2.5f + 30f, _height / 2f - 200),
             Color.Black,
             0f,
             Vector2.Zero,
-            1.5f,
+            0.85f,
             SpriteEffects.None,
             0f);
 
