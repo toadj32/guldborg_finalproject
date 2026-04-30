@@ -1,6 +1,7 @@
 Intended Behavior:
 
-Tong: 
+Tong: The pause screen can be accessed on the top right and has buttons that let the user exit and resume the game,
+as well as change settings. The settings screen 
 
 Victoria: The map is meant to be centered around the ball. So I added a cameraPosition offset to insure the ball
 is always at the center of the screen. I also added the obstacles and holes and wrote behaviors for the ball to bounce
@@ -10,7 +11,7 @@ on the map and disappear as the user collects them. If the user buys a component
 
 Xinlin: 
 
-
+-----------------------------------------------------------------------------------
 Included Class/es:
 
 Tong: I made the Pause class, which was the user interface for pausing the game and adjusting settings. When paused,
@@ -18,7 +19,23 @@ all dynamic changes in the game (i.e. score, ball movements) will become static,
 move anything in the game. The pause screen has three buttons: resume, exit, and settings. Resume will continue the game
 from where it left off (we save the last ball acceleration, speed, scroll speed). Clicking the settings button will load
 in the settings screen, which has more interactive interfaces. The user is able to pick between dark red and bright red 
-ball ring colors.
+ball ring colors. Below that, there is a volume adjusting slider, which is able to go from 0% to 100% volume.
+The user is also able to mute and unmute the volume (the music is quite stressful I know) by clicking the M key. All 
+changes made here are automatically saved. There is a button on the top right that allows the user to go back to the 
+pause menu, where the user can choose to resume the game or leave or go back to settings. The HighScore class displays 
+the scores on the side of the screen while the gameState is in playing. This class
+also keeps track of the current score, high score, current coins collected, the most coins collected, and the time. 
+We calculate total score through a weighted sum between game completion percentage (which was extracted from the 
+progress bar class object), the amount of time taken to do so, and the number of coins collected---with the progress
+completion being weighted heavier since that has a higher level of difficulty compared to the other two factors.
+In this class, there is a save method and a reset method, which is used in Game1.cs during varying gamestates. The 
+high score and the most coins collected are saved and exported in a json file to keep track of the true high score
+and most coins collected even out of the game. This is so that when the user resumes the game later these values
+are still accessible and adjustable. The finalBoss class animates the cat paws near the end of the game and determines
+the collision logic between the cat paws and the ball with two hit boxes for each paw. Before entering the final
+stages of the game, the final boss slides in horizontally until it reaches the target point and then it moves in a 
+sinusoidal manner to mess with the ball's movements to add difficulty to the game. After a certain level of 
+progress is completed (~98%), the cat paws will disappear and then the ball will make it to the other side!
 
 Victoria: I made the bg class for the background, and some of the ball class that had the code for the ball collision
 behavior, including tracking the velocities of the ball as it interacts with different obstacles. The start screen
@@ -31,10 +48,10 @@ for identifying the type of path based on the position and has the code for draw
 Xinlin:
 
 
-
+-----------------------------------------------------------------------------------
 Specific Contributions:
 
-Tong:
+Tong: I made the 
 
 Victoria: I made the map, generating the background and the obstacles and holes that the user must avoid. I also
 wrote the collision logic for the ball with components and obstacles. I incorporated the coin class from a previous
@@ -46,10 +63,10 @@ the PathTracks class that keeps track of all the obstacles and draws the non-squ
 Xinlin:
 
 
-
+-----------------------------------------------------------------------------------
 Unexpected Challenges:
 
-Tong:
+Tong: The spring logic was very difficult because 
  
 Victoria: The collision logic defintely took the longest. I originally had it using Vector2.Reflect, and every fix I made
 just made it worse, so I had to completely restart and use a method of splitting the velocity vecotr instead. This took
