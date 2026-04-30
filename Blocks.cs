@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Numerics;
 using Final_Project;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 public class Blocks
 {
+    //public static ContentManager ContentManager { get; set; }
+    //private SoundEffect ballHitSound;
+    
     public bool isInteracting = false; // if block is being moved
     public Texture2D blockTexture;
     public Vector2 blockPos;
@@ -20,6 +25,8 @@ public class Blocks
     {
         blockTexture = texture;
         this.blockPos = blockPos;
+        
+        //ballHitSound = content.Load<SoundEffect>("JDSherbert - Wooden UI SFX Pack - Confirm - 1");
     }
 
     public Rectangle Hitbox()
@@ -90,14 +97,18 @@ public class Blocks
             0f);
     }
 
-    public void BlockCollision(Ball ball)
+    public bool BlockCollision(Ball ball) //c ahnged this to bool to implemment sound upon hit
     {
         if (!Hitbox().Intersects(new Rectangle(
                 (int)(ball.Center().X - ball.Radius),
                 (int)(ball.Center().Y - ball.Radius),
                 (int)(ball.Radius * 2),
                 (int)(ball.Radius * 2))))
-            return;
+        {
+            //ballHitSound.Play();
+            return false;
+        }
+
         Vector2 normal = ball.Center() - new Vector2(
             Hitbox().X + Hitbox().Width / 2f,
             Hitbox().Y + Hitbox().Height / 2f);
@@ -105,5 +116,7 @@ public class Blocks
 
         ball.Position += normal * 2f;
         ball.Velocity = normal * 80f;
+
+        return true;
     }
 }

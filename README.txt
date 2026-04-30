@@ -1,6 +1,6 @@
 ﻿Group Members:
 - Tong Wang ( )
-- Xinlin Cao ( )
+- Xinlin Cao (xc5374)
 - Victoria Li (vfl229)
 
 Requirements:
@@ -11,7 +11,8 @@ To Run:
  Run the File, all textures should already be in Content.mgcb, and simulation should run off the start
 
 Interactivity:
-- To move, components, click and drag them from the sidebar using the left mouse button
+- To move components, click and drag them from the sidebar using the left mouse button
+- To rotate a component, hold one and without releasing, right click to rotate it by 90 degrees.
 - You can also use the left mouse button to click on other interactive buttons like the pause button, the settings, 
 and the rules button. 
 - If you are unable to drag a component, you either do not have enough money for it, which will reflect in it being 

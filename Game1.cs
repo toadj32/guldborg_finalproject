@@ -62,6 +62,7 @@ public class Game1 : Game
     //pause Screen
     private Pause _pauseScreen;
     private Vector2 _mousePos;
+    private KeyboardState _lastKeyboardstrokeimhavingaStroke;
     
     // Score Board
     private HighScore _score;
@@ -80,10 +81,13 @@ public class Game1 : Game
     private SoundEffectInstance gameMusicInstance;
     private bool musicPlaying = false;
     private float _volume = 0.5f;
+    private SoundEffect ballHitSound;
     
     //instructions
     private Instructions instructions;
     //-------------------------------------------------------------------------------------------------///////////// ^
+
+    private KeyboardState kb;
 
     public Game1()
     {
@@ -169,6 +173,9 @@ public class Game1 : Game
         
         //--------------------------------load sound-------------------------------------------------------------/////////
         Ball.ContentManager = Content;
+        //Sidebar.ContentManager = Content;
+        //Blocks.ContentManager = Content;
+        ballHitSound = Content.Load<SoundEffect>("JDSherbert - Wooden UI SFX Pack - Confirm - 1");
         //--------------------------------load sound end-------------------------------------------------------------/////////
 
         _ball = new Ball(
@@ -400,9 +407,27 @@ public class Game1 : Game
             case GameState.Playing:
                 _ball.Update(gameTime, paths);
                 _coins.Update(gameTime, _ball);
-                _pauseScreen.Update(gameTime, _mousePos, mouse, _ball, this, _coins);
+                _pauseScreen.Update(gameTime, _mousePos, mouse, kb, _ball, this, _coins);
                 _progress = _progressBar.GetProgress();
                 
+               /* if (kb.IsKeyDown(Keys.Space) && _lastKeyboardstrokeimhavingaStroke.IsKeyUp(Keys.Space))
+                {
+                    if (_gameState == GameState.Playing)
+                    {
+                        _gameState = GameState.Pause;
+                        _pauseScreen._paused = true;
+                    }
+                    else if (_gameState == GameState.Pause)
+                    {
+                        _gameState = GameState.Playing;
+                        _pauseScreen._paused = false;
+                    }
+                }*/
+                /*if ((kb.IsKeyDown(Keys.Space) && _lastKeyboardstrokeimhavingaStroke.IsKeyUp(Keys.Space)))
+                {
+                    _pauseScreen._paused = true;
+                    _gameState = GameState.Pause;
+                }*/
                 if (_pauseScreen._paused)
                 {
                     _gameState = GameState.Pause;
@@ -422,7 +447,10 @@ public class Game1 : Game
                 _sidebar.Update(gameTime, mouse, _previousMouseState, cameraPosition, _coins);
                 foreach (var block in _sidebar.Blocks)
                 {
-                    block.BlockCollision(_ball);
+                    if (block.BlockCollision(_ball))
+                    {
+                        ballHitSound.Play();
+                    }
                 }
                 foreach (var spring in _sidebar.Springs)
                 {
@@ -470,7 +498,7 @@ public class Game1 : Game
                 }
                 break;
             case GameState.Pause:
-                _pauseScreen.Update(gameTime, _mousePos, mouse, _ball, this, _coins);
+                _pauseScreen.Update(gameTime, _mousePos, mouse, kb, _ball, this, _coins);
                 _ball._defaultColor =  _pauseScreen.defaultColor;
                 if (kb.IsKeyDown(Keys.B))
                 {
@@ -490,6 +518,7 @@ public class Game1 : Game
         }
         
         _previousMouseState = mouse;
+        _lastKeyboardstrokeimhavingaStroke = kb;
         _previousKeyboardState = kb;
 
         base.Update(gameTime);

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Timers;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,6 +11,9 @@ namespace Final_Project;
 
 public class Sidebar
 {
+    //public static ContentManager ContentManager { get; set; }
+    //private SoundEffect ballHitSound;
+    
     public List<Blocks> Blocks = new List<Blocks>();
     public List<Spring> Springs = new List<Spring>();
     private List<SidebarItem> _items = new List<SidebarItem>();
@@ -22,6 +27,7 @@ public class Sidebar
     private SidebarItem _draggedItem = null;
     private Vector2 _dragScreenPos;  
     private bool _isDragging = false;
+    private ContentManager _content;
 
     //private float dragTimer = 0f; // tryign to make block remain existing when let go of but not interactable
 
