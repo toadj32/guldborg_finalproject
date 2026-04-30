@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
  using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -220,7 +220,7 @@ public class Game1 : Game
         
          paths.AddPath(new Rectangle(450, 10002, 100, 50), PathType.Obstacle, obstacleTex);
          paths.AddPath(new Rectangle(400, 1400, 20, 120), PathType.Obstacle, obstacleTex);
-         paths.AddPath(new Rectangle(200, 1700, 250, 90), PathType.Obstacle, obstacleTex);
+         paths.AddPath(new Rectangle(200, 1700, 200, 90), PathType.Obstacle, obstacleTex);
         
          //my little peg board
          paths.AddPath(new Rectangle(150, 2500, 50, 50), 
@@ -321,7 +321,6 @@ public class Game1 : Game
         _coins = new CoinManager(_coinTex, height);
         _sidebar.Blocks.Clear();
         _sidebar.Springs.Clear();
-        _finalBoss.Reset();
         _ball = new Ball(
             Content.Load<Texture2D>("team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f"),
             new Vector2((width + 200) / 2f, height / 2f),
@@ -462,12 +461,11 @@ public class Game1 : Game
                     }
                 }
                 
-                Console.WriteLine(_progress);
-                if (_progress > 0.1f)
+                if (_progress > 0.5f)
                 {
                     if (!_finalBoss.done)
                     {
-                        if (_progress > 0.18f)
+                        if (_progress > 0.6f)
                         {
                             _finalBoss.done = true;
                         }
@@ -610,7 +608,7 @@ public class Game1 : Game
                 
                 _pauseScreen.Draw(_spriteBatch);
 
-                if (progress > 0.1f)
+                if (progress > 0.9f)
                 {
                     _finalBoss.Draw(_spriteBatch);
                     /*_finalBoss.DrawHitbox(_spriteBatch, board); // TROUBLESHOOTTT*/
