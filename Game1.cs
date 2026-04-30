@@ -465,7 +465,7 @@ public class Game1 : Game
                 {
                     if (!_finalBoss.done)
                     {
-                        if (_progress > 0.9f)
+                        if (_progress > 0.6f)
                         {
                             _finalBoss.done = true;
                         }
