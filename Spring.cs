@@ -25,6 +25,9 @@ public class Spring
     private float _compVel = 0f;
     private float _restoreSpeed = 10f;
     
+    public bool tipHit = false;
+    
+    
     public Spring(Texture2D spr, bool vert)
     {
         _spring = spr;
@@ -156,7 +159,7 @@ public class Spring
             (int)(ball.Radius * 2),
             (int)(ball.Radius * 2));
         
-        bool tipHit = false;
+        tipHit = false;
         foreach (Rectangle tipBox in TipHitbox())
         {
             if (tipBox.Intersects(ballRect))

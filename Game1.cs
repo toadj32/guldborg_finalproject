@@ -455,6 +455,10 @@ public class Game1 : Game
                 foreach (var spring in _sidebar.Springs)
                 {
                     spring.Update(gameTime, mouse, _previousMouseState, _ball, worldMouse);
+                    if (spring.tipHit)
+                    {
+                        ballHitSound.Play();
+                    }
                 }
                 
                 Console.WriteLine(_progress);
