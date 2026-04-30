@@ -1,9 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Timers;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,9 +9,6 @@ namespace Final_Project;
 
 public class Sidebar
 {
-    //public static ContentManager ContentManager { get; set; }
-    //private SoundEffect ballHitSound;
-    
     public List<Blocks> Blocks = new List<Blocks>();
     public List<Spring> Springs = new List<Spring>();
     private List<SidebarItem> _items = new List<SidebarItem>();
@@ -27,7 +22,6 @@ public class Sidebar
     private SidebarItem _draggedItem = null;
     private Vector2 _dragScreenPos;  
     private bool _isDragging = false;
-    private ContentManager _content;
 
     //private float dragTimer = 0f; // tryign to make block remain existing when let go of but not interactable
 
@@ -40,14 +34,14 @@ public class Sidebar
         AddItem(new SidebarItem(
             "Block",
             blockTex,
-            30f,
+            20f,
             new Rectangle(_panelPos + 25, 100, 100, 100),
             font));
         
         AddItem(new SidebarItem(
             "Spring",
             springTex,
-            20f,
+            30f,
             new Rectangle(_panelPos + 50, 270, (int)(springTex.Width*0.15f), (int)(springTex.Height*0.15f)),
             font));
     }
@@ -57,7 +51,7 @@ public class Sidebar
         _items.Add(item);
     }
 
-    public void Update(GameTime gameTime, MouseState mouse, MouseState prevMouse, Vector2 cameraPosition, CoinManager coins)
+    public void Update(GameTime gameTime, MouseState mouse, MouseState prevMouse, Vector2 cameraPosition, CoinManager coins, PathTracker.PathBounds paths)
     {
         Vector2 mouseScreenPos = new Vector2(mouse.X, mouse.Y);
 
@@ -72,8 +66,7 @@ public class Sidebar
                     _draggedItem = item;
                     if (item.ItemName == "Spring")
                     {
-                        /*vert = new Random().Next(2) == 0;*/
-                        vert = true;
+                        vert = new Random().Next(2) == 0;
                         rotation = vert 
                             ? 0f 
                             : (float)(Math.PI / 2f); 
@@ -99,22 +92,23 @@ public class Sidebar
                 {
                     //ugh include offset
                     Vector2 worldPos = mouseScreenPos + cameraPosition;
-                    
-                    if (_draggedItem.ItemName == "Block")
+                    if (paths.IsOnPathOnly(worldPos))
                     {
-                        coins.CoinCounter -= (int)_draggedItem.Price;
-                        var newBlock = new Blocks(_draggedItem.ItemTex, worldPos);
-                        newBlock.isPlaced = true;
-                        Blocks.Add(newBlock);
-                    }
-                    else if (_draggedItem.ItemName == "Spring")
-                    {
-                        coins.CoinCounter -= (int)_draggedItem.Price;
-                        var newSpring = new Spring(_draggedItem.ItemTex, vert);
-                        newSpring.setPos(worldPos);
-                        newSpring.justSpawned = false;
-                        newSpring.isPlaced = true;
-                        Springs.Add(newSpring);
+                        if (_draggedItem.ItemName == "Block")
+                        {
+                            coins.CoinCounter -= (int)_draggedItem.Price;
+                            var newBlock = new Blocks(_draggedItem.ItemTex, worldPos);
+                            newBlock.isPlaced = true;
+                            Blocks.Add(newBlock);
+                        }
+                        else if (_draggedItem.ItemName == "Spring")
+                        {
+                            var newSpring = new Spring(_draggedItem.ItemTex, vert);
+                            newSpring.setPos(worldPos);
+                            newSpring.justSpawned = false;
+                            newSpring.isPlaced = true;
+                            Springs.Add(newSpring);
+                        }
                     }
                 }
 
@@ -135,7 +129,7 @@ public class Sidebar
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition, MouseState mouse)
+    public void Draw(SpriteBatch spriteBatch, Vector2 cameraPosition, MouseState mouse, int coinCount)
     {
         spriteBatch.Draw(_itemTex,
             new Rectangle(_panelPos, 0, _panelWidth, _screenHeight),
@@ -143,7 +137,8 @@ public class Sidebar
         
         foreach (var item in _items)
         {
-            item.Draw(spriteBatch, true, rotation);
+            bool gotMoney = coinCount >= item.Price;
+            item.Draw(spriteBatch, gotMoney, rotation);
         }
         
         if (_isDragging && _draggedItem != null)
@@ -202,6 +197,7 @@ public class Sidebar
             Vector2 iconPos = new Vector2(
                 ItemSlot.X + ItemSlot.Width / 2f,
                 ItemSlot.Y + ItemSlot.Height / 2f - 8f);
+            
             if (ItemName == "Block")
             {
                 spriteBatch.Draw(
