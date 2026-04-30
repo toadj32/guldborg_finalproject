@@ -144,6 +144,7 @@ C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldbor
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\sparkles.xnb
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.xnb
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\volumeButt.xnb
+<<<<<<< HEAD
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\wood-texture-close.xnb
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Final Project.exe
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Final Project.deps.json
@@ -178,3 +179,7 @@ C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldbor
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.pdb
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\Final Project.genruntimeconfig.cache
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\obj\Debug\net9.0\ref\Final Project.dll
+=======
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\guldborg_finalproject\bin\Debug\net9.0\Content\catpaw.xnb
+>>>>>>> 752dc9d63967074629c3980fd00d68e5425cddcd
+C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\catpaw.xnb

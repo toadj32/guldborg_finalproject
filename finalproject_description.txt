@@ -1,14 +1,22 @@
 Intended Behavior:
 
-Tong: 
+Inspired by Rube Goldberg machines this game involves a constantly moving ball that must go through a perilous path
+littered with holes it could fall through, or obstacles that can get in the way and slow its progress. the player must
+use blocks and springs and place them accordingly to keep the ball from falling. These items are purchased from the bar
+on the right side of the screen, from which the player can click, drag, and drop items. Currency is spawned on the path
+and gained when the ball rolls into them.
+the Goal is to get the ball to the end of the path as quickly as possible and with as few coins as possible - both of
+which will factor into the final score.
+the player's high score is tracked and displayed at the bottom left of the screen during gameplay, along with time
+elapsed during current run, coins collected; above this is the progress bar that shows proportionally how far the player
+is from the finish line.
+The ball will periodically have a sparkle explosion around it.
 
 Victoria: The map is meant to be centered around the ball. So I added a cameraPosition offset to insure the ball
 is always at the center of the screen. I also added the obstacles and holes and wrote behaviors for the ball to bounce
 off and interact with the obstacles in a reasonable way as well as fall into the holes. The components in the sidebar
 are meant to be able to be dragged onto the path, not appearing if the user places them off the path. Coins also appear
 on the map and disappear as the user collects them. If the user buys a component, they coin counter on the side decreases. 
-
-Xinlin: 
 
 
 Included Class/es:
@@ -23,7 +31,15 @@ The coin class generates the coins and the coinmanager class manages them. The p
 progresses along the map. The Path Tracker class keeps track of the holes, paths, and obstacles, has functionality
 for identifying the type of path based on the position and has the code for drawing non-square obstacles. 
 
-Xinlin:
+Xinlin: StartScreen has two buttons one of which goes to the Instructions screen, and OK button at the bottom of the 
+Instructions screen initiates the Preview of the path/ obstacle course. 
+Music plays during StartScreen and Instructions (switches without starting over) and loops infinitely (until 
+interrupted by going into Preview/gameplay mode). Different music plays when Preview begins and goes into gameplay, 
+also switches without starting over and loops infinitely.
+Blocks are interacted with using mouse inputs - left click and hold/ drag to take a block and release to place it. 
+it cannot be picked up after being placed; right click while holding a block to change orientation by 90 degrees. Blocks
+stay where they are placed on the path - drawn under cameramatrix transformation - and interact with the ball the 
+same as the fixed obstacles. 
 
 
 
@@ -38,10 +54,16 @@ I integrated the pause screen and blocks classes into the map and sidebar and wr
 only be placed on the path itself and nowhere else. I made the start screen and preview animation. I also wrote
 the PathTracks class that keeps track of all the obstacles and draws the non-square obstacles. 
 
-Xinlin: in-game Blocks; instructions screen & linked it to intro screen interaction; sound effects (ball hitting things);
+Xinlin: the blocks that the player uses; 
+ instructions screen & linked it to intro screen interaction; 
+ sound effects (ball hitting things);
  music (sourced from BBC) separately for the [intro screen + rules screen] and preview + gameplay; 
- animation hierarchy; mouse interactions; 
- and a lot of last-stretch debugging, git management; animator for the video presentation.
+ animation hierarchy; 
+ mouse interactions; 
+ refinements in ball, pause, spring, game1, blocks, etc to improve functionality or polish; 
+ and a lot of last-stretch 
+ debugging, git management; 
+ animator for the video presentation.
 
 
 
@@ -59,6 +81,9 @@ and dragged along. Also the collision detection was off for the right side of ob
 fixed. 
 
 Xinlin: some challenges came from our different approaches to implementing a function, it could be teh structure of the 
-code, logic, or even just where the necessary parts are nestled. so adding and/or refining features (ie. applying the 
-collision sound to objects side from the fixed ones on the path) so one approach that had previously worked 
-or had worked for one part may not be so for another part so I'd have to try other solutions.
+code, logic, or even just where the necessary parts are nestled. so adding and/or refining features required a lot of
+just testing ideas, because so one approach that had previously worked or had worked for one part may not be so for 
+another part so I'd have to try other solutions. ie. applying the collision sound to bal interactions: for obstacles 
+on the fixed path i was able to load in the sound and put the play commands into the Ball class' obstaclecollision
+method. but the collision logic for the Blocks and Spring were in their respective classes so tried stuff and ended up
+modfying the collision method in Blocks to a bool and have the play sound command be in Game1.cs.
