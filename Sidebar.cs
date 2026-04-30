@@ -34,14 +34,14 @@ public class Sidebar
         AddItem(new SidebarItem(
             "Block",
             blockTex,
-            20f,
+            30f,
             new Rectangle(_panelPos + 25, 100, 100, 100),
             font));
         
         AddItem(new SidebarItem(
             "Spring",
             springTex,
-            30f,
+            20f,
             new Rectangle(_panelPos + 50, 270, (int)(springTex.Width*0.15f), (int)(springTex.Height*0.15f)),
             font));
     }
@@ -103,6 +103,7 @@ public class Sidebar
                     }
                     else if (_draggedItem.ItemName == "Spring")
                     {
+                        coins.CoinCounter -= (int)_draggedItem.Price;
                         var newSpring = new Spring(_draggedItem.ItemTex, vert);
                         newSpring.setPos(worldPos);
                         newSpring.justSpawned = false;

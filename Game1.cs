@@ -1,4 +1,5 @@
-﻿﻿using System.Collections.Generic;
+﻿﻿using System;
+ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -428,6 +429,19 @@ public class Game1 : Game
                     spring.Update(gameTime, mouse, _previousMouseState, _ball, worldMouse);
                 }
                 
+                Console.WriteLine(_progress);
+                if (_progress > 0.9f)
+                {
+                    if (!_finalBoss.done)
+                    {
+                        if (_progress > 0.98f)
+                        {
+                            _finalBoss.done = true;
+                        }
+                        _finalBoss.Update(gameTime, _ball);
+                    }
+                }
+                
                 if (_ball.Center().Y >= 4450f)
                     _gameState = GameState.GameWin;
                 else if (_ball.FellOff())
@@ -484,8 +498,6 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.Black);
-
-        // TODO: Add your drawing code here
         Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
         
 ////////////////////////////////////////////----------------------camera matrix-------------------------//////////////////////////////////        
@@ -565,6 +577,12 @@ public class Game1 : Game
                 _spriteBatch.End();
                 
                 _pauseScreen.Draw(_spriteBatch);
+
+                if (progress > 0.9f)
+                {
+                    _finalBoss.Draw(_spriteBatch);
+                    /*_finalBoss.DrawHitbox(_spriteBatch, board); // TROUBLESHOOTTT*/
+                }
                 
                 break;
                 
@@ -656,8 +674,6 @@ public class Game1 : Game
                 _pauseScreen.Draw(_spriteBatch);
                 break;
         }
-        
-        
         base.Draw(gameTime);
     }
 }

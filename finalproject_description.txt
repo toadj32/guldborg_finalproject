@@ -13,7 +13,12 @@ Xinlin:
 
 Included Class/es:
 
-Tong:
+Tong: I made the Pause class, which was the user interface for pausing the game and adjusting settings. When paused,
+all dynamic changes in the game (i.e. score, ball movements) will become static, and the user will not be able to 
+move anything in the game. The pause screen has three buttons: resume, exit, and settings. Resume will continue the game
+from where it left off (we save the last ball acceleration, speed, scroll speed). Clicking the settings button will load
+in the settings screen, which has more interactive interfaces. The user is able to pick between dark red and bright red 
+ball ring colors.
 
 Victoria: I made the bg class for the background, and some of the ball class that had the code for the ball collision
 behavior, including tracking the velocities of the ball as it interacts with different obstacles. The start screen

@@ -99,7 +99,7 @@ public class HighScore
 
     public void Reset()
     {
-        _currentScore = _maxScore;
+        _currentScore = 0f;
         _prevCoinsCollected = 0;
         _currentCoinsCollected = 0;
         _time = 0f;
