@@ -41,7 +41,7 @@ public class Sidebar
         AddItem(new SidebarItem(
             "Spring",
             springTex,
-            30f,
+            10f,
             new Rectangle(_panelPos + 50, 270, (int)(springTex.Width*0.15f), (int)(springTex.Height*0.15f)),
             font));
     }
