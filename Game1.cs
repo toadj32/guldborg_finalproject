@@ -31,6 +31,8 @@ public class Game1 : Game
     private Texture2D _winScreenTex;
     private Texture2D blockTexture;
     private Texture2D board;
+    private KeyboardState _previousKeyboardState;
+    private float _savedVolume;
 
     //GUI
     private SpriteFont _font;
@@ -62,6 +64,9 @@ public class Game1 : Game
     
     // Score Board
     private HighScore _score;
+    
+    // Final Boss
+    private finalBoss _finalBoss;
     
     //restart button
     private Rectangle _restartButton;
@@ -136,7 +141,6 @@ public class Game1 : Game
         // SPRING
         Texture2D spring = Content.Load<Texture2D>("full spring");
         
-        //
         // BLOCKS
         blockTexture = Content.Load<Texture2D>("blocksquare");
         _sidebar = new Sidebar(_pixelTex, width + 200, height, _font, blockTexture, spring);
@@ -154,6 +158,13 @@ public class Game1 : Game
         board.SetData(new[] { Color.White }); 
         _progress = 0.0f;
         _score = new HighScore(_font, board, _progress);
+        
+        // Final Boss hehehehhe/////
+
+        Texture2D cat = Content.Load<Texture2D>("catpaw");
+        _finalBoss = new finalBoss(cat);
+        
+        ////////
         
         //--------------------------------load sound-------------------------------------------------------------/////////
         Ball.ContentManager = Content;
@@ -332,10 +343,25 @@ public class Game1 : Game
         _mousePos = new Vector2(mouse.X, mouse.Y);
         Vector2 worldMouse = _mousePos + cameraPosition;
         KeyboardState kb = Keyboard.GetState();
-        
+
+        if (kb.IsKeyDown(Keys.M) && _previousKeyboardState.IsKeyUp(Keys.M))
+        {
+            if(_volume > 0f)
+            {
+                _savedVolume = _volume;
+                _pauseScreen.volPer = 0f;
+                _volume = 0f;
+            }
+            else
+            {
+                _pauseScreen.volPer = _savedVolume;
+                _volume = _pauseScreen.volPer;
+            }
+        }
         _volume = _pauseScreen.volPer;
         MediaPlayer.Volume = _volume;
         SoundEffect.MasterVolume = _volume;
+        _pauseScreen.SyncSlider();
         
         switch (_gameState)
         {
@@ -449,7 +475,8 @@ public class Game1 : Game
                 break;
         }
         
-        _previousMouseState = mouse; 
+        _previousMouseState = mouse;
+        _previousKeyboardState = kb;
 
         base.Update(gameTime);
     }

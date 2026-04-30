@@ -178,3 +178,4 @@ C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldbor
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\darkRed.xnb
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\SettingsScreen.xnb
 C:\Users\xinli\Desktop\UT\2026_Spring\CS324E_Comp_Graphics\Final_Project\guldborg_finalproject_repo2\bin\Debug\net9.0\Content\volumeButt.xnb
+C:\Users\tongw\OneDrive - The University of Texas at Austin\Desktop\guldborg_finalproject\bin\Debug\net9.0\Content\catpaw.xnb

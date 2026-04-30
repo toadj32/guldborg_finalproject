@@ -66,7 +66,8 @@ public class Sidebar
                     _draggedItem = item;
                     if (item.ItemName == "Spring")
                     {
-                        vert = new Random().Next(2) == 0;
+                        /*vert = new Random().Next(2) == 0;*/
+                        vert = true;
                         rotation = vert 
                             ? 0f 
                             : (float)(Math.PI / 2f); 

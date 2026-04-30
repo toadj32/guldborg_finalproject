@@ -170,13 +170,14 @@ public class Spring
                 {
                     if (tipBox.Y == (int)_pos.Y) // if top hit box
                     {
-                        ball.Position.Y = tipBox.Y - ball.Radius * 1.5f - 1f;
-                        ball.Velocity.Y = -Math.Abs(ball.Velocity.Y) - compression * 3f;
+                        ball.Position.Y = tipBox.Y - ball.Radius * 2f - 1f;
+                        ball.Velocity.Y = -Math.Abs(ball.Velocity.Y) - compression * 2f;
+                        ball.Velocity.X += 10f;
                         ball.ScrollSpeed = 0f;
                     }
                     else // if bottom hit box, push ball downward
                     {
-                        ball.Velocity.Y = (float)(Math.Abs(ball.Velocity.Y) + compression * 3f);
+                        ball.Velocity.Y = (float)(Math.Abs(ball.Velocity.Y) + compression * 1.5f);
                         ball.ScrollSpeed *= 0.7f;
                     }
                 }
@@ -184,12 +185,12 @@ public class Spring
                 { // horizontal springgg
                     if (tipBox.X == (int)_pos.X)
                     { // left box
-                        ball.Position.X = tipBox.X - ball.Radius * 2f - 1f;
-                        ball.Velocity.X = -Math.Abs(ball.Velocity.X) - compression * 3f;
+                        ball.Position.X = tipBox.X - ball.Radius * 1.5f;
+                        ball.Velocity.X = -Math.Abs(ball.Velocity.X) - compression * 1.5f;
                     }
                     else
                     { // right boz
-                        ball.Velocity.X = (float)(Math.Abs(ball.Velocity.X) + compression * 3f);
+                        ball.Velocity.X = (float)(Math.Abs(ball.Velocity.X) + compression * 1.5f);
                     }
                 }
                 break;
@@ -205,15 +206,18 @@ public class Spring
                 normal.Normalize();
             }
 
-            ball.Position += normal * 2f;
+            ball.Position += normal * 1.5f;
 
             float inSurface = Vector2.Dot(ball.Velocity, normal);
             if (inSurface < 0)
             {
-                ball.Velocity -= inSurface * normal * 2f;
+                ball.Velocity -= inSurface * normal * 1.5f;
                 ball.Velocity *= 0.7f;
             }
         }
+
+        ball.Velocity += ball._acc * dt * dt * 10f;
+        
     }
     
     public void Draw(SpriteBatch spriteBatch)

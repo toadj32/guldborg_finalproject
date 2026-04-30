@@ -236,5 +236,10 @@ public class Pause
 
         spriteBatch.End();
     }
+
+    public void SyncSlider()
+    {
+        _volRect.X = 430 + (int)((735 - 430) * volPer);
+    }
     
 }
