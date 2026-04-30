@@ -104,6 +104,7 @@ public class Sidebar
                         else if (_draggedItem.ItemName == "Spring")
                         {
                             var newSpring = new Spring(_draggedItem.ItemTex, vert);
+                            coins.CoinCounter -= (int)_draggedItem.Price;
                             newSpring.setPos(worldPos);
                             newSpring.justSpawned = false;
                             newSpring.isPlaced = true;
