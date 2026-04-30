@@ -444,7 +444,7 @@ public class Game1 : Game
                 _score.Update(gameTime, _coins);
                 
                 //interactive components
-                _sidebar.Update(gameTime, mouse, _previousMouseState, cameraPosition, _coins);
+                _sidebar.Update(gameTime, mouse, _previousMouseState, cameraPosition, _coins, paths);
                 foreach (var block in _sidebar.Blocks)
                 {
                     if (block.BlockCollision(_ball))
@@ -602,7 +602,7 @@ public class Game1 : Game
                 _spriteBatch.DrawString(_font, $"Coins: {_coins.CoinCounter}", new Vector2(10, 10), Color.White);
                 
                 //sidebar
-                _sidebar.Draw(_spriteBatch, cameraPosition, mouse);
+                _sidebar.Draw(_spriteBatch, cameraPosition, mouse, _coins.coinCounter);
                 
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
@@ -698,7 +698,7 @@ public class Game1 : Game
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
                 _ball.Draw(_spriteBatch, cameraPosition, progress);
                 _coins.Draw(_spriteBatch, cameraPosition);
-                _sidebar.Draw(_spriteBatch, cameraPosition, mouse);
+                _sidebar.Draw(_spriteBatch, cameraPosition, mouse, _coins.coinCounter);
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
 
