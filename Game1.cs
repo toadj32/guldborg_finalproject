@@ -165,7 +165,7 @@ public class Game1 : Game
             _font,
             _pixelTex,
             
-            (width+200)/2 -200,
+            (width+200)/2 -300,
             50);
         
         ////////////////////////////////////////------------------------st------------------------////////////////////
@@ -318,7 +318,7 @@ public class Game1 : Game
         Vector2 cameraPosition = _ball.Position - new Vector2((width+200)/2f, height / 2f);
         _mousePos = new Vector2(mouse.X, mouse.Y);
         Vector2 worldMouse = _mousePos + cameraPosition;
-        
+        KeyboardState kb = Keyboard.GetState();
         
         _volume = _pauseScreen.volPer;
         MediaPlayer.Volume = _volume;
@@ -365,6 +365,14 @@ public class Game1 : Game
                 {
                     _gameState = GameState.Pause;
                 }
+                if (kb.IsKeyDown(Keys.B))
+                {
+                    _gameState = GameState.StartScreen;
+                }
+                if (kb.IsKeyDown(Keys.R))
+                {
+                    Restart();
+                }
                 // Score Board
                 _score.Update(gameTime, _coins);
                 
@@ -388,13 +396,28 @@ public class Game1 : Game
                 {
                     Restart();
                 }
+                if (kb.IsKeyDown(Keys.B))
+                {
+                    Restart();
+                    _gameState = GameState.StartScreen;
+                }
                 break;
             case GameState.GameWin:
                 _score.Save();
+                if (kb.IsKeyDown(Keys.B))
+                {
+                    Restart();
+                    _gameState = GameState.StartScreen;
+                }
                 break;
             case GameState.Pause:
                 _pauseScreen.Update(gameTime, _mousePos, mouse, _ball, this, _coins);
                 _ball._defaultColor =  _pauseScreen.defaultColor;
+                if (kb.IsKeyDown(Keys.B))
+                {
+                    Restart();
+                    _gameState = GameState.StartScreen;
+                }
                 if (_pauseScreen._exit)
                 {
                     _score.Reset();
