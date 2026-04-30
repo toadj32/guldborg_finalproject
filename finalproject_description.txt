@@ -1,0 +1,58 @@
+Intended Behavior:
+
+Tong: 
+
+Victoria: The map is meant to be centered around the ball. So I added a cameraPosition offset to insure the ball
+is always at the center of the screen. I also added the obstacles and holes and wrote behaviors for the ball to bounce
+off and interact with the obstacles in a reasonable way as well as fall into the holes. The components in the sidebar
+are meant to be able to be dragged onto the path, not appearing if the user places them off the path. Coins also appear
+on the map and disappear as the user collects them. If the user buys a component, they coin counter on the side decreases. 
+
+Xinlin: 
+
+
+Included Class/es:
+
+Tong:
+
+Victoria: I made the bg class for the background, and some of the ball class that had the code for the ball collision
+behavior, including tracking the velocities of the ball as it interacts with different obstacles. The start screen
+has the buttons for play and the instructions screen. The sidebar class contains different components and is allows
+users to drag them and place them on the path. It also displays the cost and grays out of the player doesn't have enough money. 
+The coin class generates the coins and the coinmanager class manages them. The progress bar increases as the user
+progresses along the map. The Path Tracker class keeps track of the holes, paths, and obstacles, has functionality
+for identifying the type of path based on the position and has the code for drawing non-square obstacles. 
+
+Xinlin:
+
+
+
+Specific Contributions:
+
+Tong:
+
+Victoria: I made the map, generating the background and the obstacles and holes that the user must avoid. I also
+wrote the collision logic for the ball with components and obstacles. I incorporated the coin class from a previous
+assignment but wrote the new coin manager class to make Game1 cleaner. I wrote the progressBar class and the sideBar class.
+I integrated the pause screen and blocks classes into the map and sidebar and wrote code to limit the components to
+only be placed on the path itself and nowhere else. I made the start screen and preview animation. I also wrote
+the PathTracks class that keeps track of all the obstacles and draws the non-square obstacles. 
+
+Xinlin:
+
+
+
+Unexpected Challenges:
+
+Tong:
+ 
+Victoria: The collision logic defintely took the longest. I originally had it using Vector2.Reflect, and every fix I made
+just made it worse, so I had to completely restart and use a method of splitting the velocity vecotr instead. This took
+a long time and then I spent a few more hours trial and erroring the coefficents until the collision logic looked right.
+Later on, adding the sidebar was such a pain because there was so much code already that I had to go through and change
+everything to test one addition, only for it to not work. The original sidebar had a few bugs, including issues with the
+money checking tint not working, the components being placed off the path, and the components being able to be picked up
+and dragged along. Also the collision detection was off for the right side of obstacles and components, so that had to be
+fixed. 
+
+Xinlin:
