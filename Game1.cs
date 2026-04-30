@@ -602,7 +602,7 @@ public class Game1 : Game
                 _spriteBatch.DrawString(_font, $"Coins: {_coins.CoinCounter}", new Vector2(10, 10), Color.White);
                 
                 //sidebar
-                _sidebar.Draw(_spriteBatch, cameraPosition, mouse, _coins.coinCounter);
+                _sidebar.Draw(_spriteBatch, cameraPosition, mouse, _coins.CoinCounter);
                 
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
@@ -698,7 +698,7 @@ public class Game1 : Game
                 paths.BoundsDraw(_spriteBatch, cameraPosition);
                 _ball.Draw(_spriteBatch, cameraPosition, progress);
                 _coins.Draw(_spriteBatch, cameraPosition);
-                _sidebar.Draw(_spriteBatch, cameraPosition, mouse, _coins.coinCounter);
+                _sidebar.Draw(_spriteBatch, cameraPosition, mouse, _coins.CoinCounter);
                 _progressBar.Draw(_spriteBatch);
                 _spriteBatch.End();
 
