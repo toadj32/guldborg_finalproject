@@ -10,9 +10,9 @@ public class finalBoss
     private Vector2 _pos;
     public bool done = false;
     private float _scale = 1.0f;
-    public bool slidein = false;
+    public bool slidein = false; // if you haven't fully slid in
     private float _startX = -300f; 
-    private float _targetX = 0f; 
+    private float _targetX = 20f; 
     private float _slideSpeed = 400f;
 
     public finalBoss(Texture2D cat)
@@ -30,6 +30,11 @@ public class finalBoss
         {
             _scale -= time * 0.3f;
             _scale = Math.Max(_scale, 0f);
+            if (_scale == 0f)
+            {
+                done = false;
+                _startX = -300f;
+            }
         }
         if (!slidein) // sliding into screen
         {
@@ -107,6 +112,15 @@ public class finalBoss
         foreach (Rectangle paw in HitBox())
             spriteBatch.Draw(pixel, paw, Color.Red * 0.5f);
         spriteBatch.End();
+    }
+    
+    public void Reset()
+    {
+        done = false;
+        slidein = false;
+        _startX = -300f;
+        _scale = 1f;
+        _pos = new Vector2(-300f, 600f);
     }
 
 }

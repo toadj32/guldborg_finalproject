@@ -321,6 +321,7 @@ public class Game1 : Game
         _coins = new CoinManager(_coinTex, height);
         _sidebar.Blocks.Clear();
         _sidebar.Springs.Clear();
+        _finalBoss.Reset();
         _ball = new Ball(
             Content.Load<Texture2D>("team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f"),
             new Vector2((width + 200) / 2f, height / 2f),
@@ -462,11 +463,11 @@ public class Game1 : Game
                 }
                 
                 Console.WriteLine(_progress);
-                if (_progress > 0.9f)
+                if (_progress > 0.1f)
                 {
                     if (!_finalBoss.done)
                     {
-                        if (_progress > 0.98f)
+                        if (_progress > 0.18f)
                         {
                             _finalBoss.done = true;
                         }
@@ -609,7 +610,7 @@ public class Game1 : Game
                 
                 _pauseScreen.Draw(_spriteBatch);
 
-                if (progress > 0.9f)
+                if (progress > 0.1f)
                 {
                     _finalBoss.Draw(_spriteBatch);
                     /*_finalBoss.DrawHitbox(_spriteBatch, board); // TROUBLESHOOTTT*/
