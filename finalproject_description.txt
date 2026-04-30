@@ -9,8 +9,11 @@ the Goal is to get the ball to the end of the path as quickly as possible and wi
 which will factor into the final score.
 the player's high score is tracked and displayed at the bottom left of the screen during gameplay, along with time
 elapsed during current run, coins collected; above this is the progress bar that shows proportionally how far the player
-is from the finish line.
-The ball will periodically have a sparkle explosion around it.
+is from the finish line. The high score and the most coins collected are tracked and exported into a json file, which
+can later be accessed for up-to-date high scores and highest coins collected information for future games.
+The ball will periodically have a sparkle explosion around it. 
+There is a final boss (meow) somewhere that may mess with the ball's trajectory. For testing convenience, the final
+boss will be placed around the 50% completion mark rather than at the end, where it would have been.
 
 Victoria: The map is meant to be centered around the ball. So I added a cameraPosition offset to insure the ball
 is always at the center of the screen. I also added the obstacles and holes and wrote behaviors for the ball to bounce
@@ -24,123 +27,7 @@ Included Class/es:
 Tong:I made the Pause class, which was the user interface for pausing the game and adjusting settings. When paused,
 all dynamic changes in the game (i.e. score, ball movements) will become static, and the user will not be able to 
 move anything in the game. The pause screen has three buttons: resume, exit, and settings. Resume will continue the game
-from where it left off (we using System;
-                           using Microsoft.Xna.Framework;
-                           using Microsoft.Xna.Framework.Graphics;
-                           
-                           namespace Final_Project;
-                           
-                           public class finalBoss
-                           {
-                               private Texture2D _cat;
-                               private Vector2 _pos;
-                               public bool done = false;
-                               private float _scale = 1.0f;
-                               public bool slidein = false; // if you haven't fully slid in
-                               private float _startX = -300f; 
-                               private float _targetX = 20f; 
-                               private float _slideSpeed = 400f;
-                           
-                               public finalBoss(Texture2D cat)
-                               {
-                                   _cat = cat;
-                                   _pos = new Vector2(50f, 600f);
-                               }
-                           
-                               public void Update(GameTime gameTime, Ball ball)
-                               {
-                                   float time = (float)gameTime.TotalGameTime.TotalSeconds;
-                                   float dt =  (float)gameTime.ElapsedGameTime.TotalSeconds;
-                                   
-                                   if (done) // end game!
-                                   {
-                                       _scale -= time * 0.3f;
-                                       _scale = Math.Max(_scale, 0f);
-                                       if (_scale == 0f)
-                                       {
-                                           done = false;
-                                           _startX = -300f;
-                                       }
-                                   }
-                                   if (!slidein) // sliding into screen
-                                   {
-                                       _startX += _slideSpeed * dt;
-                                       _pos.X = _startX;
-                                       _pos.Y = 600f;
-                                       if (_startX >= _targetX)
-                                       {
-                                           _startX = _targetX;
-                                           slidein = true;
-                                       }
-                                   }
-                                   else
-                                   {
-                                       Collide(ball);
-                                   }
-                                   _pos.X = 0f + 100f * (float)Math.Sin(1.2f * time);
-                                   _pos.Y = 600f + 80f * (float)Math.Cos(0.8f * time);
-                               }
-                           
-                               public void Draw(SpriteBatch spriteBatch)
-                               {
-                                   spriteBatch.Begin();
-                                   spriteBatch.Draw(_cat, _pos, null,
-                                       Color.White * _scale, 0f,
-                                       new Vector2(_cat.Width / 2f, _cat.Height / 2f),
-                                       1.0f,
-                                       SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically,
-                                       0f);
-                                   spriteBatch.End();
-                               }
-                           
-                               public void Collide(Ball ball)
-                               {
-                                   Rectangle[] paws = HitBox();
-                                   Rectangle ballRect = new Rectangle(
-                                       (int)(ball.Center().X - ball.Radius),
-                                       (int)(ball.Center().Y - ball.Radius),
-                                       (int)(ball.Radius * 2),
-                                       (int)(ball.Radius * 2));
-                           
-                                   foreach (Rectangle paw in paws)
-                                   {
-                                       if (!paw.Intersects(ballRect))
-                                       {
-                                           Vector2 pawCenter = new Vector2(paw.X + paw.Width / 2f, paw.Y + paw.Height / 2f);
-                                           Vector2 normal = ball.Center() - pawCenter;
-                                           if (normal != Vector2.Zero) 
-                                               normal.Normalize();
-                           
-                                           ball.Position += normal * 3f;
-                                           float intoSurface = Vector2.Dot(ball.Velocity, normal);
-                                           if (intoSurface < 0)
-                                           {
-                                               ball.Velocity -= 2 * intoSurface * normal;
-                                               ball.Velocity *= 0.8f;
-                                           }
-                                           ball.ScrollSpeed *= 0.5f;
-                                           break;
-                                       }
-                                   }
-                               }
-                           
-                               public Rectangle[] HitBox()
-                               {
-                                   Rectangle top = new Rectangle((int)(_pos.X + 30) , (int)(_pos.Y - 80), 100, 110);
-                                   Rectangle bottom = new Rectangle((int)(_pos.X + 110) , (int)(_pos.Y + 110), 130, 100);
-                                   return [top,bottom];
-                               }
-                               
-                               // TROUBLESHOOT WHERE PAW RECTS ARE
-                               public void DrawHitbox(SpriteBatch spriteBatch, Texture2D pixel)
-                               {
-                                   spriteBatch.Begin();
-                                   foreach (Rectangle paw in HitBox())
-                                       spriteBatch.Draw(pixel, paw, Color.Red * 0.5f);
-                                   spriteBatch.End();
-                               }
-                           
-                           }save the last ball acceleration, speed, scroll speed). Clicking the settings button will load
+from where it left off (we save the last ball acceleration, speed, scroll speed). Clicking the settings button will load
 in the settings screen, which has more interactive interfaces. The user is able to pick between dark red and bright red 
 ball ring colors. Below that, there is a volume adjusting slider, which is able to go from 0% to 100% volume.
 The user is also able to mute and unmute the volume (the music is quite stressful I know) by clicking the M key. All 
