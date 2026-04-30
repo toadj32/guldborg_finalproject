@@ -67,7 +67,7 @@ same as the fixed obstacles.
 
 Specific Contributions:
 
-Tong:
+Tong: I wrote the ball spritesheet velocity versus ball rolling angle logic.
 
 Victoria: I made the map, generating the background and the obstacles and holes that the user must avoid. I also
 wrote the collision logic for the ball with components and obstacles. I incorporated the coin class from a previous

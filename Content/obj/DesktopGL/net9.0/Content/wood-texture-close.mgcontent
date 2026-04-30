@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/wood-texture-close.jpg</SourceFile>
-  <SourceTime>2026-04-25T16:30:03.3130666-05:00</SourceTime>
-  <DestFile>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/bin/DesktopGL/Content/wood-texture-close.xnb</DestFile>
-  <DestTime>2026-04-29T21:55:19.8949059-05:00</DestTime>
+  <SourceFile>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/wood-texture-close.jpg</SourceFile>
+  <SourceTime>2026-04-19T14:12:13.2024053-05:00</SourceTime>
+  <DestFile>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/bin/DesktopGL/Content/wood-texture-close.xnb</DestFile>
+  <DestTime>2026-04-29T22:43:26.6889083-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-10-20T09:25:32-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

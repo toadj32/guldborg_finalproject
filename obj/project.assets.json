@@ -295,19 +295,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\xinli\\.nuget\\packages\\": {}
+    "C:\\Users\\tongw\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\xinli\\Desktop\\UT\\2026_Spring\\CS324E_Comp_Graphics\\Final_Project\\guldborg_finalproject_repo2\\Final Project.csproj",
+      "projectUniqueName": "C:\\Users\\tongw\\OneDrive - The University of Texas at Austin\\Desktop\\guldborg_finalproject\\Final Project.csproj",
       "projectName": "Final Project",
-      "projectPath": "C:\\Users\\xinli\\Desktop\\UT\\2026_Spring\\CS324E_Comp_Graphics\\Final_Project\\guldborg_finalproject_repo2\\Final Project.csproj",
-      "packagesPath": "C:\\Users\\xinli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\xinli\\Desktop\\UT\\2026_Spring\\CS324E_Comp_Graphics\\Final_Project\\guldborg_finalproject_repo2\\obj\\",
+      "projectPath": "C:\\Users\\tongw\\OneDrive - The University of Texas at Austin\\Desktop\\guldborg_finalproject\\Final Project.csproj",
+      "packagesPath": "C:\\Users\\tongw\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tongw\\OneDrive - The University of Texas at Austin\\Desktop\\guldborg_finalproject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\xinli\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tongw\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -331,7 +331,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -360,19 +360,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.11, 9.0.11]"
+            "version": "[9.0.14, 9.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[9.0.11, 9.0.11]"
+            "version": "[9.0.14, 9.0.14]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[9.0.11, 9.0.11]"
+            "version": "[9.0.14, 9.0.14]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[9.0.11, 9.0.11]"
+            "version": "[9.0.14, 9.0.14]"
           }
         ],
         "frameworkReferences": {
@@ -380,7 +380,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\tongw\\.dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

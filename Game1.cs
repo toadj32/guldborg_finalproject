@@ -570,8 +570,6 @@ public class Game1 : Game
                 
                 paths.DrawNonSquares(GraphicsDevice, _basicEffect, cameraPosition);
                 
-                _score.Draw(_spriteBatch);
-                
                 //interactive components
                 _spriteBatch.Begin(transformMatrix: cameraMatrix);
                 /*foreach (var block in _blocks)
@@ -612,6 +610,8 @@ public class Game1 : Game
                     _finalBoss.Draw(_spriteBatch);
                     /*_finalBoss.DrawHitbox(_spriteBatch, board); // TROUBLESHOOTTT*/
                 }
+                
+                _score.Draw(_spriteBatch);
                 
                 break;
                 

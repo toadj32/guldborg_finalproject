@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/mountainkingforintro.mp3</SourceFile>
-  <SourceTime>2026-04-28T16:28:31.1112569-05:00</SourceTime>
-  <DestFile>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/bin/DesktopGL/Content/mountainkingforintro.xnb</DestFile>
-  <DestTime>2026-04-29T21:55:16.1589659-05:00</DestTime>
+  <SourceFile>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/mountainkingforintro.mp3</SourceFile>
+  <SourceTime>2026-04-29T02:35:53.3628645-05:00</SourceTime>
+  <DestFile>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/bin/DesktopGL/Content/mountainkingforintro.xnb</DestFile>
+  <DestTime>2026-04-29T22:43:23.8744259-05:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2025-10-20T09:25:32-05:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/xinli/Desktop/UT/2026_Spring/CS324E_Comp_Graphics/Final_Project/guldborg_finalproject_repo2/Content/bin/DesktopGL/Content/mountainkingforintro.ogg</string>
+    <string>C:/Users/tongw/OneDrive - The University of Texas at Austin/Desktop/guldborg_finalproject/Content/bin/DesktopGL/Content/mountainkingforintro.ogg</string>
   </BuildOutput>
 </PipelineBuildEvent>
